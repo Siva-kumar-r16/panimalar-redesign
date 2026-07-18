@@ -1,13 +1,9 @@
 (function () {
     'use strict';
 
-    // Guard: if this script gets included twice on the same page
-    // (leftover old <script> tag + the new one), do nothing the second time.
     if (window.__siteChromeInitialized) return;
     window.__siteChromeInitialized = true;
 
-    // Any old hardcoded chrome that might still be lingering in a page's HTML.
-    // Selectors are taken from the original (pre-redesign) template.
     const LEGACY_HEADER_SELECTORS = ['#mainheader', '.kode-header-absolute', '.mobile-view-mini-header'];
     const LEGACY_FOOTER_SELECTORS = ['.sitemap-bg', '#sub-footer'];
 
@@ -20,8 +16,6 @@
         );
     }
 
-    // If a page accidentally has more than one mount point with the same id,
-    // keep only the first and drop the rest so we never inject twice.
     function getSingleMount(id) {
         const mounts = document.querySelectorAll(`#${id}`);
         mounts.forEach((el, i) => { if (i > 0) el.remove(); });
@@ -31,7 +25,7 @@
     async function loadComponent(url, mountId) {
         const mount = getSingleMount(mountId);
         if (!mount) return;
-        if (mount.dataset.loaded === 'true') return; // already injected, never do it again
+        if (mount.dataset.loaded === 'true') return;
         mount.dataset.loaded = 'true';
 
         try {
@@ -60,7 +54,6 @@
             });
         }
 
-        // Assigned once, safe to reassign — it's a plain function reference, not a listener
         window.toggleMobileSub = function (id) {
             const el = document.getElementById(id);
             if (el) el.classList.toggle('open');
@@ -72,7 +65,7 @@
         if (counters.length === 0) return;
 
         const animateCount = (counter) => {
-            if (counter.dataset.counted === 'true') return; // never double-animate
+            if (counter.dataset.counted === 'true') return;
             counter.dataset.counted = 'true';
 
             const target = +counter.getAttribute('data-target');
@@ -106,9 +99,6 @@
         });
     }
 
-    // initSiteChrome is re-entrant safe: no matter how many times it's called
-    // (or from how many places), the header/footer are fetched and injected
-    // exactly once per page load.
     let chromeLoadPromise = null;
     function initSiteChrome() {
         if (chromeLoadPromise) return chromeLoadPromise;
@@ -133,8 +123,6 @@
         initCounters();
     }
 
-    // Handles the case where this script (deferred or placed late in <body>)
-    // runs after DOMContentLoaded has already fired.
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', boot, { once: true });
     } else {
@@ -145,7 +133,5 @@
         setTimeout(() => document.body.classList.add('loaded'), 400);
     }, { once: true });
 
-    // Exposed in case a page needs to trigger it manually — safe to call
-    // repeatedly since it's re-entrancy guarded above.
     window.initSiteChrome = initSiteChrome;
 })();
