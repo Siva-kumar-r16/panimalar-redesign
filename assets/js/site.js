@@ -7,12 +7,38 @@
 async function loadPartial(url, mountId) {
     const mount = document.getElementById(mountId);
     if (!mount) return;
+    
+    // Automatically determine the base path in case the project is running in a subfolder
+    let basePath = '';
+    const script = document.querySelector('script[src*="site.js"]');
+    if (script) {
+        const src = script.getAttribute('src');
+        if (src.includes('/assets/js/site.js')) {
+            basePath = src.split('/assets/js/site.js')[0];
+        }
+    }
+
+    const fullUrl = basePath + url;
+
     try {
-        const res = await fetch(url);
+        const res = await fetch(fullUrl);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const html = await res.text();
         mount.outerHTML = html;
     } catch (err) {
-        console.error('Failed to load partial:', url, err);
+        console.error('Failed to load partial:', fullUrl, err);
+        
+        // Show a helpful UI warning if the user opens the file directly without a server
+        if (window.location.protocol === 'file:') {
+            mount.innerHTML = `
+                <div style="padding: 20px; text-align: center; background: #fff3f3; color: #d32f2f; border: 2px dashed #f44336; margin: 20px; font-family: sans-serif; border-radius: 8px;">
+                    <h3 style="margin-top:0;">⚠️ Header/Footer Cannot Load</h3>
+                    <p>You are viewing this page directly from your computer (<code>file://</code> protocol).</p>
+                    <p>Browsers block fetching other files (like <code>header.html</code>) for security reasons.</p>
+                    <p><strong>How to fix:</strong> Open this project using a local web server (e.g., VS Code's "Live Server" extension).</p>
+                </div>
+            `;
+        }
     }
 }
 
@@ -59,7 +85,7 @@ function initCounters() {
                     
                     const target = +counter.getAttribute('data-target');
                     
-                    // Isolate the update logic per counter 
+                    // Isolate the update logic per counter so they don't exponentially multiply
                     const updateCount = () => {
                         const count = +counter.innerText.replace(/,/g, '');
                         const inc = target / speed;
