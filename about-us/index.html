@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -22,15 +22,31 @@
                     },
                     colors: {
                         theme: {
-                            yellow: '#FDB813', dark: '#0A2A5E', light: '#F4F7F6',
-                            text: '#494949', red: '#E53935', green: '#43A047',
-                            blue: '#1E88E5', orange: '#FB8C00', merun: '#8E24AA', pink: '#D81B60'
+                            dark: '#151A23',      /* Primary Dark Graphite */
+                            light: '#F5F7FA',     /* Background Light Gray */
+                            accent: '#2D9CFF',    /* Electric Blue */
+                            yellow: '#FFC83D',    /* Premium Gold */
+                            text: '#2F3640',      /* Standard Text */
+                            red: '#E53946',       /* Important */
+                            green: '#27AE60',     /* Success */
+                            secondary: '#FFFFFF'
                         }
                     },
                     boxShadow: {
-                        'soft': '0 10px 40px rgba(0,0,0,0.05)',
-                        'card': '0 4px 20px rgba(0,0,0,0.08)',
-                        'dropdown': '0 10px 25px rgba(0,0,0,0.1)',
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.1)',
+                        'glass-strong': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+                        'premium': '0 20px 40px rgba(0,0,0,0.05)',
+                        'hover': '0 30px 60px rgba(0,0,0,0.12)',
+                        'dropdown': '0 15px 35px rgba(0,0,0,0.2)',
+                    },
+                    borderRadius: {
+                        '2xl': '1rem',
+                        '3xl': '1.5rem',
+                        '4xl': '2.5rem'
+                    },
+                    backgroundImage: {
+                        'tech-gradient': 'linear-gradient(135deg, #151A23 0%, #1A222F 100%)',
+                        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)'
                     }
                 }
             }
@@ -38,28 +54,51 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; color: #494949; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; color: #2F3640; overflow-x: hidden; background-color: #F5F7FA; }
         
-        /* Preloader */
-        #preloader { position: fixed; z-index: 999999; background: #ffffff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
+        #preloader { position: fixed; z-index: 999999; background: #151A23; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
         body.loaded #preloader { opacity: 0; visibility: hidden; }
 
-        /* Typography & Components */
-        .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10, 42, 94, 0.05); border-radius: 50px; }
-        .section-title { font-size: 2.5rem; font-weight: 800; color: #0A2A5E; line-height: 1.2; }
-        .section-title span { color: #FDB813; }
-        .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
-        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all 0.3s ease; z-index: -1; }
-        .btn-theme:hover { color: #fff; } .btn-theme:hover::before { width: 100%; }
+        /* Premium Buttons */
+        .btn-primary {
+            position: relative; display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; background-color: #2D9CFF; color: #FFFFFF; font-weight: 700; 
+            border-radius: 9999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden; z-index: 1; box-shadow: 0 4px 15px rgba(45,156,255,0.3);
+        }
+        .btn-gold {
+            background-color: #FFC83D; color: #151A23; box-shadow: 0 4px 15px rgba(255,200,61,0.3);
+            border-radius: 9999px; padding: 10px 24px; font-weight: 700; display: inline-flex; align-items: center; transition: all 0.3s ease;
+        }
+        .btn-gold:hover { background-color: #ffcf54; box-shadow: 0 8px 25px rgba(255,200,61,0.5); }
 
-        /* Multi-level Dropdown Logic */
-        .dropdown:hover > .dropdown-menu { display: block; animation: fadeIn 0.2s ease-in-out; }
-        .dropdown-submenu:hover > .dropdown-menu { display: block; animation: fadeIn 0.2s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        /* Typography & Headings */
+        .section-subtitle { 
+            color: #2D9CFF; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; 
+            margin-bottom: 16px; padding: 6px 16px; background: rgba(45, 156, 255, 0.1); 
+            border-radius: 50px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;
+        }
+        .section-title { font-size: 2.75rem; font-weight: 900; color: #151A23; line-height: 1.1; letter-spacing: -0.02em; }
+        .section-title span { color: #2D9CFF; }
+
+        /* Cards & Hover Effects */
+        .hover-card { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .hover-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
+
+        /* Navigation Links (Animated Underline) */
+        .nav-link { position: relative; padding-bottom: 4px; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: #2D9CFF; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: #2D9CFF; }
+
+        /* Dropdown Logic */
+        .dropdown:hover > .dropdown-menu { display: block; animation: smoothReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        .dropdown-submenu:hover > .dropdown-menu { display: block; animation: smoothReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+        @keyframes smoothReveal { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
         
-        /* Mobile menu logic */
         .mobile-submenu { display: none; }
         .mobile-submenu.open { display: block; }
         .mobile-submenu-2 { display: none; }
@@ -67,53 +106,59 @@
 
         /* Timeline & Table */
         .timeline-rail { position: relative; }
-        .timeline-rail::before { content: ""; position: absolute; left: 1rem; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
-        @media (min-width: 768px) { .timeline-rail::before { left: 1.5rem; } }
-        .intake-table { border-collapse: collapse; width: 100%; font-size: 0.78rem; min-width: 500px; }
-        .intake-table th, .intake-table td { border: 1px solid #e5e7eb; padding: 8px; text-align: center; white-space: nowrap; }
-        .intake-table th { background: #0A2A5E; color: #FDB813; font-weight: 600; }
-        .intake-table tr:nth-child(even) td { background-color: #f9fafb; }
-        .intake-scroll { overflow-x: auto; padding-bottom: 10px; }
+        .timeline-rail::before { content: ""; position: absolute; left: 1.5rem; top: 0; bottom: 0; width: 2px; background: rgba(45,156,255,0.3); box-shadow: 0 0 10px rgba(45,156,255,0.2); }
+        .timeline-dot { position: absolute; left: -2.35rem; top: 0.25rem; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #2D9CFF; box-shadow: 0 0 15px rgba(45,156,255,0.6); border: 3px solid #151A23; z-index: 10; }
+        
+        .intake-table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 0.85rem; min-width: 500px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
+        .intake-table th, .intake-table td { padding: 12px 8px; text-align: center; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .intake-table th { background: rgba(255,255,255,0.05); color: #FFC83D; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+        .intake-table tr:last-child td { border-bottom: none; }
+        .intake-table td { color: #e2e8f0; }
+        .intake-scroll { overflow-x: auto; padding-bottom: 10px; border-radius: 12px; }
         .intake-scroll::-webkit-scrollbar { height: 6px; }
-        .intake-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .intake-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
     </style>
 </head>
-<body class="bg-white">
+<body class="bg-theme-light antialiased selection:bg-theme-accent selection:text-white">
 
     <div id="preloader">
         <div class="text-center flex flex-col items-center">
-            <div class="w-16 h-16 border-4 border-gray-200 border-t-theme-dark border-r-theme-yellow rounded-full animate-spin mb-4"></div>
-            <span class="text-theme-dark font-bold tracking-widest text-sm uppercase animate-pulse">Loading Panimalar...</span>
+            <div class="relative w-20 h-20 mb-6">
+                <div class="absolute inset-0 rounded-full border-t-2 border-theme-accent animate-[spin_1s_linear_infinite]"></div>
+                <div class="absolute inset-2 rounded-full border-r-2 border-theme-yellow animate-[spin_1.5s_linear_infinite_reverse]"></div>
+                <div class="absolute inset-4 rounded-full border-b-2 border-white animate-[spin_2s_linear_infinite]"></div>
+            </div>
+            <span class="text-white font-bold tracking-[0.2em] text-sm uppercase animate-pulse">Initializing <span class="text-theme-accent">System</span></span>
         </div>
     </div>
 
-    <div class="bg-gray-100 text-xs py-2 border-b border-gray-200 hidden md:block">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-4 font-medium text-gray-600">
-                <span class="bg-red-500 text-white px-2 py-0.5 rounded animate-pulse shadow-sm">For Admissions</span>
-                <a href="tel:+919043891272" class="hover:text-theme-dark transition flex items-center gap-1"><i class="fa fa-phone text-theme-yellow"></i> 90438 91272</a>
-                <span>/</span>
-                <a href="tel:+919043890983" class="hover:text-theme-dark transition">90438 90983</a>
+    <div class="bg-[#0b0e14] text-xs py-2.5 hidden md:block border-b border-white/5">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-5 font-medium text-gray-400">
+                <span class="bg-theme-red text-white px-3 py-1 rounded-full animate-pulse shadow-[0_0_10px_rgba(229,57,70,0.4)] text-[10px] uppercase font-bold tracking-wider">Admissions Open</span>
+                <a href="tel:+919043891272" class="hover:text-white transition flex items-center gap-1.5"><i class="fa fa-phone text-theme-accent"></i> 90438 91272</a>
+                <span class="text-gray-700">/</span>
+                <a href="tel:+919043890983" class="hover:text-white transition">90438 90983</a>
             </div>
 
-            <div class="flex items-center gap-4 text-gray-600 font-medium">
-                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" class="hover:text-theme-dark transition flex items-center gap-1">
-                    <i class="fas fa-file-pdf text-red-500"></i> College Brochure
+            <div class="flex items-center gap-5 text-gray-400 font-medium">
+                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
+                    <i class="fas fa-file-pdf text-theme-red"></i> Brochure
                 </a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" class="hover:text-theme-dark transition">Newsletter</a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" class="hover:text-theme-dark transition">Mandatory Disclosure</a>
-                <span class="text-gray-300">|</span>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" class="hover:text-theme-dark transition">Careers</a>
+                <span class="text-gray-700">|</span>
+                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" class="hover:text-white transition">Newsletter</a>
+                <span class="text-gray-700">|</span>
+                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" class="hover:text-white transition">Disclosure</a>
+                <span class="text-gray-700">|</span>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" class="hover:text-white transition">Careers</a>
 
-                <div class="flex gap-3 border-l border-gray-300 pl-4 text-sm text-theme-dark">
-                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" class="hover:text-theme-yellow transition"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" class="hover:text-theme-yellow transition"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" class="hover:text-theme-yellow transition"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" class="hover:text-theme-yellow transition"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/PanimalarC" target="_blank" class="hover:text-theme-yellow transition">
-                        <svg class="w-3 h-3 fill-current inline-block relative -top-[2px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                <div class="flex gap-4 border-l border-white/10 pl-5 text-[13px] text-gray-400">
+                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" class="hover:text-theme-accent transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" class="hover:text-theme-red transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" class="hover:text-theme-accent transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/PanimalarC" target="_blank" class="hover:text-white transition transform hover:scale-110">
+                        <svg class="w-[13px] h-[13px] fill-current inline-block relative -top-[1px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                             <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z" />
                         </svg>
                     </a>
@@ -122,85 +167,85 @@
         </div>
     </div>
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <header class="bg-theme-dark/85 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50 transition-all duration-300 shadow-glass">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
-            <!-- Logo -->
-            <a href="/" class="flex items-center gap-3 w-48 md:w-64">
+            <!-- Logo with White Backdrop -->
+            <a href="/" class="flex items-center gap-3 w-48 md:w-64 bg-white/95 backdrop-blur-sm p-2 rounded-xl shadow-[0_0_15px_rgba(255,255,255,0.1)]">
                 <img src="/assets/images/pec-logo.png" alt="Panimalar Logo" class="w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/300x80/ffffff/0A2A5E?text=PEC+Logo'">
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden xl:flex items-center gap-6 font-semibold text-[13px] text-theme-dark tracking-wide relative">
-                <a href="/" class="hover:text-theme-yellow transition"><i class="fas fa-home text-lg"></i></a>
+            <nav class="hidden xl:flex items-center gap-7 font-semibold text-sm text-gray-200 tracking-wide relative">
+                <a href="/" class="hover:text-white transition nav-link"><i class="fas fa-home text-lg"></i></a>
 
                 <!-- 1. ABOUT US -->
-                <div class="relative dropdown group">
-                    <a href="/about-us/" class="hover:text-theme-yellow transition flex items-center gap-1 py-4 border-b-2 border-theme-yellow text-theme-yellow">About Us <i class="fas fa-angle-down text-[10px]"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-64 py-2 left-0 top-full">
-                        <li><a href="/about-us/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition border-b border-gray-50">About Panimalar</a></li>
+                <div class="relative dropdown group h-full">
+                    <a href="/about-us/" class="flex items-center gap-1.5 py-4 nav-link active">About Us <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 left-0 top-full mt-2">
+                        <li><a href="/about-us/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">About Panimalar</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition border-b border-gray-50">Leadership <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded w-72 py-2 left-full -top-2 border-l-2 border-theme-yellow">
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Leadership <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-72 py-3 left-full -top-3 border border-white/10 ml-2">
                                 <li class="relative dropdown-submenu group/sub2">
-                                    <a href="/management-team/" class="flex justify-between items-center px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Management Team <i class="fas fa-angle-right text-[10px]"></i></a>
-                                    <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded w-80 py-2 left-full -top-2 border-l-2 border-theme-yellow">
-                                        <li><a href="/secretary-correspondent/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Dr. P. Chinnadurai, M.A., Ph.D</a></li>
-                                        <li><a href="/dr-c-sakthikumar/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Dr. C. Sakthi Kumar, M.E., Ph.D</a></li>
-                                        <li><a href="/mrs-c-vijayarajeswari/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Mrs. C. Vijayarajeswari</a></li>
-                                        <li><a href="/dr-saranya-sree-sakthikumar/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a></li>
+                                    <a href="/management-team/" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Management Team <i class="fas fa-angle-right text-[10px]"></i></a>
+                                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-80 py-3 left-full -top-3 border border-white/10 ml-2">
+                                        <li><a href="/secretary-correspondent/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. P. Chinnadurai, M.A., Ph.D</a></li>
+                                        <li><a href="/dr-c-sakthikumar/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. C. Sakthi Kumar, M.E., Ph.D</a></li>
+                                        <li><a href="/mrs-c-vijayarajeswari/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Mrs. C. Vijayarajeswari</a></li>
+                                        <li><a href="/dr-saranya-sree-sakthikumar/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/principal/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Principal</a></li>
-                                <li><a href="/governing-body/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Governing Body</a></li>
-                                <li><a href="/objectives/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Objectives</a></li>
-                                <li><a href="/journey-so-far/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Journey So far</a></li>
+                                <li><a href="/principal/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Principal</a></li>
+                                <li><a href="/governing-body/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Governing Body</a></li>
+                                <li><a href="/objectives/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Objectives</a></li>
+                                <li><a href="/journey-so-far/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Journey So far</a></li>
                             </ul>
                         </li>
-                        <li><a href="/rules-regulations/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition border-b border-gray-50">Rules and Regulations</a></li>
-                        <li><a href="/corporate-and-international-relations/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition border-b border-gray-50">Corporate and International Relations</a></li>
+                        <li><a href="/rules-regulations/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Rules and Regulations</a></li>
+                        <li><a href="/corporate-and-international-relations/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Corporate & Int. Relations</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition border-b border-gray-50">Jaisakthi Trust Institutes <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded w-80 py-2 left-full -top-2 border-l-2 border-theme-yellow">
-                                <li><a href="https://pmchri.ac.in" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Panimalar Medical College Hospital & Research Institute</a></li>
-                                <li><a href="https://pcon.ac.in" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Panimalar College of Nursing</a></li>
-                                <li><a href="https://pcoahs.ac.in/" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Panimalar College of Allied Health Sciences</a></li>
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Jaisakthi Institutes <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-80 py-3 left-full -top-3 border border-white/10 ml-2">
+                                <li><a href="https://pmchri.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Panimalar Medical College</a></li>
+                                <li><a href="https://pcon.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Panimalar College of Nursing</a></li>
+                                <li><a href="https://pcoahs.ac.in/" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Allied Health Sciences</a></li>
                             </ul>
                         </li>
-                        <li><a href="/alumni-association/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow transition">Alumni Association</a></li>
+                        <li><a href="/alumni-association/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Alumni Association</a></li>
                     </ul>
                 </div>
 
                 <!-- 2. COURSES -->
-                <div class="relative dropdown group">
-                    <a href="#!" class="hover:text-theme-yellow transition flex items-center gap-1 py-4">Courses <i class="fas fa-angle-down text-[10px]"></i></a>
-                    <div class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-[700px] p-6 left-1/2 -translate-x-1/2 top-full">
-                        <div class="grid grid-cols-3 gap-6">
+                <div class="relative dropdown group h-full">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Courses <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-3xl border border-white/10 w-[750px] p-8 left-1/2 -translate-x-1/2 top-full mt-2">
+                        <div class="grid grid-cols-3 gap-8">
                             <div>
-                                <h4 class="text-theme-dark font-bold border-b pb-2 mb-3">Undergraduate</h4>
-                                <ul class="space-y-3 text-[13px] font-normal text-gray-600">
-                                    <li><a href="/be-computer-science-and-engineering/" class="hover:text-theme-yellow block">B.E CSE</a></li>
-                                    <li><a href="/be-electronics-and-communication-engineering/" class="hover:text-theme-yellow block">B.E ECE</a></li>
-                                    <li><a href="/be-electrical-and-electronics-engineering/" class="hover:text-theme-yellow block">B.E EEE</a></li>
-                                    <li><a href="/be-mechanical-engineering/" class="hover:text-theme-yellow block">B.E Mechanical</a></li>
-                                    <li><a href="/btech-computer-science-and-business-systems/" class="hover:text-theme-yellow block">B.Tech CSBS</a></li>
-                                    <li><a href="/btech-information-technology/" class="hover:text-theme-yellow block">B.Tech IT</a></li>
-                                    <li><a href="/btech-artificial-intelligence-data-science/" class="hover:text-theme-yellow block">B.Tech AI & DS</a></li>
-                                    <li><a href="/btech-artificial-intelligence-machine-learning/" class="hover:text-theme-yellow block">B.Tech AI & ML</a></li>
+                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-laptop-code text-theme-accent"></i> Undergraduate</h4>
+                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
+                                    <li><a href="/be-computer-science-and-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E CSE</a></li>
+                                    <li><a href="/be-electronics-and-communication-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E ECE</a></li>
+                                    <li><a href="/be-electrical-and-electronics-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E EEE</a></li>
+                                    <li><a href="/be-mechanical-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E Mechanical</a></li>
+                                    <li><a href="/btech-computer-science-and-business-systems/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech CSBS</a></li>
+                                    <li><a href="/btech-information-technology/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech IT</a></li>
+                                    <li><a href="/btech-artificial-intelligence-data-science/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech AI & DS</a></li>
+                                    <li><a href="/btech-artificial-intelligence-machine-learning/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech AI & ML</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-theme-dark font-bold border-b pb-2 mb-3">Postgraduate</h4>
-                                <ul class="space-y-3 text-[13px] font-normal text-gray-600">
-                                    <li><a href="/me-computer-science-and-engineering/" class="hover:text-theme-yellow block">M.E CSE</a></li>
-                                    <li><a href="/me-communication-systems/" class="hover:text-theme-yellow block">M.E Communication Sys</a></li>
-                                    <li><a href="/mba/" class="hover:text-theme-yellow block">Master of Business Admin (MBA)</a></li>
+                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-user-graduate text-theme-yellow"></i> Postgraduate</h4>
+                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
+                                    <li><a href="/me-computer-science-and-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">M.E CSE</a></li>
+                                    <li><a href="/me-communication-systems/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">M.E Communication Sys</a></li>
+                                    <li><a href="/mba/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">Master of Business Admin</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-theme-dark font-bold border-b pb-2 mb-3">Science & Humanities</h4>
-                                <ul class="space-y-3 text-[13px] font-normal text-gray-600">
-                                    <li><a href="/science-and-humanities/" class="hover:text-theme-yellow block">Science & Humanities</a></li>
+                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-atom text-theme-green"></i> Sciences</h4>
+                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
+                                    <li><a href="/science-and-humanities/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">Science & Humanities</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -208,411 +253,362 @@
                 </div>
 
                 <!-- 3. ACADEMICS MEGA MENU -->
-                <div class="relative dropdown group">
-                    <a href="#!" class="hover:text-theme-yellow transition flex items-center gap-1 py-4">Academics <i class="fas fa-angle-down text-[10px]"></i></a>
-                    <!-- Massive Dropdown matching the Image -->
-                    <div class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-[650px] p-6 left-1/2 -translate-x-1/2 top-full">
-                        <div class="grid grid-cols-2 gap-8 text-[13px] font-normal text-gray-700">
-                            <ul class="space-y-4 border-r border-gray-200 pr-4">
-                                <li><a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="hover:text-theme-yellow block">Academic Council Members</a></li>
-                                <li><a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="hover:text-theme-yellow block">Regulation</a></li>
-                                <li><a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="hover:text-theme-yellow block">Curriculum and Syllabus</a></li>
-                                <li><a href="/committee/" class="hover:text-theme-yellow block">Committees</a></li>
-                                <li><a href="/iqac/" class="hover:text-theme-yellow block leading-tight">Internal Quality Assurance<br>Cell (IQAC)</a></li>
-                                <li><a href="/idea-lab/" class="hover:text-theme-yellow block">PEC-AICTE Idea Lab</a></li>
-                                <li><a href="/mou/" class="hover:text-theme-yellow block leading-tight">Memorandum of<br>Understanding (MoU)</a></li>
-                                <li><a href="/iic/" class="hover:text-theme-yellow block leading-tight">Institution's Innovation<br>Council (IIC)</a></li>
-                                <li><a href="/entrepreneurship-development-cell/" class="hover:text-theme-yellow block leading-tight">Entrepreneurship<br>Development Cell (EDC)</a></li>
+                <div class="relative dropdown group h-full">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Academics <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-3xl border border-white/10 w-[650px] p-8 left-1/2 -translate-x-1/2 top-full mt-2">
+                        <div class="grid grid-cols-2 gap-8 text-[13px] font-medium text-gray-400">
+                            <ul class="space-y-4 border-r border-white/10 pr-6">
+                                <li><a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="hover:text-theme-accent block transition">Academic Council Members</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="hover:text-theme-accent block transition">Regulation</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="hover:text-theme-accent block transition">Curriculum and Syllabus</a></li>
+                                <li><a href="/committee/" class="hover:text-theme-accent block transition">Committees</a></li>
+                                <li><a href="/iqac/" class="hover:text-theme-accent block transition leading-relaxed">Internal Quality Assurance<br><span class="text-gray-500 text-xs">Cell (IQAC)</span></a></li>
+                                <li><a href="/idea-lab/" class="hover:text-theme-accent block transition">PEC-AICTE Idea Lab</a></li>
+                                <li><a href="/mou/" class="hover:text-theme-accent block transition leading-relaxed">Memorandum of<br><span class="text-gray-500 text-xs">Understanding (MoU)</span></a></li>
+                                <li><a href="/iic/" class="hover:text-theme-accent block transition leading-relaxed">Institution's Innovation<br><span class="text-gray-500 text-xs">Council (IIC)</span></a></li>
+                                <li><a href="/entrepreneurship-development-cell/" class="hover:text-theme-accent block transition leading-relaxed">Entrepreneurship<br><span class="text-gray-500 text-xs">Development Cell (EDC)</span></a></li>
                             </ul>
                             <ul class="space-y-5 pl-2">
-                                <li><a href="/higher-education-centre/" class="hover:text-theme-yellow block">Higher Education Centre</a></li>
-                                <li><a href="/professional-bodies/" class="hover:text-theme-yellow block leading-tight">Professional Societies &<br>Clubs</a></li>
-                                <li><a href="/nptel/" class="hover:text-theme-yellow block">NPTEL</a></li>
-                                <li><a href="/nasscom/" class="hover:text-theme-yellow block">NASSCOM</a></li>
+                                <li><a href="/higher-education-centre/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-level-up-alt text-theme-yellow opacity-70"></i> Higher Education Centre</a></li>
+                                <li><a href="/professional-bodies/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-users-cog text-theme-accent opacity-70"></i> Professional Societies</a></li>
+                                <li><a href="/nptel/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-certificate text-theme-green opacity-70"></i> NPTEL</a></li>
+                                <li><a href="/nasscom/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-code text-theme-red opacity-70"></i> NASSCOM</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- 4. DIRECT LINKS -->
-                <a href="https://coe.panimalar.ac.in/" target="_blank" class="hover:text-theme-yellow transition py-4">CoE</a>
-                <a href="/placements/" class="hover:text-theme-yellow transition py-4">Placements</a>
+                <a href="https://coe.panimalar.ac.in/" target="_blank" class="hover:text-white transition py-4 nav-link">CoE</a>
+                <a href="/placements/" class="hover:text-white transition py-4 nav-link">Placements</a>
 
                 <!-- 5. RESEARCH -->
-                <div class="relative dropdown group">
-                    <a href="#!" class="hover:text-theme-yellow transition flex items-center gap-1 py-4">Research <i class="fas fa-angle-down text-[10px]"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-60 py-2 left-0 top-full">
-                        <li><a href="/research-policy/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Promotion Policy</a></li>
-                        <li><a href="/research-team/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Team</a></li>
+                <div class="relative dropdown group h-full">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Research <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 left-0 top-full mt-2">
+                        <li><a href="/research-policy/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Policy</a></li>
+                        <li><a href="/research-team/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Team</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Centres <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded w-72 py-2 left-full -top-2 border-l-2 border-theme-yellow">
-                                <li><a href="/research-cse/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Computer Science & Engineering</a></li>
-                                <li><a href="/research-ece/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Electronics & Communication Engg</a></li>
-                                <li><a href="/research-aids/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Artificial Intelligence & Data Science</a></li>
-                                <li><a href="/research-mechanical/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Mechanical Engineering</a></li>
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Centres <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-72 py-3 left-full -top-3 border border-white/10 ml-2">
+                                <li><a href="/research-cse/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Computer Science & Engg</a></li>
+                                <li><a href="/research-ece/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Electronics & Comm Engg</a></li>
+                                <li><a href="/research-aids/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">AI & Data Science</a></li>
+                                <li><a href="/research-mechanical/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Mechanical Engineering</a></li>
                             </ul>
                         </li>
-                        <li><a href="/research-supervisors/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Supervisors</a></li>
-                        <li><a href="/research-scholars/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Scholars</a></li>
-                        <li><a href="/h-index/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">H-Index</a></li>
-                        <li><a href="/research-statistics/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Statistics</a></li>
-                        <li><a href="/research-funds/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Research Funding</a></li>
-                        <li><a href="/consultancy-projects/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Consultancy Projects</a></li>
-                        <li><a href="/seed-money/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Seed Money</a></li>
-                        <li><a href="/review-meeting/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Review Meeting</a></li>
-                        <li><a href="/research-downloads/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Research Downloads</a></li>
+                        <li><a href="/h-index/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">H-Index</a></li>
+                        <li><a href="/research-statistics/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Statistics</a></li>
+                        <li><a href="/research-funds/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Funding</a></li>
+                        <li><a href="/consultancy-projects/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Consultancy Projects</a></li>
+                        <li><a href="/research-downloads/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Downloads</a></li>
                     </ul>
                 </div>
 
                 <!-- 6. FACILITIES -->
-                <div class="relative dropdown group">
-                    <a href="#!" class="hover:text-theme-yellow transition flex items-center gap-1 py-4">Facilities <i class="fas fa-angle-down text-[10px]"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-64 py-2 right-0 top-full">
-                        <li><a href="/center-of-excellence/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Centre of Excellence</a></li>
+                <div class="relative dropdown group h-full">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Facilities <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 right-0 top-full mt-2">
+                        <li><a href="/center-of-excellence/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Centre of Excellence</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="/library/" class="flex justify-between items-center px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Library <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded w-56 py-2 right-full -top-2 border-r-2 border-theme-yellow">
-                                <li><a href="/central-library-I/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Central Library-I</a></li>
-                                <li><a href="/central-library-II/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Central Library-II</a></li>
-                                <li><a href="/it-first-year-library/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">IT-I Year Library</a></li>
-                                <li><a href="/pg-mba-library/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">P.G Library (MBA)</a></li>
-                                <li><a href="/department-library/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Department Library</a></li>
-                                <li><a href="/digital-library/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Digital Library</a></li>
+                            <a href="/library/" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Library <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-60 py-3 right-full -top-3 border border-white/10 mr-2">
+                                <li><a href="/central-library-I/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Central Library-I</a></li>
+                                <li><a href="/central-library-II/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Central Library-II</a></li>
+                                <li><a href="/digital-library/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Digital Library</a></li>
                             </ul>
                         </li>
-                        <li><a href="/green-campus/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Green Campus</a></li>
-                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Examination Facilities</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">University Offices - Identified</a></li>
-                        <li><a href="/infrastructures/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Infrastructures</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">University Building - Proposed</a></li>
-                        <li><a href="/it-infrastructure/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">IT Infrastructure</a></li>
-                        <li><a href="/transport/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Transport</a></li>
-                        <li><a href="/mess/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Mess</a></li>
-                        <li><a href="/sports/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Sports</a></li>
-                        <li><a href="/hostel/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">Hostel</a></li>
-                        <li><a href="/atm-facilities/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">ATM Facilities</a></li>
-                        <li><a href="/water-sewage-treatment-plant/" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">Treatment Plants</a></li>
+                        <li><a href="/green-campus/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Green Campus</a></li>
+                        <li><a href="/it-infrastructure/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Transport</a></li>
+                        <li><a href="/hostel/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Hostel & Mess</a></li>
                     </ul>
                 </div>
 
                 <!-- 7. SDG / NIRF -->
-                <div class="relative dropdown group">
-                     <a href="#!" class="hover:text-theme-yellow transition flex items-center gap-1 py-4">More <i class="fas fa-angle-down text-[10px]"></i></a>
-                     <ul class="dropdown-menu absolute hidden bg-white shadow-dropdown rounded-b border-t-2 border-theme-yellow w-56 py-2 right-0 top-full">
-                         <li><a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">SDG Policy</a></li>
-                         <li><a href="/assets/pdf/sdg/SDG-INITIATIVES.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">SDG Initiatives</a></li>
-                         <li><a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">NIRF 2026 Report</a></li>
-                         <li><a href="/assets/pdf/academics/nirf/PEC_NIRF2025_Overall.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow border-b border-gray-50">NIRF 2025 Report</a></li>
-                         <li><a href="/assets/pdf/academics/nirf/PEC_NIRF2024_Overall.pdf" target="_blank" class="block px-5 py-2.5 hover:bg-gray-50 hover:text-theme-yellow">NIRF 2024 Report</a></li>
+                <div class="relative dropdown group h-full">
+                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">More <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                     <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-56 py-3 right-0 top-full mt-2">
+                         <li><a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">SDG Policy</a></li>
+                         <li><a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">NIRF 2026 Report</a></li>
                      </ul>
                 </div>
 
                 <!-- COUNSELING CODE & ADMISSION -->
-                <div class="border-l border-gray-300 pl-4 flex flex-col items-start justify-center h-full">
-                    <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-0.5">Code: 1210</p>
-                    <a href="/enquiry/" target="_blank" class="bg-theme-dark text-theme-yellow px-4 py-1.5 rounded text-xs hover:bg-theme-yellow hover:text-theme-dark transition font-bold">Admission</a>
+                <div class="border-l border-white/10 pl-6 flex flex-col items-start justify-center h-full ml-2">
+                    <p class="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-1">Code: 1210</p>
+                    <a href="/enquiry/" target="_blank" class="btn-gold !py-1.5 !px-5 !text-[11px] rounded-full uppercase tracking-wider font-bold">Apply</a>
                 </div>
             </nav>
 
             <!-- Mobile Toggle -->
-            <button class="xl:hidden text-2xl text-theme-dark focus:outline-none" id="mobile-menu-btn" aria-label="Toggle menu">
+            <button class="xl:hidden text-2xl text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
 
-        <div class="xl:hidden bg-white border-t border-gray-100 absolute w-full hidden shadow-card max-h-[80vh] overflow-y-auto" id="mobile-menu">
-            <div class="p-4 flex flex-col gap-2 font-medium text-theme-dark text-sm">
-                <a href="/" class="py-3 border-b border-gray-100 block">Home</a>
-
-                <!-- Mob About -->
-                <button class="flex justify-between items-center py-3 border-b border-gray-100 w-full text-left font-bold" onclick="toggleMobileSub('mob-about')">About Us <i class="fas fa-angle-down"></i></button>
-                <div id="mob-about" class="mobile-submenu pl-4 bg-gray-50 rounded mt-1 overflow-hidden">
-                    <a href="/about-us/" class="block py-2.5 border-b border-gray-200">About Panimalar</a>
-                    
-                    <button class="flex justify-between items-center py-2.5 border-b border-gray-200 w-full text-left" onclick="toggleMobileSub('mob-leadership')">Leadership <i class="fas fa-plus text-[10px]"></i></button>
-                    <div id="mob-leadership" class="mobile-submenu-2 pl-4">
-                        <button class="flex justify-between items-center py-2 border-b border-gray-200 w-full text-left" onclick="toggleMobileSub('mob-mgmt')">Management Team <i class="fas fa-plus text-[10px]"></i></button>
-                        <div id="mob-mgmt" class="mobile-submenu-2 pl-4 text-xs text-gray-600">
-                             <a href="/secretary-correspondent/" class="block py-2">Dr. P. Chinnadurai</a>
-                             <a href="/dr-c-sakthikumar/" class="block py-2">Dr. C. Sakthi Kumar</a>
-                             <a href="/mrs-c-vijayarajeswari/" class="block py-2">Mrs. C. Vijayarajeswari</a>
-                             <a href="/dr-saranya-sree-sakthikumar/" class="block py-2">Dr. Saranya Sree</a>
-                        </div>
-                        <a href="/principal/" class="block py-2 border-b border-gray-200">Principal</a>
-                        <a href="/governing-body/" class="block py-2 border-b border-gray-200">Governing Body</a>
-                        <a href="/objectives/" class="block py-2 border-b border-gray-200">Objectives</a>
-                        <a href="/journey-so-far/" class="block py-2 border-b border-gray-200">Journey So far</a>
-                    </div>
-
-                    <a href="/rules-regulations/" class="block py-2.5 border-b border-gray-200">Rules & Regulations</a>
-                    <a href="/corporate-and-international-relations/" class="block py-2.5 border-b border-gray-200">Corporate & Int Relations</a>
-                    <a href="/alumni-association/" class="block py-2.5 border-b border-gray-200">Alumni Association</a>
+        <!-- Mobile Menu -->
+        <div class="xl:hidden bg-theme-dark/95 backdrop-blur-3xl border-t border-white/10 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
+            <div class="p-6 flex flex-col gap-2 font-medium text-gray-200 text-sm">
+                <a href="/" class="py-3 border-b border-white/5 block text-theme-accent">Home</a>
+                <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-about')">About Us <i class="fas fa-angle-down"></i></button>
+                <div id="mob-about" class="mobile-submenu pl-4 bg-white/5 rounded-xl mt-1 overflow-hidden">
+                    <a href="/about-us/" class="block py-3 border-b border-white/5 text-theme-accent">About Panimalar</a>
+                    <a href="/rules-regulations/" class="block py-3 border-b border-white/5">Rules & Regulations</a>
                 </div>
-
-                <!-- Mob Courses -->
-                <button class="flex justify-between items-center py-3 border-b border-gray-100 w-full text-left font-bold" onclick="toggleMobileSub('mob-courses')">Courses <i class="fas fa-angle-down"></i></button>
-                <div id="mob-courses" class="mobile-submenu pl-4 bg-gray-50 rounded mt-1">
-                    <a href="/be-computer-science-and-engineering/" class="block py-2 border-b border-gray-200">B.E CSE</a>
-                    <a href="/be-electronics-and-communication-engineering/" class="block py-2 border-b border-gray-200">B.E ECE</a>
-                    <a href="/be-electrical-and-electronics-engineering/" class="block py-2 border-b border-gray-200">B.E EEE</a>
-                    <a href="/be-mechanical-engineering/" class="block py-2 border-b border-gray-200">B.E Mechanical</a>
-                    <a href="/btech-information-technology/" class="block py-2 border-b border-gray-200">B.Tech IT</a>
-                    <a href="/mba/" class="block py-2 border-b border-gray-200">MBA</a>
+                <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-courses')">Courses <i class="fas fa-angle-down"></i></button>
+                <div id="mob-courses" class="mobile-submenu pl-4 bg-white/5 rounded-xl mt-1">
+                    <a href="/be-computer-science-and-engineering/" class="block py-3 border-b border-white/5">B.E CSE</a>
+                    <a href="/mba/" class="block py-3">MBA</a>
                 </div>
-
-                <!-- Mob Academics -->
-                <button class="flex justify-between items-center py-3 border-b border-gray-100 w-full text-left font-bold" onclick="toggleMobileSub('mob-academics')">Academics <i class="fas fa-angle-down"></i></button>
-                <div id="mob-academics" class="mobile-submenu pl-4 bg-gray-50 rounded mt-1">
-                    <a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="block py-2 border-b border-gray-200">Academic Council</a>
-                    <a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="block py-2 border-b border-gray-200">Regulation & Syllabus</a>
-                    <a href="/committee/" class="block py-2 border-b border-gray-200">Committees</a>
-                    <a href="/iqac/" class="block py-2 border-b border-gray-200">IQAC</a>
-                    <a href="/idea-lab/" class="block py-2 border-b border-gray-200">Idea Lab</a>
-                </div>
-
-                <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-gray-100 block font-bold">CoE</a>
-                <a href="/placements/" class="py-3 border-b border-gray-100 block font-bold">Placements</a>
-
-                <!-- Mob Research -->
-                <button class="flex justify-between items-center py-3 border-b border-gray-100 w-full text-left font-bold" onclick="toggleMobileSub('mob-research')">Research <i class="fas fa-angle-down"></i></button>
-                <div id="mob-research" class="mobile-submenu pl-4 bg-gray-50 rounded mt-1">
-                    <a href="/research-policy/" class="block py-2 border-b border-gray-200">Research Policy</a>
-                    <a href="/research-team/" class="block py-2 border-b border-gray-200">Research Team</a>
-                    <a href="/research-centres/" class="block py-2 border-b border-gray-200">Research Centres</a>
-                    <a href="/h-index/" class="block py-2 border-b border-gray-200">H-Index</a>
-                </div>
-
-                <!-- Mob Facilities -->
-                <button class="flex justify-between items-center py-3 border-b border-gray-100 w-full text-left font-bold" onclick="toggleMobileSub('mob-facilities')">Facilities <i class="fas fa-angle-down"></i></button>
-                <div id="mob-facilities" class="mobile-submenu pl-4 bg-gray-50 rounded mt-1">
-                    <a href="/center-of-excellence/" class="block py-2 border-b border-gray-200">Centre of Excellence</a>
-                    <a href="/library/" class="block py-2 border-b border-gray-200">Library</a>
-                    <a href="/green-campus/" class="block py-2 border-b border-gray-200">Green Campus</a>
-                    <a href="/hostel/" class="block py-2 border-b border-gray-200">Hostel</a>
-                    <a href="/transport/" class="block py-2 border-b border-gray-200">Transport</a>
-                </div>
-
-                <a href="/enquiry/" target="_blank" class="bg-theme-yellow text-center py-3 rounded text-theme-dark mt-4 font-bold shadow-md">Apply for Admission</a>
+                <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-white/5 block font-bold">CoE</a>
+                <a href="/placements/" class="py-3 border-b border-white/5 block font-bold">Placements</a>
+                <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6 shadow-xl">Apply for Admission</a>
             </div>
         </div>
     </header>
 
     <main id="main-content">
 
-        <!-- BANNER -->
-        <section class="relative pt-24 pb-16 bg-gradient-to-br from-theme-dark to-[#133a7a] overflow-hidden border-b-4 border-theme-yellow">
-            <div class="container mx-auto px-4 relative z-10 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-roboto">About Panimalar</h1>
-                <div class="text-gray-300 text-sm font-medium">
-                    <a href="/" class="hover:text-theme-yellow transition">Home</a> <span class="mx-2">/</span> <span class="text-theme-yellow">About Us</span>
+        <section class="relative pt-28 pb-20 overflow-hidden bg-tech-gradient">
+            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-theme-accent/10 to-transparent pointer-events-none"></div>
+            <!-- Tech Pattern -->
+            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px); background-size: 50px 50px;"></div>
+
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-5xl md:text-6xl font-black text-white mb-6 font-roboto tracking-tight drop-shadow-md">About <span class="text-theme-accent">Panimalar</span></h1>
+                <div class="text-gray-400 text-sm font-semibold tracking-wide uppercase flex items-center justify-center gap-3">
+                    <a href="/" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-home"></i> Home</a> 
+                    <span class="text-theme-accent">/</span> 
+                    <span class="text-white">About Us</span>
                 </div>
             </div>
         </section>
 
-        <!-- WHO WE ARE -->
-        <section class="py-16 md:py-20 bg-white">
-            <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section class="py-24 bg-theme-light">
+            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <span class="section-subtitle">Who We Are</span>
-                    <h2 class="section-title mb-6">About <span>Panimalar</span></h2>
-                    <p class="text-gray-600 leading-relaxed mb-4">Panimalar Engineering College governed by JAISAKTHI Educational Trust aims at imparting quality engineering and management education for the aspiring youth.</p>
-                    <p class="text-gray-600 leading-relaxed">The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering, Chennai, Kancheepuram and Thiruvallur districts. The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu. The policy emphasizes to give high priority to meet the demand for trained engineers for various industrial and development projects in the state of Tamil Nadu and the rest of India.</p>
+                    <span class="section-subtitle"><i class="fas fa-fingerprint text-[10px]"></i> Identity</span>
+                    <h2 class="section-title mt-4 mb-8">Who <span>We Are</span></h2>
+                    
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-[17px] leading-relaxed font-medium">
+                            Panimalar Engineering College, governed by JAISAKTHI Educational Trust, aims at imparting quality engineering and management education for the aspiring youth.
+                        </p>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">
+                            The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering Chennai, Kancheepuram, and Thiruvallur districts.
+                        </p>
+                        <p class="text-gray-500 text-[15px] leading-relaxed">
+                            The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu. The policy emphasizes giving high priority to meet the demand for trained engineers for various industrial and development projects in the state of Tamil Nadu and the rest of India.
+                        </p>
+                    </div>
                 </div>
-                <div class="hover-card">
-                    <img src="/assets/images/AboutUs/panimalar-engg.jpg" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-xl shadow-card object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/e2e8f0/475569?text=Panimalar+Campus'">
+                
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-theme-accent to-theme-yellow opacity-10 rounded-4xl blur-xl group-hover:opacity-20 transition duration-500"></div>
+                    <div class="relative rounded-4xl overflow-hidden shadow-premium bg-white p-2">
+                        <img src="/assets/images/AboutUs/panimalar-engg.jpg" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-3xl object-cover transform hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/800x600/e2e8f0/475569?text=Panimalar+Campus'">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- VISION / MISSION -->
-        <section class="py-16 md:py-20 bg-theme-light">
-            <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
-                    <div class="w-16 h-16 bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+        <section class="py-24 bg-white border-t border-gray-100">
+            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+                
+                <div class="bg-theme-light rounded-4xl p-10 md:p-14 shadow-premium hover-card border border-gray-100 flex flex-col items-start relative overflow-hidden group">
+                    <!-- Accent background element -->
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-theme-accent/5 rounded-bl-full pointer-events-none group-hover:bg-theme-accent/10 transition-colors duration-500"></div>
+                    
+                    <div class="w-20 h-20 bg-white shadow-lg rounded-2xl flex items-center justify-center text-4xl mb-8 border border-gray-50 text-theme-accent">
                         <i class="fas fa-eye"></i>
                     </div>
-                    <h2 class="text-2xl font-extrabold text-theme-dark mb-4">Vision <span class="text-theme-yellow">of the Institute</span></h2>
-                    <p class="text-gray-600 leading-relaxed">To transform the budding engineers into academically excellent, highly intellectual and self disciplined engineering graduates to mould them as good citizens with the spirit of integrity and morality that would cater to the needs of our nation.</p>
+                    <h2 class="text-3xl font-black text-theme-dark mb-6">Vision <span class="text-theme-accent">of the Institute</span></h2>
+                    <p class="text-gray-600 text-lg leading-relaxed relative z-10">
+                        To transform the budding engineers into academically excellent, highly intellectual and self disciplined engineering graduates to mould them as good citizens with the spirit of integrity and morality that would cater to the needs of our nation.
+                    </p>
                 </div>
 
-                <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
-                    <div class="w-16 h-16 bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                <div class="bg-theme-light rounded-4xl p-10 md:p-14 shadow-premium hover-card border border-gray-100 flex flex-col items-start relative overflow-hidden group">
+                    <!-- Accent background element -->
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-theme-yellow/5 rounded-bl-full pointer-events-none group-hover:bg-theme-yellow/10 transition-colors duration-500"></div>
+
+                    <div class="w-20 h-20 bg-white shadow-lg rounded-2xl flex items-center justify-center text-4xl mb-8 border border-gray-50 text-theme-yellow">
                         <i class="fas fa-bullseye"></i>
                     </div>
-                    <h2 class="text-2xl font-extrabold text-theme-dark mb-4">Mission <span class="text-theme-yellow">of the Institute</span></h2>
-                    <ul class="text-gray-600 leading-relaxed space-y-3">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-theme-yellow mt-1"></i>
+                    <h2 class="text-3xl font-black text-theme-dark mb-6">Mission <span class="text-theme-yellow">of the Institute</span></h2>
+                    <ul class="text-gray-600 text-[16px] leading-relaxed space-y-5 relative z-10">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check-circle text-theme-yellow mt-1 text-xl"></i>
                             <span>To impart quality education with high standards of excellence in engineering and technology.</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-check-circle text-theme-yellow mt-1"></i>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-check-circle text-theme-yellow mt-1 text-xl"></i>
                             <span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge in the field of engineering and technology.</span>
                         </li>
                     </ul>
                 </div>
+
             </div>
         </section>
 
-        <!-- QUALITY POLICY -->
-        <section class="py-16 md:py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="bg-theme-dark rounded-xl p-8 md:p-12 shadow-card">
-                    <span class="section-subtitle !bg-white/10 !text-theme-yellow">Commitment</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Quality <span class="text-theme-yellow">Policy</span></h2>
-                    <p class="text-gray-300 leading-relaxed mb-6">The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by:</p>
-                    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
-                        <li class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/10">
-                            <i class="fas fa-star text-theme-yellow mt-1"></i>
-                            <span>Providing and Maintaining good learning environment and ambience for enhanced learning.</span>
-                        </li>
-                        <li class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/10">
-                            <i class="fas fa-star text-theme-yellow mt-1"></i>
-                            <span>Inculcating Professional Ethics, Standards and Morale through student career and personality development programs.</span>
-                        </li>
-                    </ul>
-                </div>
+        <section class="py-24 bg-tech-gradient relative overflow-hidden">
+            <!-- Background glow -->
+            <div class="absolute inset-0 flex justify-center items-center pointer-events-none">
+                <div class="w-[800px] h-[800px] bg-theme-accent/10 rounded-full blur-[150px]"></div>
             </div>
-        </section>
 
-        <!-- OUR CAMPUS -->
-        <section class="py-16 md:py-20 bg-theme-light">
-            <div class="container mx-auto px-4 text-center max-w-3xl">
-                <span class="section-subtitle">Where We Learn</span>
-                <h2 class="section-title mb-6">Our <span>Campus</span></h2>
-                <p class="text-gray-600 leading-relaxed">This sprawling campus provides a holistic education in an ambience that makes no compromise on discipline, dedication and commitment. It strives to inculcate the spirit of learning in the campus offering state of art facilities to the students. The college ensures that the students who pass out of the college, turn out to be academically brilliant, morally upright and empowered individuals.</p>
-            </div>
-        </section>
-
-        <!-- MILESTONE STATS -->
-        <section class="py-16 md:py-20 bg-theme-dark">
-            <div class="container mx-auto px-4">
-                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 text-center">
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="2100000">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Sq. Ft. Infrastructure</p>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-4xl p-10 md:p-16 shadow-glass-strong max-w-5xl mx-auto">
+                    <div class="text-center mb-12">
+                        <span class="section-subtitle !bg-white/10 !text-theme-yellow"><i class="fas fa-star text-[10px]"></i> Standard</span>
+                        <h2 class="text-3xl md:text-5xl font-black text-white mt-4 mb-6 tracking-tight">Quality <span class="text-theme-accent">Policy</span></h2>
+                        <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                            The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by:
+                        </p>
                     </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="10">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Departments</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="11000">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Students</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1000">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Employees</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1500">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Rank Holders</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="4000">0</span>+</h3>
-                        <p class="text-gray-300 text-xs md:text-sm">Publications</p>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="66">0</span></h3>
-                        <p class="text-gray-300 text-xs md:text-sm">H-Index</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 text-gray-200">
+                        <div class="flex gap-5 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 shadow-glass">
+                            <div class="w-12 h-12 rounded-full bg-theme-accent/20 flex items-center justify-center flex-shrink-0 border border-theme-accent/30 text-theme-accent">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-[15px] leading-relaxed font-medium mt-2">Providing and Maintaining good learning environment and ambience for enhanced learning.</span>
+                        </div>
+                        <div class="flex gap-5 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 shadow-glass">
+                            <div class="w-12 h-12 rounded-full bg-theme-yellow/20 flex items-center justify-center flex-shrink-0 border border-theme-yellow/30 text-theme-yellow">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="text-[15px] leading-relaxed font-medium mt-2">Inculcating Professional Ethics, Standards and Morale through student career and personality development programs.</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- MILESTONES TIMELINE (FULL, 2000 - 2024-25) -->
-        <section class="py-16 md:py-20 bg-gray-50">
-            <div class="container mx-auto px-4">
-                <div class="text-center mb-16">
-                    <span class="section-subtitle">Our Journey</span>
-                    <h2 class="section-title">Milestones of Panimalar <span>Engineering College</span></h2>
+        <section class="py-24 bg-theme-light border-b border-gray-200">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <span class="section-subtitle"><i class="fas fa-map-marker-alt text-[10px]"></i> Where We Learn</span>
+                <h2 class="section-title mt-4 mb-8">Our <span>Campus</span></h2>
+                <p class="text-gray-600 text-lg leading-relaxed font-medium">
+                    This sprawling campus provides a holistic education in an ambience that makes no compromise on discipline, dedication and commitment. It strives to inculcate the spirit of learning in the campus offering state of art facilities to the students. The college ensures that the students who pass out of the college, turn out to be academically brilliant, morally upright and empowered individuals.
+                </p>
+            </div>
+        </section>
+
+        <section class="py-24 bg-white relative">
+            <!-- Subtle background watermark -->
+            <i class="fas fa-history absolute top-20 right-20 text-[300px] text-gray-50 opacity-50 pointer-events-none"></i>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-20">
+                    <span class="section-subtitle"><i class="fas fa-road text-[10px]"></i> Our Journey</span>
+                    <h2 class="section-title mt-4">Milestones of <span>Panimalar</span></h2>
                 </div>
 
-                <div class="timeline-rail max-w-4xl mx-auto pl-10 md:pl-16">
+                <div class="timeline-rail max-w-4xl mx-auto pl-12 md:pl-20">
 
                     <!-- 2000 -->
-                    <div class="relative pb-10">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2000 — Departments Established</h3>
-                            <div class="intake-scroll">
+                    <div class="relative pb-16 group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2000</span> — Departments Established</h3>
+                            <div class="intake-scroll bg-theme-dark p-2">
                                 <table class="intake-table">
-                                    <thead><tr><th colspan="3">Departments Established in the Year of 2000</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td></tr><tr><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                    <thead><tr><th colspan="3" class="text-left pl-4 tracking-wider">Departments Established in the Year of 2000</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                     <!-- 2002-03 -->
-                    <div class="relative pb-10">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2002-2003 — Mechanical & MBA Introduced</h3>
-                            <div class="intake-scroll">
+                    <div class="relative pb-16 group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2002-03</span> — Mechanical & MBA Introduced</h3>
+                            <div class="intake-scroll bg-theme-dark p-2">
                                 <table class="intake-table">
-                                    <thead><tr><th colspan="7">Intake 2002-03</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td><td>MECH</td><td>MBA</td></tr><tr><td>90</td><td>90</td><td>120</td><td>90</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                    <thead><tr><th colspan="7" class="text-left pl-4 tracking-wider">Intake 2002-03</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MCA</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                     <!-- 2007-08 -->
-                    <div class="relative pb-10">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2007-2008 — EIE Established</h3>
-                            <div class="intake-scroll">
+                    <div class="relative pb-16 group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2007-08</span> — EIE Established</h3>
+                            <div class="intake-scroll bg-theme-dark p-2">
                                 <table class="intake-table">
-                                    <thead><tr><th colspan="8">Intake 2007-08</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>MCA</td><td>EIE</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>150</td><td>150</td><td>60</td></tr></tbody>
+                                    <thead><tr><th colspan="8" class="text-left pl-4 tracking-wider">Intake 2007-08</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">MCA</td><td class="font-bold text-white">EIE</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">150</td><td class="text-theme-yellow font-bold text-lg">150</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                     <!-- 2016-17 -->
-                    <div class="relative pb-10">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2016-2017 — Postgraduate Additions</h3>
-                            <p class="text-sm text-gray-500 mb-3">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
-                            <div class="intake-scroll">
+                    <div class="relative pb-16 group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                            <h3 class="text-2xl font-black text-theme-dark mb-2 tracking-tight"><span class="text-theme-accent mr-2">2016-17</span> — Postgraduate Additions</h3>
+                            <p class="text-[15px] font-medium text-gray-500 mb-6 pl-1">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
+                            <div class="intake-scroll bg-theme-dark p-2">
                                 <table class="intake-table">
-                                    <thead><tr><th colspan="10">Intake 2016-17</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>60</td><td>180</td><td>240</td><td>30</td><td>30</td></tr></tbody>
+                                    <thead><tr><th colspan="10" class="text-left pl-4 tracking-wider">Intake 2016-17</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">EIE</td><td class="font-bold text-white">CIVIL</td><td class="font-bold text-white">MBA</td><td class="font-bold text-theme-accent">ME(CSE)</td><td class="font-bold text-theme-accent">ME(ECE)</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">360</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">240</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">30</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                     
                     <!-- 2020-21 -->
-                    <div class="relative pb-10">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2020-2021 — Future Tech Established</h3>
-                            <p class="text-sm text-gray-500 mb-3">Introduced cutting-edge courses AI&DS, CSBS, and CCE.</p>
-                            <div class="intake-scroll">
+                    <div class="relative pb-16 group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
+                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                            <h3 class="text-2xl font-black text-theme-dark mb-2 tracking-tight"><span class="text-theme-accent mr-2">2020-21</span> — Future Tech Established</h3>
+                            <p class="text-[15px] font-medium text-gray-500 mb-6 pl-1">Introduced cutting-edge courses AI&DS, CSBS, and CCE.</p>
+                            <div class="intake-scroll bg-theme-dark p-2">
                                 <table class="intake-table">
-                                    <thead><tr><th colspan="13">Intake 2020-21</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td><td>AI&DS</td><td>CSBS</td><td>CCE</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>60</td><td>60</td><td>180</td><td>30</td><td>30</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                    <thead><tr><th colspan="13" class="text-left pl-4 tracking-wider">Intake 2020-21</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">EIE</td><td class="font-bold text-white">CIVIL</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">ME(CSE)</td><td class="font-bold text-white">ME(ECE)</td><td class="font-bold text-theme-accent">AI&DS</td><td class="font-bold text-theme-accent">CSBS</td><td class="font-bold text-theme-accent">CCE</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">360</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
 
                     <!-- 2024-25 -->
-                    <div class="relative pb-4">
-                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                            <h3 class="text-xl font-bold text-theme-dark mb-3">2024-2025 — Scaling Heights</h3>
-                            <p class="text-sm text-gray-500 mb-3">Massive intake scale across CSE (960), IT (540), AI&DS (480), and AIML (240).</p>
-                            <div class="intake-scroll">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="11">Intake 2024-25</th></tr></thead>
-                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>ME(CSE)</td><td>ME(CS)</td><td>AI&DS</td><td>CSBS</td><td>AIML</td></tr><tr><td>960</td><td>540</td><td>480</td><td>180</td><td>90</td><td>240</td><td>18</td><td>18</td><td>480</td><td>240</td><td>240</td></tr></tbody>
+                    <div class="relative group">
+                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125 !bg-theme-yellow !border-theme-dark shadow-[0_0_15px_rgba(255,200,61,0.6)]"></div>
+                        <div class="bg-theme-dark rounded-3xl shadow-premium p-8 border border-white/10 transition-all duration-300 transform group-hover:-translate-y-1 relative overflow-hidden">
+                            <div class="absolute top-0 right-0 w-32 h-32 bg-theme-yellow/10 rounded-full blur-2xl"></div>
+                            <h3 class="text-2xl font-black text-white mb-2 tracking-tight"><span class="text-theme-yellow mr-2">2024-25</span> — Scaling Heights</h3>
+                            <p class="text-[15px] font-medium text-gray-400 mb-6 pl-1">Massive intake scale across leading tech branches including AIML.</p>
+                            <div class="intake-scroll bg-white/5 p-2 backdrop-blur-sm border border-white/5 rounded-2xl">
+                                <table class="intake-table !border-none">
+                                    <thead><tr><th colspan="11" class="text-left pl-4 tracking-wider text-theme-accent !bg-transparent border-b border-white/10">Intake 2024-25</th></tr></thead>
+                                    <tbody>
+                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">ME(CSE)</td><td class="font-bold text-white">ME(CS)</td><td class="font-bold text-theme-accent">AI&DS</td><td class="font-bold text-theme-accent">CSBS</td><td class="font-bold text-theme-accent">AIML</td></tr>
+                                        <tr><td class="text-theme-yellow font-bold text-xl">960</td><td class="text-theme-yellow font-bold text-xl">540</td><td class="text-theme-yellow font-bold text-xl">480</td><td class="text-theme-yellow font-bold text-xl">180</td><td class="text-theme-yellow font-bold text-xl">90</td><td class="text-theme-yellow font-bold text-xl">240</td><td class="text-theme-yellow font-bold text-xl">18</td><td class="text-theme-yellow font-bold text-xl">18</td><td class="text-theme-yellow font-bold text-xl">480</td><td class="text-theme-yellow font-bold text-xl">240</td><td class="text-theme-yellow font-bold text-xl">240</td></tr>
+                                    </tbody>
                                 </table>
                             </div>
                         </div>
@@ -623,113 +619,112 @@
         </section>
     </main>
 
-    <footer class="bg-[#051633] text-gray-300 pt-20 pb-6 text-[13px] border-t-4 border-theme-yellow">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-16">
+    <footer class="bg-[#0b0e14] text-gray-400 pt-24 pb-8 text-sm border-t border-white/10 relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-20">
 
                 <!-- Column 1 -->
                 <div>
-                    <h3 class="text-white text-base font-bold mb-5 border-b-2 border-theme-yellow inline-block pb-1">Admissions</h3>
-                    <ul class="space-y-2.5">
-                        <li><a href="/admission-information/" class="hover:text-theme-yellow transition block">Admission Information</a></li>
-                        <li><a href="/enquiry/" target="_blank" class="hover:text-theme-yellow transition block">How to Apply</a></li>
-                        <li><a href="/admission-information/" class="hover:text-theme-yellow transition block">Lateral Entry</a></li>
+                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Admissions</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/admission-information/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Admission Information</a></li>
+                        <li><a href="/enquiry/" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">How to Apply</a></li>
+                        <li><a href="/admission-information/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Lateral Entry</a></li>
                         
-                        <li class="pt-3 pb-1"><strong class="text-white uppercase tracking-wider text-xs">UGC-DTBU</strong></li>
-                        <li><a href="/documents-submitted/" class="hover:text-theme-yellow transition block">UGC Documents</a></li>
-                        <li><a href="/geo-tagged-photos/" class="hover:text-theme-yellow transition block">Geo-Tagged Photos</a></li>
-                        <li><a href="/virtual-tour/" class="hover:text-theme-yellow transition block">Campus Virtual Tour</a></li>
-                        <li><a href="/approvals-and-accreditations/" class="hover:text-theme-yellow transition block">Approvals and Accreditations</a></li>
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">UGC-DTBU</strong></li>
+                        <li><a href="/documents-submitted/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">UGC Documents</a></li>
+                        <li><a href="/geo-tagged-photos/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Geo-Tagged Photos</a></li>
+                        <li><a href="/virtual-tour/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Campus Virtual Tour</a></li>
+                        <li><a href="/approvals-and-accreditations/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Approvals & Accreditations</a></li>
                         
-                        <li class="pt-3 pb-1"><strong class="text-white uppercase tracking-wider text-xs">NBA-DCP</strong></li>
-                        <li><a href="/assets/pdf/nba-dcp/11255_Panimala_NBA_DCP_ADS.pdf" target="_blank" class="hover:text-theme-yellow transition block">Artificial Intelligence and Data Science</a></li>
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">NBA-DCP</strong></li>
+                        <li><a href="/assets/pdf/nba-dcp/11255_Panimala_NBA_DCP_ADS.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">AI & Data Science</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 2 -->
                 <div>
-                    <h3 class="text-white text-base font-bold mb-5 border-b-2 border-theme-yellow inline-block pb-1">Facilities</h3>
-                    <ul class="space-y-2.5">
-                        <li><a href="/green-campus/" class="hover:text-theme-yellow transition block">Green Campus</a></li>
-                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="hover:text-theme-yellow transition block">Examination Facilities</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="hover:text-theme-yellow transition block">University Offices - Identified</a></li>
-                        <li><a href="/it-infrastructure/" class="hover:text-theme-yellow transition block">IT Infrastructure</a></li>
-                        <li><a href="/transport/" class="hover:text-theme-yellow transition block">Transport</a></li>
-                        <li><a href="/mess/" class="hover:text-theme-yellow transition block">Mess</a></li>
-                        <li><a href="/hostel/" class="hover:text-theme-yellow transition block">Hostel</a></li>
-                        <li><a href="/atm-facilities/" class="hover:text-theme-yellow transition block">ATM</a></li>
-                        <li><a href="/water-sewage-treatment-plant/" class="hover:text-theme-yellow transition block">Treatment Plants</a></li>
+                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Facilities</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/green-campus/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Green Campus</a></li>
+                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Examination Facilities</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">University Offices</a></li>
+                        <li><a href="/it-infrastructure/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Transport</a></li>
+                        <li><a href="/mess/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Mess</a></li>
+                        <li><a href="/hostel/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Hostel</a></li>
+                        <li><a href="/atm-facilities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">ATM</a></li>
+                        <li><a href="/water-sewage-treatment-plant/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Treatment Plants</a></li>
                         
-                        <li class="pt-3 pb-1"><strong class="text-white uppercase tracking-wider text-xs">Library</strong></li>
-                        <li><a href="/central-library-I/" class="hover:text-theme-yellow transition block">Central Library-I</a></li>
-                        <li><a href="/central-library-II/" class="hover:text-theme-yellow transition block">Central Library-II</a></li>
-                        <li><a href="/it-first-year-library/" class="hover:text-theme-yellow transition block">IT-I Year Library</a></li>
-                        <li><a href="/pg-mba-library/" class="hover:text-theme-yellow transition block">P.G Library (MBA)</a></li>
-                        <li><a href="/department-library/" class="hover:text-theme-yellow transition block">Department Library</a></li>
-                        <li><a href="/digital-library/" class="hover:text-theme-yellow transition block">Digital Library</a></li>
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">Library</strong></li>
+                        <li><a href="/central-library-I/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Central Library-I</a></li>
+                        <li><a href="/central-library-II/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Central Library-II</a></li>
+                        <li><a href="/it-first-year-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">IT-I Year Library</a></li>
+                        <li><a href="/pg-mba-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">P.G Library (MBA)</a></li>
+                        <li><a href="/department-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Department Library</a></li>
+                        <li><a href="/digital-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Digital Library</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3 -->
                 <div>
-                    <h3 class="text-white text-base font-bold mb-5 border-b-2 border-theme-yellow inline-block pb-1">Quick Links</h3>
-                    <ul class="space-y-2.5">
-                        <li><a href="http://elink.aicte-india.org/vtrack?clientid=196766" target="_blank" class="hover:text-theme-yellow transition block leading-snug">Click here for AICTE Scholarship/Fellowship Schemes</a></li>
-                        <li><a href="https://www.aicte-india.org/feedback/" target="_blank" class="hover:text-theme-yellow transition block leading-snug">AICTE Feedback Link for Students & Faculties</a></li>
-                        <li><a href="/rules-regulations/" class="hover:text-theme-yellow transition block">Rules and Regulations</a></li>
-                        <li><a href="/assets/pdf/Audited-Statements.pdf" target="_blank" class="hover:text-theme-yellow transition block">Audited Statements</a></li>
-                        <li><a href="/assets/pdf/PEC-Financial-Rule-book_compressed.pdf" target="_blank" class="hover:text-theme-yellow transition block">Financial Rules and Regulations</a></li>
-                        <li><a href="/assets/pdf/PEC-HR-Policy.pdf" target="_blank" class="hover:text-theme-yellow transition block">Human Resource Policy</a></li>
-                        <li><a href="/assets/pdf/RESEARCH-POLICY-LATEST.pdf" target="_blank" class="hover:text-theme-yellow transition block">Research Policy</a></li>
-                        <li><a href="/industry-connect/" class="hover:text-theme-yellow transition block">Highlights</a></li>
-                        <li><a href="/online-grievance/" class="hover:text-theme-yellow transition block">Online Grievance</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="hover:text-theme-yellow transition block">University Building - Proposed</a></li>
-                        <li><a href="/assets/pdf/mom/Minutes-of-Academic-Council.pdf" target="_blank" class="hover:text-theme-yellow transition block">Minutes of Academic Council</a></li>
-                        <li><a href="/assets/pdf/mom/Minutes-of-Governing-Body.pdf" target="_blank" class="hover:text-theme-yellow transition block">Minutes of Governing Body</a></li>
-                        <li><a href="/institutional-development-plan/" class="hover:text-theme-yellow transition block">Institutional Development Plan</a></li>
+                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Quick Links</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="http://elink.aicte-india.org/vtrack?clientid=196766" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition leading-snug">AICTE Scholarship Schemes</a></li>
+                        <li><a href="https://www.aicte-india.org/feedback/" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition leading-snug">AICTE Feedback Link</a></li>
+                        <li><a href="/rules-regulations/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Rules & Regulations</a></li>
+                        <li><a href="/assets/pdf/Audited-Statements.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Audited Statements</a></li>
+                        <li><a href="/assets/pdf/PEC-Financial-Rule-book_compressed.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Financial Rules</a></li>
+                        <li><a href="/assets/pdf/PEC-HR-Policy.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">HR Policy</a></li>
+                        <li><a href="/assets/pdf/RESEARCH-POLICY-LATEST.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Research Policy</a></li>
+                        <li><a href="/industry-connect/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Highlights</a></li>
+                        <li><a href="/online-grievance/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Online Grievance</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Proposed Building</a></li>
+                        <li><a href="/institutional-development-plan/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Institutional Dev Plan</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4 -->
                 <div>
-                    <h3 class="text-white text-base font-bold mb-5 border-b-2 border-theme-yellow inline-block pb-1">Extra-Curricular</h3>
-                    <ul class="space-y-2.5">
-                        <li><a href="/sports/" class="hover:text-theme-yellow transition block">Sports</a></li>
-                        <li><a href="/culturals/" class="hover:text-theme-yellow transition block">Culturals</a></li>
-                        <li><a href="/nss/" class="hover:text-theme-yellow transition block">NSS</a></li>
-                        <li><a href="/yrc-activities/" class="hover:text-theme-yellow transition block">YRC</a></li>
-                        <li><a href="/ccc-activities/" class="hover:text-theme-yellow transition block">CCC</a></li>
-                        <li><a href="/assets/pdf/unnat-bharat-abhiyan.pdf" target="_blank" class="hover:text-theme-yellow transition block">Unnat Bharat Abhiyan</a></li>
+                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Extracurricular</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/sports/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Sports</a></li>
+                        <li><a href="/culturals/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Culturals</a></li>
+                        <li><a href="/nss/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">NSS</a></li>
+                        <li><a href="/yrc-activities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">YRC</a></li>
+                        <li><a href="/ccc-activities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">CCC</a></li>
+                        <li><a href="/assets/pdf/unnat-bharat-abhiyan.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Unnat Bharat Abhiyan</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 5 -->
                 <div>
-                    <h3 class="text-white text-base font-bold mb-5 border-b-2 border-theme-yellow inline-block pb-1">Contact Us</h3>
-                    <div class="bg-white/5 rounded-lg p-5 border border-white/10">
-                        <p class="text-gray-400 mb-1">For Admissions Call:</p>
-                        <p class="text-base text-theme-yellow font-bold mb-4">
-                            <a href="tel:+919043891272" class="hover:text-white transition">+91 90438 91272</a> <br>
-                            <a href="tel:+919043890983" class="hover:text-white transition">+91 90438 90983</a>
+                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Contact Us</h3>
+                    <div class="bg-white/5 rounded-3xl p-6 border border-white/10 shadow-glass">
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Admissions Call</p>
+                        <p class="text-lg text-white font-black mb-5 tracking-wide">
+                            <a href="tel:+919043891272" class="hover:text-theme-accent transition">+91 90438 91272</a> <br>
+                            <a href="tel:+919043890983" class="hover:text-theme-accent transition">+91 90438 90983</a>
                         </p>
-                        <p class="text-gray-400 mb-1">Our Location:</p>
-                        <p class="mb-4 text-white leading-tight">Bangalore Trunk Road, Varadharajapuram, Poonamallee, Chennai – 600 123.</p>
-                        <p class="text-gray-400 mb-1">Phone:</p>
-                        <p class="mb-4 text-white">044 - 26490404 / 0505 / 0717</p>
-                        <p class="text-gray-400 mb-1">Email:</p>
-                        <a href="mailto:info@panimalar.ac.in" class="text-theme-yellow hover:text-white transition">info@panimalar.ac.in</a>
+                        
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Location</p>
+                        <p class="mb-5 text-gray-300 leading-relaxed text-sm">Bangalore Trunk Road, Varadharajapuram, Poonamallee, Chennai – 600123.</p>
+                        
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Phone & Email</p>
+                        <p class="mb-1 text-gray-300 text-sm">044 - 26490404 / 0505</p>
+                        <a href="mailto:info@panimalar.ac.in" class="text-theme-accent hover:text-white transition font-bold text-sm">info@panimalar.ac.in</a>
                     </div>
                 </div>
 
             </div>
 
             <!-- Footer Bottom -->
-            <div class="border-t border-white/10 pt-6 flex flex-col lg:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-                <p>Copyright &copy; <span id="year">2026</span> Panimalar Engineering College. All Rights Reserved.</p>
-                <p class="text-center lg:text-right">
-                    Designed by <a href="https://sivakumars-portfolio.netlify.app" target="_blank" class="text-theme-yellow hover:text-white transition font-medium">Siva Kumar R</a> 
-                    <span class="mx-2 hidden lg:inline">|</span><br class="lg:hidden">
-                    Powered by <a href="https://sparklance-solutions.netlify.app" target="_blank" class="text-theme-yellow hover:text-white transition font-medium">Sparklance Solutions</a>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium">
+                <p>Copyright &copy; <span id="year">2026</span> <span class="text-gray-300">Panimalar Engineering College.</span> All Rights Reserved.</p>
+                <p class="text-center md:text-right leading-loose">
+                    Designed by <a href="https://sivakumars-portfolio.netlify.app" target="_blank" class="text-white hover:text-theme-accent transition font-bold border-b border-white/20 pb-0.5">Siva Kumar R</a> 
+                    <span class="mx-3 hidden md:inline text-gray-700">|</span><br class="md:hidden">
+                    Partnered with <a href="https://sparklance-solutions.netlify.app" target="_blank" class="text-white hover:text-theme-accent transition font-bold border-b border-white/20 pb-0.5">Sparklance Solutions</a>
                 </p>
             </div>
         </div>
@@ -738,7 +733,7 @@
     <script>
         // Preloader Removal
         window.addEventListener('load', () => {
-            setTimeout(() => document.body.classList.add('loaded'), 400);
+            setTimeout(() => document.body.classList.add('loaded'), 600);
             document.getElementById('year').textContent = new Date().getFullYear();
         });
 
@@ -747,50 +742,12 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Multi-level Mobile Submenu Toggle
         function toggleMobileSub(id) {
             const el = document.getElementById(id);
             if(el) {
-                if(el.classList.contains('open')) {
-                    el.classList.remove('open');
-                } else {
-                    el.classList.add('open');
-                }
+                if(el.classList.contains('open')) el.classList.remove('open');
+                else el.classList.add('open');
             }
-        }
-
-        // Counter Animation (Intersection Observer)
-        const counters = document.querySelectorAll('.counter');
-        if (counters.length > 0) {
-            const observer = new IntersectionObserver((entries, obs) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.querySelectorAll('.counter').forEach(counter => {
-                            if (counter.dataset.counted === 'true') return;
-                            counter.dataset.counted = 'true';
-
-                            const target = +counter.getAttribute('data-target');
-                            const speed = 150; 
-                            const inc = target / speed;
-                            let count = 0;
-
-                            const updateCount = () => {
-                                count += inc;
-                                if (count < target) {
-                                    counter.innerText = Math.ceil(count).toLocaleString();
-                                    requestAnimationFrame(updateCount);
-                                } else {
-                                    counter.innerText = target.toLocaleString();
-                                }
-                            };
-                            updateCount();
-                        });
-                        obs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-
-            document.querySelectorAll('.grid').forEach(grid => observer.observe(grid));
         }
     </script>
 </body>
