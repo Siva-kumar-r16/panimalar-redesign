@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Panimalar Engineering College</title>
-    <meta name="description" content="About Panimalar Engineering College — governed by JAISAKTHI Educational Trust, NBA accredited, AICTE approved, UGC 12(B) & 2(f) recognized. Vision, mission, quality policy and 25 years of milestones.">
-    <link rel="canonical" href="https://www.panimalar.ac.in/about-us/">
-    <link rel="shortcut icon" href="/assets/images/favicon.png">
-
+    <title>About Us | Panimalar Engineering College</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], roboto: ['Roboto', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
                     colors: {
                         theme: {
                             yellow: '#FDB813', dark: '#0A2A5E', light: '#F4F7F6',
@@ -27,7 +26,10 @@
                             blue: '#1E88E5', orange: '#FB8C00', merun: '#8E24AA', pink: '#D81B60'
                         }
                     },
-                    boxShadow: { soft: '0 10px 40px rgba(0,0,0,0.05)', card: '0 4px 20px rgba(0,0,0,0.08)' }
+                    boxShadow: {
+                        'soft': '0 10px 40px rgba(0,0,0,0.05)',
+                        'card': '0 4px 20px rgba(0,0,0,0.08)',
+                    }
                 }
             }
         }
@@ -35,94 +37,52 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; color: #494949; overflow-x: hidden; }
-        #preloader { position: fixed; z-index: 999999; background: #fff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity .6s ease, visibility .6s ease; }
+        
+        #preloader { position: fixed; z-index: 999999; background: #ffffff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
         body.loaded #preloader { opacity: 0; visibility: hidden; }
-        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all .3s ease; position: relative; overflow: hidden; z-index: 1; }
-        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all .3s ease; z-index: -1; }
+
+        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
+        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all 0.3s ease; z-index: -1; }
         .btn-theme:hover { color: #fff; } .btn-theme:hover::before { width: 100%; }
-        .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10,42,94,.05); border-radius: 50px; }
+
+        .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10, 42, 94, 0.05); border-radius: 50px; }
         .section-title { font-size: 2.5rem; font-weight: 800; color: #0A2A5E; line-height: 1.2; }
         .section-title span { color: #FDB813; }
-        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; width: 100%; }
-        .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
-        .marquee-container:hover .marquee-content { animation-play-state: paused; }
-        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .hover-card { transition: transform .3s ease, box-shadow .3s ease; }
-        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.1); }
+
+        .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
         .dropdown:hover > .dropdown-menu { display: block; }
         .dropdown-submenu:hover > .dropdown-menu { display: block; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: .75rem; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .mobile-submenu { display: none; }
         .mobile-submenu.open { display: block; }
-        .skip-link { position: absolute; left: -999px; top: 0; background: #0A2A5E; color: #fff; padding: 10px 16px; z-index: 100000; }
-        .skip-link:focus { left: 0; }
-        a:focus-visible, button:focus-visible { outline: 3px solid #FDB813; outline-offset: 2px; }
-        .page-hero { background: linear-gradient(135deg, #0A2A5E 0%, #133a7a 100%); }
+        
+        /* Timeline specific */
         .timeline-rail::before { content: ""; position: absolute; left: 1rem; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
         @media (min-width: 768px) { .timeline-rail::before { left: 50%; transform: translateX(-50%); } }
     </style>
 </head>
-
 <body class="bg-white">
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <div id="preloader" aria-hidden="true">
+    <div id="preloader">
         <div class="text-center flex flex-col items-center">
             <div class="w-16 h-16 border-4 border-gray-200 border-t-theme-dark border-r-theme-yellow rounded-full animate-spin mb-4"></div>
             <span class="text-theme-dark font-bold tracking-widest text-sm uppercase animate-pulse">Loading Knowledge...</span>
         </div>
     </div>
 
-    <div class="bg-gray-100 text-xs py-2 border-b border-gray-200 hidden md:block">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-4 font-medium text-gray-600">
-                <span class="bg-red-500 text-white px-2 py-0.5 rounded animate-pulse shadow-sm">For Admissions</span>
-                <a href="tel:+919043891272" class="hover:text-theme-dark transition flex items-center gap-1"><i class="fa fa-phone text-theme-yellow" aria-hidden="true"></i> 90438 91272</a>
-                <span>/</span>
-                <a href="tel:+919043890983" class="hover:text-theme-dark transition">90438 90983</a>
-            </div>
-            <div class="flex items-center gap-4 text-gray-600 font-medium">
-                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition flex items-center gap-1"><i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i> College Brochure</a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Newsletter</a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Mandatory Disclosure</a>
-                <span class="text-gray-300">|</span>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Careers</a>
-                <div class="flex gap-3 border-l border-gray-300 pl-4 text-sm text-theme-dark">
-                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-theme-yellow transition"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-theme-yellow transition"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-theme-yellow transition"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-theme-yellow transition"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://x.com/PanimalarC" target="_blank" rel="noopener" aria-label="X (Twitter)" class="hover:text-theme-yellow transition">
-                        <svg class="w-3 h-3 fill-current inline-block relative -top-[2px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
-                            <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="site-header"></div>
 
-
-    <section class="page-hero py-16 md:py-20">
-        <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-white font-roboto mb-3">About Panimalar</h1>
-            <nav aria-label="Breadcrumb" class="text-sm text-gray-300">
-                <ol class="flex items-center justify-center gap-2">
-                    <li><a href="/" class="hover:text-theme-yellow transition">Home</a></li>
-                    <li aria-hidden="true">/</li>
-                    <li class="text-theme-yellow">About Us</li>
-                </ol>
-            </nav>
-        </div>
-    </section>
-
     <main id="main-content">
+        
+        <section class="relative pt-24 pb-16 bg-gradient-to-br from-theme-dark to-[#133a7a] overflow-hidden border-b-4 border-theme-yellow">
+            <div class="container mx-auto px-4 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-roboto">About Panimalar</h1>
+                <div class="text-gray-300 text-sm font-medium">
+                    <a href="index.html" class="hover:text-theme-yellow transition">Home</a> <span class="mx-2">/</span> <span class="text-theme-yellow">About Us</span>
+                </div>
+            </div>
+        </section>
 
         <section class="py-16 md:py-20 bg-white">
             <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -130,10 +90,10 @@
                     <span class="section-subtitle">Who We Are</span>
                     <h2 class="section-title mb-6">About <span>Panimalar</span></h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Panimalar Engineering College governed by JAISAKTHI Educational Trust aims at imparting quality engineering and management education for the aspiring youth.</p>
-                    <p class="text-gray-600 leading-relaxed">The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering, Chennai, Kancheepuram and Thiruvallur districts. The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu. The policy emphasizes to give high priority to meet the demand for trained engineers for various industrial and development projects in the state of Tamil Nadu and the rest of India.</p>
+                    <p class="text-gray-600 leading-relaxed">The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering, Chennai, Kancheepuram and Thiruvallur districts. The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu.</p>
                 </div>
                 <div class="hover-card">
-                    <img src="/assets/images/AboutUs/panimalar-engg.jpg" alt="Panimalar Engineering College campus building" class="w-full h-auto rounded-xl shadow-card object-cover" loading="lazy">
+                    <img src="https://placehold.co/800x600/0A2A5E/FDB813?text=College+Building" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-xl shadow-card object-cover">
                 </div>
             </div>
         </section>
@@ -141,621 +101,129 @@
         <section class="py-16 md:py-20 bg-theme-light">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
-                    <span class="section-subtitle">Purpose</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-theme-dark mb-4 leading-tight">Vision <span class="text-theme-yellow">of the Institute</span></h2>
+                    <div class="w-16 h-16 bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h2 class="text-2xl font-extrabold text-theme-dark mb-4">Vision <span class="text-theme-yellow">of the Institute</span></h2>
                     <p class="text-gray-600 leading-relaxed">To transform the budding engineers into academically excellent, highly intellectual and self disciplined engineering graduates to mould them as good citizens with the spirit of integrity and morality that would cater to the needs of our nation.</p>
                 </div>
+                
                 <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
-                    <span class="section-subtitle">Purpose</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-theme-dark mb-4 leading-tight">Mission <span class="text-theme-yellow">of the Institute</span></h2>
-                    <ul class="text-gray-600 leading-relaxed space-y-2 list-none">
-                        <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-theme-yellow mt-2" aria-hidden="true"></i><span>To impart quality education with high standards of excellence in engineering and technology.</span></li>
-                        <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-theme-yellow mt-2" aria-hidden="true"></i><span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge in the field of engineering and technology.</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 md:py-20 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="bg-theme-dark rounded-xl p-8 md:p-12 shadow-card">
-                    <span class="section-subtitle !bg-white/10 !text-theme-yellow">Commitment</span>
-                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4 leading-tight">Quality <span class="text-theme-yellow">Policy</span></h2>
-                    <p class="text-gray-300 leading-relaxed mb-4">The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by</p>
-                    <ul class="text-gray-300 leading-relaxed space-y-2 list-none">
-                        <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-theme-yellow mt-2" aria-hidden="true"></i><span>Providing and Maintaining good learning environment and ambience for enhanced learning.</span></li>
-                        <li class="flex gap-2"><i class="fas fa-circle text-[6px] text-theme-yellow mt-2" aria-hidden="true"></i><span>Inculcating Professional Ethics, Standards and Morale through student career and personality development programs.</span></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-16 md:py-20 bg-theme-dark text-white relative overflow-hidden">
-            <div class="container mx-auto px-4 max-w-3xl text-center relative z-10">
-                <span class="section-subtitle !bg-white/10 !text-theme-yellow">Campus Life</span>
-                <h2 class="section-title !text-white mb-6">Our <span>Campus</span></h2>
-                <p class="text-gray-300 leading-relaxed">This sprawling campus provides a holistic education in an ambience that makes no compromise on discipline, dedication and commitment. It strives to inculcate the spirit of learning in the campus offering state of art facilities to the students. The college ensures that the students who pass out of the college, turn out to be academically brilliant, morally upright and empowered individuals.</p>
-            </div>
-        </section>
-
-        <section class="py-16 bg-theme-light">
-            <div class="container mx-auto px-4">
-                <div class="bg-white rounded-xl shadow-card p-6 md:p-10 border border-gray-100">
-                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 text-center divide-x divide-gray-100">
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="2100000">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Sq. Ft. Infrastructure</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="10">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Departments</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="11000">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Students</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1000">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Employees</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1500">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Rank holders</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="4000">0</span>+</h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">Publications</p>
-                        </div>
-                        <div class="p-2">
-                            <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="66">0</span></h3>
-                            <p class="text-theme-dark font-medium text-xs md:text-sm">H-Index</p>
-                        </div>
+                    <div class="w-16 h-16 bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-bullseye"></i>
                     </div>
+                    <h2 class="text-2xl font-extrabold text-theme-dark mb-4">Mission <span class="text-theme-yellow">of the Institute</span></h2>
+                    <ul class="text-gray-600 leading-relaxed space-y-3">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-theme-yellow mt-1"></i>
+                            <span>To impart quality education with high standards of excellence in engineering and technology.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-theme-yellow mt-1"></i>
+                            <span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section class="py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="bg-theme-dark rounded-xl p-8 md:p-12 shadow-card mb-16">
+                    <span class="section-subtitle !bg-white/10 !text-theme-yellow">Commitment</span>
+                    <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Quality <span class="text-theme-yellow">Policy</span></h2>
+                    <p class="text-gray-300 leading-relaxed mb-6">The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by:</p>
+                    <ul class="grid md:grid-cols-2 gap-4 text-gray-300">
+                        <li class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <i class="fas fa-star text-theme-yellow mt-1"></i>
+                            <span>Providing and Maintaining good learning environment and ambience for enhanced learning.</span>
+                        </li>
+                        <li class="flex gap-3 bg-white/5 p-4 rounded-lg border border-white/10">
+                            <i class="fas fa-star text-theme-yellow mt-1"></i>
+                            <span>Inculcating Professional Ethics, Standards and Morale through student career and personality development programs.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 md:py-20 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <span class="section-subtitle">Our Journey</span>
-                    <h2 class="section-title">Milestones of Panimalar <span>Engineering College</span></h2>
+                    <h2 class="section-title">Milestones of <span>Panimalar</span></h2>
                 </div>
-                <div class="relative timeline-rail">
 
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2000</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">Departments Established in the Year of 2000</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
+                <!-- Timeline layout -->
+                <div class="relative timeline-rail max-w-5xl mx-auto">
+                    
+                    <!-- 2000 -->
+                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
+                        <div class="hidden md:block order-1 text-right pt-6 pr-10">
+                            <h3 class="text-3xl font-bold text-theme-yellow">2000</h3>
+                        </div>
+                        <div class="md:order-2 relative pt-2 pb-6">
+                            <div class="absolute left-[-2.65rem] md:left-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                            <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2000</h3>
+                                <p class="text-gray-600 font-medium mb-2">Inception of the College</p>
+                                <p class="text-sm text-gray-500">Established departments: CSE (60 seats), IT (60 seats), ECE (60 seats).</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2001 - 2002</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2001-02 (MCA Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
+                    <!-- 2002-2003 -->
+                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
+                        <div class="md:order-1 relative pt-2 pb-6 text-right">
+                            <div class="absolute left-[-2.65rem] md:left-auto md:right-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                            <div class="bg-white rounded-xl shadow-card p-6 border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-theme-dark text-left md:text-right">
+                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2002-2003</h3>
+                                <p class="text-gray-600 font-medium mb-2">Expansion & New Courses</p>
+                                <p class="text-sm text-gray-500">Introduced Mechanical Engineering & Master of Business Administration (MBA).</p>
+                            </div>
+                        </div>
+                        <div class="hidden md:block order-2 pt-6 pl-10">
+                            <h3 class="text-3xl font-bold text-theme-yellow">2002-03</h3>
+                        </div>
+                    </div>
+
+                    <!-- 2016-2017 -->
+                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
+                        <div class="hidden md:block order-1 text-right pt-6 pr-10">
+                            <h3 class="text-3xl font-bold text-theme-yellow">2016-17</h3>
+                        </div>
+                        <div class="md:order-2 relative pt-2 pb-6">
+                            <div class="absolute left-[-2.65rem] md:left-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                            <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2016-2017</h3>
+                                <p class="text-gray-600 font-medium mb-2">Postgraduate Additions</p>
+                                <p class="text-sm text-gray-500">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2002-2003</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2002-03 (MECH, MBA Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
+                    <!-- 2024-2025 -->
+                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
+                        <div class="md:order-1 relative pt-2 pb-6 text-right">
+                            <div class="absolute left-[-2.65rem] md:left-auto md:right-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                            <div class="bg-white rounded-xl shadow-card p-6 border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-theme-dark text-left md:text-right">
+                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2024-2025</h3>
+                                <p class="text-gray-600 font-medium mb-2">Modern Future Ready Intake</p>
+                                <p class="text-sm text-gray-500">Scaling heights with massive intakes across CSE (960), IT (540), AI&DS (480), and AIML (240).</p>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2003-2004</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2003-04</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="hidden md:block order-2 pt-6 pl-10">
+                            <h3 class="text-3xl font-bold text-theme-yellow">2024-25</h3>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2004-2005</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2004-05</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2005-2006</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2005-06</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2006-2007</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2006-07</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2007-2008</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2007-08 (EIE Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">150</td><td class="px-3 py-2 text-center whitespace-nowrap">150</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2008-2009</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2008-09 (CIVIL Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2009-2010</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2009-2010</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2010-2011</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2010-11</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2011-2012</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2011-12</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2012-2013</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2012-13</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2013-2014</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2013-14</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2014-2015</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2014-15</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2015-2016</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2015-16</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MCA</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">0</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2016-2017</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2016-17 (ME CSE, ME ECE Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(ECE)</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2017-2018</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2017-18</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(ECE)</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2018-2019</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2018-19</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(ECE)</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2019-2020</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2019-20</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(ECE)</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2020-2021</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2020-21 (AI&DS, CSBS, CCE Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EIE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(ECE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AI&DS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSBS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CCE</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2021-2022</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2021-22</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AI&DS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSBS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CCE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CIVIL</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CS)</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">120</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">300</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td><td class="px-3 py-2 text-center whitespace-nowrap">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2022-2023</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2022-23 (AIML Established)</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AI&DS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSBS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CS)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AIML</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">540</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">360</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="right">
-                    <div class="hidden md:block order-2"></div>
-                    <div class="md:order-1">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2023-2024</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2023-24</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CS)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AI&DS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSBS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AIML</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">720</td><td class="px-3 py-2 text-center whitespace-nowrap">420</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10" data-side="left">
-                    <div class="hidden md:block order-1"></div>
-                    <div class="md:order-2">
-                        <div class="absolute left-4 md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-theme-yellow border-4 border-white shadow" aria-hidden="true"></div>
-                        <div class="bg-white rounded-xl shadow-card p-6 hover-card border-l-4 border-theme-yellow">
-                            <h3 class="text-xl font-bold text-theme-dark mb-1">2024-2025</h3>
-                            <p class="text-xs uppercase tracking-wide text-gray-500 mb-3">INTAKE in the Year of 2024-25</p>
-                            <div class="overflow-x-auto rounded-lg border border-gray-100">
-                                <table class="min-w-full text-sm text-gray-700">
-                                    <thead class="bg-theme-light">
-                                        <tr><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">IT</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ECE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">EEE</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MECH</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">MBA</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CSE)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">ME(CS)</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AI&DS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">CSBS</th><th class="px-3 py-2 font-semibold text-theme-dark whitespace-nowrap">AIML</th></tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="border-t border-gray-100"><td class="px-3 py-2 text-center whitespace-nowrap">960</td><td class="px-3 py-2 text-center whitespace-nowrap">540</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">180</td><td class="px-3 py-2 text-center whitespace-nowrap">90</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">18</td><td class="px-3 py-2 text-center whitespace-nowrap">480</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td><td class="px-3 py-2 text-center whitespace-nowrap">240</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
-
     </main>
 
     <div id="site-footer"></div>
 
-
-    <script src="/assets/js/site.js"></script>
+    <script src="assets/js/site.js"></script>
 </body>
 </html>
