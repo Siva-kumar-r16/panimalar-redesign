@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Panimalar Engineering College</title>
+    <title>Panimalar Engineering College | Excellence in Education</title>
 
     <link rel="shortcut icon" href="/assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -22,31 +23,21 @@
                     },
                     colors: {
                         theme: {
-                            dark: '#151A23',      /* Primary Dark Graphite */
-                            light: '#F5F7FA',     /* Background Light Gray */
-                            accent: '#2D9CFF',    /* Electric Blue */
-                            yellow: '#FFC83D',    /* Premium Gold */
-                            text: '#2F3640',      /* Standard Text */
-                            red: '#E53946',       /* Important */
-                            green: '#27AE60',     /* Success */
-                            secondary: '#FFFFFF'
+                            primary: '#1A1C23',   /* Carbon Graphite */
+                            navy: '#0F172A',      /* Deep Navy */
+                            accent: '#4A5D70',    /* Muted Slate Blue */
+                            gold: '#C2A661',      /* Champagne Gold */
+                            red: '#9E2A2B',       /* Heritage Red */
+                            bg: '#F4F3EF',        /* Warm Stone */
+                            surface: '#FAF9F6',   /* Natural Linen */
+                            text: '#373A40',      /* Charcoal */
+                            border: '#E5E2DC'     /* Soft Stone */
                         }
                     },
                     boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.1)',
-                        'glass-strong': '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
-                        'premium': '0 20px 40px rgba(0,0,0,0.05)',
-                        'hover': '0 30px 60px rgba(0,0,0,0.12)',
-                        'dropdown': '0 15px 35px rgba(0,0,0,0.2)',
-                    },
-                    borderRadius: {
-                        '2xl': '1rem',
-                        '3xl': '1.5rem',
-                        '4xl': '2.5rem'
-                    },
-                    backgroundImage: {
-                        'tech-gradient': 'linear-gradient(135deg, #151A23 0%, #1A222F 100%)',
-                        'glass-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%)'
+                        'subtle': '0 4px 20px rgba(0, 0, 0, 0.03)',
+                        'elevated': '0 12px 35px rgba(0, 0, 0, 0.06)',
+                        'dropdown': '0 8px 30px rgba(0, 0, 0, 0.08)'
                     }
                 }
             }
@@ -54,110 +45,109 @@
     </script>
 
     <style>
-        body { font-family: 'Inter', sans-serif; color: #2F3640; overflow-x: hidden; background-color: #F5F7FA; }
+        body { font-family: 'Inter', sans-serif; color: #373A40; overflow-x: hidden; background-color: #F4F3EF; }
         
-        #preloader { position: fixed; z-index: 999999; background: #151A23; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
+        #preloader { position: fixed; z-index: 999999; background: #FAF9F6; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
         body.loaded #preloader { opacity: 0; visibility: hidden; }
 
         /* Premium Buttons */
         .btn-primary {
-            position: relative; display: inline-flex; align-items: center; justify-content: center;
-            padding: 14px 32px; background-color: #2D9CFF; color: #FFFFFF; font-weight: 700; 
-            border-radius: 9999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden; z-index: 1; box-shadow: 0 4px 15px rgba(45,156,255,0.3);
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; background-color: #1A1C23; color: #FAF9F6; font-weight: 600; 
+            border-radius: 8px; transition: all 0.3s ease; border: 1px solid transparent;
         }
+        .btn-primary:hover { background-color: #0F172A; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: #4A5D70; }
+        
         .btn-gold {
-            background-color: #FFC83D; color: #151A23; box-shadow: 0 4px 15px rgba(255,200,61,0.3);
-            border-radius: 9999px; padding: 10px 24px; font-weight: 700; display: inline-flex; align-items: center; transition: all 0.3s ease;
+            background-color: #C2A661; color: #1A1C23; font-weight: 600; border-radius: 8px; 
+            padding: 10px 24px; transition: all 0.3s ease; display: inline-flex; align-items: center;
         }
-        .btn-gold:hover { background-color: #ffcf54; box-shadow: 0 8px 25px rgba(255,200,61,0.5); }
+        .btn-gold:hover { background-color: #B09556; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(194, 166, 97, 0.2); }
 
         /* Typography & Headings */
         .section-subtitle { 
-            color: #2D9CFF; font-weight: 700; display: inline-flex; align-items: center; gap: 10px; 
-            margin-bottom: 16px; padding: 6px 16px; background: rgba(45, 156, 255, 0.1); 
-            border-radius: 50px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em;
+            color: #C2A661; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; 
+            margin-bottom: 16px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;
         }
-        .section-title { font-size: 2.75rem; font-weight: 900; color: #151A23; line-height: 1.1; letter-spacing: -0.02em; }
-        .section-title span { color: #2D9CFF; }
+        .section-title { font-size: 2.75rem; font-weight: 800; color: #1A1C23; line-height: 1.2; letter-spacing: -0.02em; }
+        .section-title span { color: #4A5D70; font-weight: 300; }
+        .dark-section .section-title { color: #FAF9F6; }
+        .dark-section .section-title span { color: #C2A661; font-weight: 300; }
 
         /* Cards & Hover Effects */
-        .hover-card { transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.08); }
+        .hover-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #E5E2DC; }
+        .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); border-color: #C2A661; }
+        
+        .tech-card { transition: all 0.4s ease; border: 1px solid rgba(255,255,255,0.05); }
+        .tech-card:hover { border-color: rgba(194, 166, 97, 0.4); transform: translateY(-4px); }
 
         /* Navigation Links (Animated Underline) */
         .nav-link { position: relative; padding-bottom: 4px; }
         .nav-link::after {
             content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
-            background-color: #2D9CFF; transition: width 0.3s ease;
+            background-color: #C2A661; transition: width 0.3s ease;
         }
-        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-        .nav-link.active { color: #2D9CFF; }
+        .nav-link:hover::after { width: 100%; }
 
         /* Dropdown Logic */
-        .dropdown:hover > .dropdown-menu { display: block; animation: smoothReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        .dropdown-submenu:hover > .dropdown-menu { display: block; animation: smoothReveal 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
-        @keyframes smoothReveal { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+        .dropdown:hover > .dropdown-menu { display: block; animation: smoothReveal 0.2s ease forwards; }
+        .dropdown-submenu:hover > .dropdown-menu { display: block; animation: smoothReveal 0.2s ease forwards; }
+        @keyframes smoothReveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
         
         .mobile-submenu { display: none; }
         .mobile-submenu.open { display: block; }
         .mobile-submenu-2 { display: none; }
         .mobile-submenu-2.open { display: block; }
 
-        /* Timeline & Table */
-        .timeline-rail { position: relative; }
-        .timeline-rail::before { content: ""; position: absolute; left: 1.5rem; top: 0; bottom: 0; width: 2px; background: rgba(45,156,255,0.3); box-shadow: 0 0 10px rgba(45,156,255,0.2); }
-        .timeline-dot { position: absolute; left: -2.35rem; top: 0.25rem; width: 1.25rem; height: 1.25rem; border-radius: 50%; background: #2D9CFF; box-shadow: 0 0 15px rgba(45,156,255,0.6); border: 3px solid #151A23; z-index: 10; }
-        
-        .intake-table { border-collapse: separate; border-spacing: 0; width: 100%; font-size: 0.85rem; min-width: 500px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); }
-        .intake-table th, .intake-table td { padding: 12px 8px; text-align: center; white-space: nowrap; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .intake-table th { background: rgba(255,255,255,0.05); color: #FFC83D; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
-        .intake-table tr:last-child td { border-bottom: none; }
-        .intake-table td { color: #e2e8f0; }
-        .intake-scroll { overflow-x: auto; padding-bottom: 10px; border-radius: 12px; }
-        .intake-scroll::-webkit-scrollbar { height: 6px; }
-        .intake-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 4px; }
+        /* Marquee */
+        .marquee-container { overflow: hidden; white-space: nowrap; display: flex; width: 100%; }
+        .marquee-content { display: inline-block; animation: marquee 35s linear infinite; }
+        .marquee-container:hover .marquee-content { animation-play-state: paused; }
+        @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+
+        .logo-strip { animation: scrollLogos 40s linear infinite; }
+        .logo-strip:hover { animation-play-state: paused; }
+        @keyframes scrollLogos { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1rem; border: 1px solid #E5E2DC; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 1rem; }
     </style>
 </head>
-<body class="bg-theme-light antialiased selection:bg-theme-accent selection:text-white">
+<body class="bg-theme-bg antialiased selection:bg-theme-gold selection:text-theme-primary">
 
     <div id="preloader">
         <div class="text-center flex flex-col items-center">
-            <div class="relative w-20 h-20 mb-6">
-                <div class="absolute inset-0 rounded-full border-t-2 border-theme-accent animate-[spin_1s_linear_infinite]"></div>
-                <div class="absolute inset-2 rounded-full border-r-2 border-theme-yellow animate-[spin_1.5s_linear_infinite_reverse]"></div>
-                <div class="absolute inset-4 rounded-full border-b-2 border-white animate-[spin_2s_linear_infinite]"></div>
-            </div>
-            <span class="text-white font-bold tracking-[0.2em] text-sm uppercase animate-pulse">Initializing <span class="text-theme-accent">System</span></span>
+            <div class="w-12 h-12 border-2 border-theme-border border-t-theme-gold rounded-full animate-spin mb-4"></div>
+            <span class="text-theme-primary font-semibold tracking-widest text-xs uppercase">Initializing</span>
         </div>
     </div>
 
-    <div class="bg-[#0b0e14] text-xs py-2.5 hidden md:block border-b border-white/5">
+    <div class="bg-theme-surface text-xs py-2 hidden md:block border-b border-theme-border">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <div class="flex items-center gap-5 font-medium text-gray-400">
-                <span class="bg-theme-red text-white px-3 py-1 rounded-full animate-pulse shadow-[0_0_10px_rgba(229,57,70,0.4)] text-[10px] uppercase font-bold tracking-wider">Admissions Open</span>
-                <a href="tel:+919043891272" class="hover:text-white transition flex items-center gap-1.5"><i class="fa fa-phone text-theme-accent"></i> 90438 91272</a>
-                <span class="text-gray-700">/</span>
-                <a href="tel:+919043890983" class="hover:text-white transition">90438 90983</a>
+            <div class="flex items-center gap-5 font-medium text-theme-text">
+                <span class="bg-theme-red text-white px-3 py-1 rounded text-[10px] uppercase font-bold tracking-wider">Admissions Open</span>
+                <a href="tel:+919043891272" class="hover:text-theme-gold transition flex items-center gap-1.5"><i class="fa fa-phone text-theme-accent"></i> 90438 91272</a>
+                <span class="text-gray-400">/</span>
+                <a href="tel:+919043890983" class="hover:text-theme-gold transition">90438 90983</a>
             </div>
 
-            <div class="flex items-center gap-5 text-gray-400 font-medium">
-                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" class="hover:text-white transition flex items-center gap-1.5">
+            <div class="flex items-center gap-5 text-theme-text font-medium">
+                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" class="hover:text-theme-gold transition flex items-center gap-1.5">
                     <i class="fas fa-file-pdf text-theme-red"></i> Brochure
                 </a>
-                <span class="text-gray-700">|</span>
-                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" class="hover:text-white transition">Newsletter</a>
-                <span class="text-gray-700">|</span>
-                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" class="hover:text-white transition">Disclosure</a>
-                <span class="text-gray-700">|</span>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" class="hover:text-white transition">Careers</a>
+                <span class="text-gray-300">|</span>
+                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" class="hover:text-theme-gold transition">Newsletter</a>
+                <span class="text-gray-300">|</span>
+                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" class="hover:text-theme-gold transition">Disclosure</a>
+                <span class="text-gray-300">|</span>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" class="hover:text-theme-gold transition">Careers</a>
 
-                <div class="flex gap-4 border-l border-white/10 pl-5 text-[13px] text-gray-400">
-                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" class="hover:text-theme-accent transition transform hover:scale-110"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" class="hover:text-theme-red transition transform hover:scale-110"><i class="fab fa-youtube"></i></a>
-                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" class="hover:text-pink-500 transition transform hover:scale-110"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" class="hover:text-theme-accent transition transform hover:scale-110"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/PanimalarC" target="_blank" class="hover:text-white transition transform hover:scale-110">
+                <div class="flex gap-4 border-l border-theme-border pl-5 text-[13px] text-theme-accent">
+                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/PanimalarC" target="_blank" class="hover:text-theme-gold transition">
                         <svg class="w-[13px] h-[13px] fill-current inline-block relative -top-[1px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
                             <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z" />
                         </svg>
@@ -167,85 +157,84 @@
         </div>
     </div>
 
-    <header class="bg-theme-dark/85 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50 transition-all duration-300 shadow-glass">
+    <header class="bg-theme-primary/95 backdrop-blur-md border-b border-white/5 sticky top-0 z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             
-            <!-- Logo with White Backdrop -->
-            <a href="/" class="flex items-center gap-3 w-48 md:w-64 p-2 rounded-xl">
-                <img src="/assets/images/pec-logo.png" alt="Panimalar Logo" class="w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/300x80/ffffff/0A2A5E?text=PEC+Logo'">
+            <a href="/" class="flex items-center gap-3 w-48 md:w-64 py-1">
+                <img src="/assets/images/pec-logo.png" alt="Panimalar Logo" class="w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/300x80/1A1C23/FFFFFF?text=PEC+Logo'">
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden xl:flex items-center gap-7 font-semibold text-sm text-gray-200 tracking-wide relative">
-                <a href="/" class="hover:text-white transition nav-link"><i class="fas fa-home text-lg"></i></a>
+            <nav class="hidden xl:flex items-center gap-7 font-medium text-sm text-gray-300 tracking-wide relative h-full">
+                <a href="/" class="text-theme-gold nav-link"><i class="fas fa-home text-lg"></i></a>
 
                 <!-- 1. ABOUT US -->
-                <div class="relative dropdown group h-full">
-                    <a href="/about-us/" class="flex items-center gap-1.5 py-4 nav-link active">About Us <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 left-0 top-full">
-                        <li><a href="/about-us/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">About Panimalar</a></li>
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="/about-us/" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">About Us <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 left-0 top-full mt-0">
+                        <li><a href="/about-us/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">About Panimalar</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Leadership <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-72 py-3 left-full -top-3 border border-white/10">
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Leadership <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-72 py-3 left-full top-0 border border-theme-border ml-0">
                                 <li class="relative dropdown-submenu group/sub2">
-                                    <a href="/management-team/" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Management Team <i class="fas fa-angle-right text-[10px]"></i></a>
-                                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-80 py-3 left-full -top-3 border border-white/10">
-                                        <li><a href="/secretary-correspondent/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. P. Chinnadurai, M.A., Ph.D</a></li>
-                                        <li><a href="/dr-c-sakthikumar/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. C. Sakthi Kumar, M.E., Ph.D</a></li>
-                                        <li><a href="/mrs-c-vijayarajeswari/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Mrs. C. Vijayarajeswari</a></li>
-                                        <li><a href="/dr-saranya-sree-sakthikumar/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a></li>
+                                    <a href="/management-team/" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Management Team <i class="fas fa-angle-right text-[10px]"></i></a>
+                                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-80 py-3 left-full top-0 border border-theme-border ml-0">
+                                        <li><a href="/secretary-correspondent/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. P. Chinnadurai, M.A., Ph.D</a></li>
+                                        <li><a href="/dr-c-sakthikumar/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. C. Sakthi Kumar, M.E., Ph.D</a></li>
+                                        <li><a href="/mrs-c-vijayarajeswari/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Mrs. C. Vijayarajeswari</a></li>
+                                        <li><a href="/dr-saranya-sree-sakthikumar/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="/principal/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Principal</a></li>
-                                <li><a href="/governing-body/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Governing Body</a></li>
-                                <li><a href="/objectives/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Objectives</a></li>
-                                <li><a href="/journey-so-far/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Journey So far</a></li>
+                                <li><a href="/principal/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Principal</a></li>
+                                <li><a href="/governing-body/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Governing Body</a></li>
+                                <li><a href="/objectives/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Objectives</a></li>
+                                <li><a href="/journey-so-far/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Journey So far</a></li>
                             </ul>
                         </li>
-                        <li><a href="/rules-regulations/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Rules and Regulations</a></li>
-                        <li><a href="/corporate-and-international-relations/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Corporate & Int. Relations</a></li>
+                        <li><a href="/rules-regulations/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Rules and Regulations</a></li>
+                        <li><a href="/corporate-and-international-relations/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Corporate & Int. Relations</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Jaisakthi Institutes <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-80 py-3 left-full -top-3 border border-white/10">
-                                <li><a href="https://pmchri.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Panimalar Medical College</a></li>
-                                <li><a href="https://pcon.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Panimalar College of Nursing</a></li>
-                                <li><a href="https://pcoahs.ac.in/" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Allied Health Sciences</a></li>
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Jaisakthi Institutes <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-80 py-3 left-full top-0 border border-theme-border ml-0">
+                                <li><a href="https://pmchri.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Panimalar Medical College</a></li>
+                                <li><a href="https://pcon.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Panimalar College of Nursing</a></li>
+                                <li><a href="https://pcoahs.ac.in/" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Allied Health Sciences</a></li>
                             </ul>
                         </li>
-                        <li><a href="/alumni-association/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent transition text-gray-300">Alumni Association</a></li>
+                        <li><a href="/alumni-association/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Alumni Association</a></li>
                     </ul>
                 </div>
 
                 <!-- 2. COURSES -->
-                <div class="relative dropdown group h-full">
+                <div class="relative dropdown group h-full flex items-center">
                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Courses <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                    <div class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-3xl border border-white/10 w-[750px] p-8 left-1/2 -translate-x-1/2 top-full">
+                    <div class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-xl border border-theme-border w-[750px] p-8 left-1/2 -translate-x-1/2 top-full mt-0">
                         <div class="grid grid-cols-3 gap-8">
                             <div>
-                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-laptop-code text-theme-accent"></i> Undergraduate</h4>
-                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
-                                    <li><a href="/be-computer-science-and-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E CSE</a></li>
-                                    <li><a href="/be-electronics-and-communication-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E ECE</a></li>
-                                    <li><a href="/be-electrical-and-electronics-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E EEE</a></li>
-                                    <li><a href="/be-mechanical-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.E Mechanical</a></li>
-                                    <li><a href="/btech-computer-science-and-business-systems/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech CSBS</a></li>
-                                    <li><a href="/btech-information-technology/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech IT</a></li>
-                                    <li><a href="/btech-artificial-intelligence-data-science/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech AI & DS</a></li>
-                                    <li><a href="/btech-artificial-intelligence-machine-learning/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">B.Tech AI & ML</a></li>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Undergraduate</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/be-computer-science-and-engineering/" class="hover:text-theme-gold transition-colors block">B.E CSE</a></li>
+                                    <li><a href="/be-electronics-and-communication-engineering/" class="hover:text-theme-gold transition-colors block">B.E ECE</a></li>
+                                    <li><a href="/be-electrical-and-electronics-engineering/" class="hover:text-theme-gold transition-colors block">B.E EEE</a></li>
+                                    <li><a href="/be-mechanical-engineering/" class="hover:text-theme-gold transition-colors block">B.E Mechanical</a></li>
+                                    <li><a href="/btech-computer-science-and-business-systems/" class="hover:text-theme-gold transition-colors block">B.Tech CSBS</a></li>
+                                    <li><a href="/btech-information-technology/" class="hover:text-theme-gold transition-colors block">B.Tech IT</a></li>
+                                    <li><a href="/btech-artificial-intelligence-data-science/" class="hover:text-theme-gold transition-colors block">B.Tech AI & DS</a></li>
+                                    <li><a href="/btech-artificial-intelligence-machine-learning/" class="hover:text-theme-gold transition-colors block">B.Tech AI & ML</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-user-graduate text-theme-yellow"></i> Postgraduate</h4>
-                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
-                                    <li><a href="/me-computer-science-and-engineering/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">M.E CSE</a></li>
-                                    <li><a href="/me-communication-systems/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">M.E Communication Sys</a></li>
-                                    <li><a href="/mba/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">Master of Business Admin</a></li>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Postgraduate</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/me-computer-science-and-engineering/" class="hover:text-theme-gold transition-colors block">M.E CSE</a></li>
+                                    <li><a href="/me-communication-systems/" class="hover:text-theme-gold transition-colors block">M.E Communication Sys</a></li>
+                                    <li><a href="/mba/" class="hover:text-theme-gold transition-colors block">Master of Business Admin</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <h4 class="text-white font-bold border-b border-white/10 pb-3 mb-4 flex items-center gap-2"><i class="fas fa-atom text-theme-green"></i> Sciences</h4>
-                                <ul class="space-y-3 text-[13px] font-medium text-gray-400">
-                                    <li><a href="/science-and-humanities/" class="hover:text-theme-accent hover:translate-x-1 transform transition-all block">Science & Humanities</a></li>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Sciences</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/science-and-humanities/" class="hover:text-theme-gold transition-colors block">Science & Humanities</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -253,91 +242,91 @@
                 </div>
 
                 <!-- 3. ACADEMICS MEGA MENU -->
-                <div class="relative dropdown group h-full">
+                <div class="relative dropdown group h-full flex items-center">
                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Academics <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                    <div class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-3xl border border-white/10 w-[650px] p-8 left-1/2 -translate-x-1/2 top-full">
-                        <div class="grid grid-cols-2 gap-8 text-[13px] font-medium text-gray-400">
-                            <ul class="space-y-4 border-r border-white/10 pr-6">
-                                <li><a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="hover:text-theme-accent block transition">Academic Council Members</a></li>
-                                <li><a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="hover:text-theme-accent block transition">Regulation</a></li>
-                                <li><a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="hover:text-theme-accent block transition">Curriculum and Syllabus</a></li>
-                                <li><a href="/committee/" class="hover:text-theme-accent block transition">Committees</a></li>
-                                <li><a href="/iqac/" class="hover:text-theme-accent block transition leading-relaxed">Internal Quality Assurance<br><span class="text-gray-500 text-xs">Cell (IQAC)</span></a></li>
-                                <li><a href="/idea-lab/" class="hover:text-theme-accent block transition">PEC-AICTE Idea Lab</a></li>
-                                <li><a href="/mou/" class="hover:text-theme-accent block transition leading-relaxed">Memorandum of<br><span class="text-gray-500 text-xs">Understanding (MoU)</span></a></li>
-                                <li><a href="/iic/" class="hover:text-theme-accent block transition leading-relaxed">Institution's Innovation<br><span class="text-gray-500 text-xs">Council (IIC)</span></a></li>
-                                <li><a href="/entrepreneurship-development-cell/" class="hover:text-theme-accent block transition leading-relaxed">Entrepreneurship<br><span class="text-gray-500 text-xs">Development Cell (EDC)</span></a></li>
+                    <div class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-xl border border-theme-border w-[650px] p-8 left-1/2 -translate-x-1/2 top-full mt-0">
+                        <div class="grid grid-cols-2 gap-8 text-[13px] text-theme-text">
+                            <ul class="space-y-4 border-r border-theme-border pr-6">
+                                <li><a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="hover:text-theme-gold block transition-colors">Academic Council Members</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="hover:text-theme-gold block transition-colors">Regulation</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="hover:text-theme-gold block transition-colors">Curriculum and Syllabus</a></li>
+                                <li><a href="/committee/" class="hover:text-theme-gold block transition-colors">Committees</a></li>
+                                <li><a href="/iqac/" class="hover:text-theme-gold block transition-colors leading-relaxed">Internal Quality Assurance Cell (IQAC)</a></li>
+                                <li><a href="/idea-lab/" class="hover:text-theme-gold block transition-colors">PEC-AICTE Idea Lab</a></li>
+                                <li><a href="/mou/" class="hover:text-theme-gold block transition-colors leading-relaxed">Memorandum of Understanding (MoU)</a></li>
+                                <li><a href="/iic/" class="hover:text-theme-gold block transition-colors leading-relaxed">Institution's Innovation Council (IIC)</a></li>
+                                <li><a href="/entrepreneurship-development-cell/" class="hover:text-theme-gold block transition-colors leading-relaxed">Entrepreneurship Development Cell (EDC)</a></li>
                             </ul>
                             <ul class="space-y-5 pl-2">
-                                <li><a href="/higher-education-centre/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-level-up-alt text-theme-yellow opacity-70"></i> Higher Education Centre</a></li>
-                                <li><a href="/professional-bodies/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-users-cog text-theme-accent opacity-70"></i> Professional Societies</a></li>
-                                <li><a href="/nptel/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-certificate text-theme-green opacity-70"></i> NPTEL</a></li>
-                                <li><a href="/nasscom/" class="hover:text-theme-accent flex items-center gap-2 transition"><i class="fas fa-code text-theme-red opacity-70"></i> NASSCOM</a></li>
+                                <li><a href="/higher-education-centre/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">Higher Education Centre</a></li>
+                                <li><a href="/professional-bodies/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">Professional Societies</a></li>
+                                <li><a href="/nptel/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">NPTEL</a></li>
+                                <li><a href="/nasscom/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">NASSCOM</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- 4. DIRECT LINKS -->
-                <a href="https://coe.panimalar.ac.in/" target="_blank" class="hover:text-white transition py-4 nav-link">CoE</a>
-                <a href="/placements/" class="hover:text-white transition py-4 nav-link">Placements</a>
+                <a href="https://coe.panimalar.ac.in/" target="_blank" class="hover:text-white transition py-4 nav-link flex items-center h-full">CoE</a>
+                <a href="/placements/" class="hover:text-white transition py-4 nav-link flex items-center h-full">Placements</a>
 
                 <!-- 5. RESEARCH -->
-                <div class="relative dropdown group h-full">
+                <div class="relative dropdown group h-full flex items-center">
                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Research <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 left-0 top-full">
-                        <li><a href="/research-policy/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Policy</a></li>
-                        <li><a href="/research-team/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Team</a></li>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 left-0 top-full mt-0">
+                        <li><a href="/research-policy/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Policy</a></li>
+                        <li><a href="/research-team/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Team</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Centres <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-72 py-3 left-full -top-3 border border-white/10">
-                                <li><a href="/research-cse/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Computer Science & Engg</a></li>
-                                <li><a href="/research-ece/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Electronics & Comm Engg</a></li>
-                                <li><a href="/research-aids/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">AI & Data Science</a></li>
-                                <li><a href="/research-mechanical/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Mechanical Engineering</a></li>
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Centres <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-72 py-3 left-full top-0 border border-theme-border ml-0">
+                                <li><a href="/research-cse/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Computer Science & Engg</a></li>
+                                <li><a href="/research-ece/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Electronics & Comm Engg</a></li>
+                                <li><a href="/research-aids/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">AI & Data Science</a></li>
+                                <li><a href="/research-mechanical/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Mechanical Engineering</a></li>
                             </ul>
                         </li>
-                        <li><a href="/h-index/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">H-Index</a></li>
-                        <li><a href="/research-statistics/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Statistics</a></li>
-                        <li><a href="/research-funds/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Research Funding</a></li>
-                        <li><a href="/consultancy-projects/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Consultancy Projects</a></li>
-                        <li><a href="/research-downloads/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Downloads</a></li>
+                        <li><a href="/h-index/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">H-Index</a></li>
+                        <li><a href="/research-statistics/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Statistics</a></li>
+                        <li><a href="/research-funds/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Funding</a></li>
+                        <li><a href="/consultancy-projects/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Consultancy Projects</a></li>
+                        <li><a href="/research-downloads/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Downloads</a></li>
                     </ul>
                 </div>
 
                 <!-- 6. FACILITIES -->
-                <div class="relative dropdown group h-full">
+                <div class="relative dropdown group h-full flex items-center">
                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Facilities <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                    <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-64 py-3 right-0 top-full">
-                        <li><a href="/center-of-excellence/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Centre of Excellence</a></li>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 right-0 top-full mt-0">
+                        <li><a href="/center-of-excellence/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Centre of Excellence</a></li>
                         <li class="relative dropdown-submenu group/sub">
-                            <a href="/library/" class="flex justify-between items-center px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Library <i class="fas fa-angle-right text-[10px]"></i></a>
-                            <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl w-60 py-3 right-full -top-3 border border-white/10">
-                                <li><a href="/central-library-I/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Central Library-I</a></li>
-                                <li><a href="/central-library-II/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Central Library-II</a></li>
-                                <li><a href="/digital-library/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Digital Library</a></li>
+                            <a href="/library/" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Library <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-60 py-3 right-full top-0 border border-theme-border mr-0">
+                                <li><a href="/central-library-I/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Central Library-I</a></li>
+                                <li><a href="/central-library-II/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Central Library-II</a></li>
+                                <li><a href="/digital-library/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Digital Library</a></li>
                             </ul>
                         </li>
-                        <li><a href="/green-campus/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Green Campus</a></li>
-                        <li><a href="/it-infrastructure/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">IT Infrastructure</a></li>
-                        <li><a href="/transport/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Transport</a></li>
-                        <li><a href="/hostel/" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">Hostel & Mess</a></li>
+                        <li><a href="/green-campus/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Green Campus</a></li>
+                        <li><a href="/it-infrastructure/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Transport</a></li>
+                        <li><a href="/hostel/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Hostel & Mess</a></li>
                     </ul>
                 </div>
 
                 <!-- 7. SDG / NIRF -->
-                <div class="relative dropdown group h-full">
+                <div class="relative dropdown group h-full flex items-center">
                      <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">More <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
-                     <ul class="dropdown-menu absolute hidden bg-theme-dark/95 backdrop-blur-2xl shadow-dropdown rounded-2xl border border-white/10 w-56 py-3 right-0 top-full">
-                         <li><a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">SDG Policy</a></li>
-                         <li><a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-white/5 hover:text-theme-accent text-gray-300">NIRF 2026 Report</a></li>
+                     <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-56 py-3 right-0 top-full mt-0">
+                         <li><a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">SDG Policy</a></li>
+                         <li><a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">NIRF 2026 Report</a></li>
                      </ul>
                 </div>
 
                 <!-- COUNSELING CODE & ADMISSION -->
                 <div class="border-l border-white/10 pl-6 flex flex-col items-start justify-center h-full ml-2">
                     <p class="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-1">Code: 1210</p>
-                    <a href="/enquiry/" target="_blank" class="btn-gold !py-1.5 !px-5 !text-[11px] rounded-full uppercase tracking-wider font-bold">Apply</a>
+                    <a href="/enquiry/" target="_blank" class="btn-gold !py-1.5 !px-5 !text-[11px] rounded uppercase tracking-wider font-bold">Apply</a>
                 </div>
             </nav>
 
@@ -348,364 +337,620 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div class="xl:hidden bg-theme-dark/95 backdrop-blur-3xl border-t border-white/10 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
-            <div class="p-6 flex flex-col gap-2 font-medium text-gray-200 text-sm">
-                <a href="/" class="py-3 border-b border-white/5 block text-theme-accent">Home</a>
+        <div class="xl:hidden bg-theme-primary border-t border-white/5 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
+            <div class="p-6 flex flex-col gap-2 font-medium text-gray-300 text-sm">
+                <a href="/" class="py-3 border-b border-white/5 block text-theme-gold">Home</a>
                 <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-about')">About Us <i class="fas fa-angle-down"></i></button>
-                <div id="mob-about" class="mobile-submenu pl-4 bg-white/5 rounded-xl mt-1 overflow-hidden">
-                    <a href="/about-us/" class="block py-3 border-b border-white/5 text-theme-accent">About Panimalar</a>
+                <div id="mob-about" class="mobile-submenu pl-4 bg-white/5 rounded-lg mt-1 overflow-hidden">
+                    <a href="/about-us/" class="block py-3 border-b border-white/5 text-theme-gold">About Panimalar</a>
                     <a href="/rules-regulations/" class="block py-3 border-b border-white/5">Rules & Regulations</a>
                 </div>
                 <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-courses')">Courses <i class="fas fa-angle-down"></i></button>
-                <div id="mob-courses" class="mobile-submenu pl-4 bg-white/5 rounded-xl mt-1">
+                <div id="mob-courses" class="mobile-submenu pl-4 bg-white/5 rounded-lg mt-1">
                     <a href="/be-computer-science-and-engineering/" class="block py-3 border-b border-white/5">B.E CSE</a>
                     <a href="/mba/" class="block py-3">MBA</a>
                 </div>
                 <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-white/5 block font-bold">CoE</a>
                 <a href="/placements/" class="py-3 border-b border-white/5 block font-bold">Placements</a>
-                <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6 shadow-xl">Apply for Admission</a>
+                <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6">Apply for Admission</a>
             </div>
         </div>
     </header>
 
+    <div class="bg-theme-bg py-2.5 border-b border-theme-border">
+        <div class="container mx-auto px-6 flex items-center">
+            <div class="font-bold text-theme-primary whitespace-nowrap pr-5 flex items-center gap-2 z-10 bg-theme-bg relative text-xs uppercase tracking-widest">
+                <i class="fas fa-bolt text-theme-gold"></i> Updates
+            </div>
+            <div class="marquee-container ml-4 text-theme-dark">
+                <div class="marquee-content text-[13px] font-medium flex gap-16 items-center">
+                    <span><i class="fas fa-bullhorn text-theme-gold mr-2"></i> International Conference on Modern Sustainable Engineering and Technology (ICMSET2026). <a href="/assets/upcoming-events/ICMSET2026.pdf" target="_blank" class="text-theme-accent font-bold hover:underline transition">Read More</a></span>
+                    <span><i class="fas fa-university text-theme-gold mr-2"></i> Admissions Open for 2026-2027. Secure your future with us!</span>
+                    <span><i class="fas fa-award text-theme-gold mr-2"></i> Ranked among Top Engineering Colleges in NIRF.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <main id="main-content">
-
-        <section class="relative pt-28 pb-20 overflow-hidden bg-tech-gradient">
-            <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-theme-accent/10 to-transparent pointer-events-none"></div>
-            <!-- Tech Pattern -->
-            <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.2) 1px, transparent 1px); background-size: 50px 50px;"></div>
-
-            <div class="container mx-auto px-6 relative z-10 text-center">
-                <h1 class="text-5xl md:text-6xl font-black text-white mb-6 font-roboto tracking-tight drop-shadow-md">About <span class="text-theme-accent">Panimalar</span></h1>
-                <div class="text-gray-400 text-sm font-semibold tracking-wide uppercase flex items-center justify-center gap-3">
-                    <a href="/" class="hover:text-white transition flex items-center gap-2"><i class="fas fa-home"></i> Home</a> 
-                    <span class="text-theme-accent">/</span> 
-                    <span class="text-white">About Us</span>
-                </div>
+        <section class="relative h-[85vh] min-h-[700px] flex items-center justify-center overflow-hidden bg-theme-primary">
+            <div class="absolute inset-0 z-0">
+                <video playsinline autoplay muted loop class="w-full h-full object-cover opacity-30 mix-blend-luminosity">
+                    <source src="/assets/video/PEC-Homepage.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-t from-theme-navy to-transparent"></div>
             </div>
-        </section>
 
-        <section class="py-24 bg-theme-light">
-            <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="section-subtitle"><i class="fas fa-fingerprint text-[10px]"></i> Identity</span>
-                    <h2 class="section-title mt-4 mb-8">Who <span>We Are</span></h2>
-                    
-                    <div class="space-y-6">
-                        <p class="text-gray-600 text-[17px] leading-relaxed font-medium">
-                            Panimalar Engineering College, governed by JAISAKTHI Educational Trust, aims at imparting quality engineering and management education for the aspiring youth.
-                        </p>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">
-                            The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering Chennai, Kancheepuram, and Thiruvallur districts.
-                        </p>
-                        <p class="text-gray-500 text-[15px] leading-relaxed">
-                            The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu. The policy emphasizes giving high priority to meet the demand for trained engineers for various industrial and development projects in the state of Tamil Nadu and the rest of India.
-                        </p>
-                    </div>
+            <div class="container mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+                <div class="inline-flex items-center gap-2 py-1.5 px-5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-medium tracking-widest text-xs uppercase mb-8 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-theme-gold"></span>
+                    Counseling Code: <span class="text-white font-bold">1210</span>
                 </div>
                 
-                <div class="relative group">
-                    <div class="absolute -inset-2 bg-gradient-to-tr from-theme-accent to-theme-yellow opacity-10 rounded-4xl blur-xl group-hover:opacity-20 transition duration-500"></div>
-                    <div class="relative rounded-4xl overflow-hidden shadow-premium bg-white p-2">
-                        <img src="/assets/images/AboutUs/panimalar-engg.jpg" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-3xl object-cover transform hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/800x600/e2e8f0/475569?text=Panimalar+Campus'">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-white border-t border-gray-100">
-            <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-white mb-6 leading-tight tracking-tight">
+                    Empowering <br>
+                    <span class="text-theme-gold">The Future</span>
+                </h1>
                 
-                <div class="bg-theme-light rounded-4xl p-10 md:p-14 shadow-premium hover-card border border-gray-100 flex flex-col items-start relative overflow-hidden group">
-                    <!-- Accent background element -->
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-theme-accent/5 rounded-bl-full pointer-events-none group-hover:bg-theme-accent/10 transition-colors duration-500"></div>
-                    
-                    <div class="w-20 h-20 bg-white shadow-lg rounded-2xl flex items-center justify-center text-4xl mb-8 border border-gray-50 text-theme-accent">
-                        <i class="fas fa-eye"></i>
-                    </div>
-                    <h2 class="text-3xl font-black text-theme-dark mb-6">Vision <span class="text-theme-accent">of the Institute</span></h2>
-                    <p class="text-gray-600 text-lg leading-relaxed relative z-10">
-                        To transform the budding engineers into academically excellent, highly intellectual and self disciplined engineering graduates to mould them as good citizens with the spirit of integrity and morality that would cater to the needs of our nation.
-                    </p>
-                </div>
-
-                <div class="bg-theme-light rounded-4xl p-10 md:p-14 shadow-premium hover-card border border-gray-100 flex flex-col items-start relative overflow-hidden group">
-                    <!-- Accent background element -->
-                    <div class="absolute top-0 right-0 w-48 h-48 bg-theme-yellow/5 rounded-bl-full pointer-events-none group-hover:bg-theme-yellow/10 transition-colors duration-500"></div>
-
-                    <div class="w-20 h-20 bg-white shadow-lg rounded-2xl flex items-center justify-center text-4xl mb-8 border border-gray-50 text-theme-yellow">
-                        <i class="fas fa-bullseye"></i>
-                    </div>
-                    <h2 class="text-3xl font-black text-theme-dark mb-6">Mission <span class="text-theme-yellow">of the Institute</span></h2>
-                    <ul class="text-gray-600 text-[16px] leading-relaxed space-y-5 relative z-10">
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-check-circle text-theme-yellow mt-1 text-xl"></i>
-                            <span>To impart quality education with high standards of excellence in engineering and technology.</span>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <i class="fas fa-check-circle text-theme-yellow mt-1 text-xl"></i>
-                            <span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge in the field of engineering and technology.</span>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </section>
-
-        <section class="py-24 bg-tech-gradient relative overflow-hidden">
-            <!-- Background glow -->
-            <div class="absolute inset-0 flex justify-center items-center pointer-events-none">
-                <div class="w-[800px] h-[800px] bg-theme-accent/10 rounded-full blur-[150px]"></div>
-            </div>
-
-            <div class="container mx-auto px-6 relative z-10">
-                <div class="bg-white/5 backdrop-blur-xl border border-white/10 rounded-4xl p-10 md:p-16 shadow-glass-strong max-w-5xl mx-auto">
-                    <div class="text-center mb-12">
-                        <span class="section-subtitle !bg-white/10 !text-theme-yellow"><i class="fas fa-star text-[10px]"></i> Standard</span>
-                        <h2 class="text-3xl md:text-5xl font-black text-white mt-4 mb-6 tracking-tight">Quality <span class="text-theme-accent">Policy</span></h2>
-                        <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-                            The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by:
-                        </p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 text-gray-200">
-                        <div class="flex gap-5 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 shadow-glass">
-                            <div class="w-12 h-12 rounded-full bg-theme-accent/20 flex items-center justify-center flex-shrink-0 border border-theme-accent/30 text-theme-accent">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span class="text-[15px] leading-relaxed font-medium mt-2">Providing and Maintaining good learning environment and ambience for enhanced learning.</span>
-                        </div>
-                        <div class="flex gap-5 bg-white/5 p-8 rounded-3xl border border-white/10 hover:bg-white/10 hover:-translate-y-1 transition duration-300 shadow-glass">
-                            <div class="w-12 h-12 rounded-full bg-theme-yellow/20 flex items-center justify-center flex-shrink-0 border border-theme-yellow/30 text-theme-yellow">
-                                <i class="fas fa-check"></i>
-                            </div>
-                            <span class="text-[15px] leading-relaxed font-medium mt-2">Inculcating Professional Ethics, Standards and Morale through student career and personality development programs.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="py-24 bg-theme-light border-b border-gray-200">
-            <div class="container mx-auto px-6 text-center max-w-4xl">
-                <span class="section-subtitle"><i class="fas fa-map-marker-alt text-[10px]"></i> Where We Learn</span>
-                <h2 class="section-title mt-4 mb-8">Our <span>Campus</span></h2>
-                <p class="text-gray-600 text-lg leading-relaxed font-medium">
-                    This sprawling campus provides a holistic education in an ambience that makes no compromise on discipline, dedication and commitment. It strives to inculcate the spirit of learning in the campus offering state of art facilities to the students. The college ensures that the students who pass out of the college, turn out to be academically brilliant, morally upright and empowered individuals.
+                <p class="text-lg md:text-xl text-gray-300 mb-12 max-w-2xl mx-auto font-light leading-relaxed">
+                    Transforming aspiring minds into global technology leaders through innovation, research, and world-class engineering education.
                 </p>
+                
+                <div class="flex flex-wrap gap-5 justify-center">
+                    <a href="/enquiry/" target="_blank" class="btn-gold !px-10 !py-4 !text-lg !rounded-lg">
+                        Apply Now <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="/virtual-tour/" class="inline-flex items-center justify-center px-10 py-4 border border-white/20 text-white font-semibold rounded-lg hover:bg-white hover:text-theme-primary transition-all duration-300">
+                        <i class="fas fa-vr-cardboard mr-2"></i> Virtual Tour
+                    </a>
+                </div>
             </div>
         </section>
 
-        <section class="py-24 bg-white relative">
-            <!-- Subtle background watermark -->
-            <i class="fas fa-history absolute top-20 right-20 text-[300px] text-gray-50 opacity-50 pointer-events-none"></i>
+        <div class="container mx-auto px-6 relative z-20 -mt-16 mb-24">
+            <div class="bg-theme-surface rounded-xl shadow-subtle border border-theme-border p-4 relative overflow-hidden">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 text-center divide-x divide-theme-border">
+                    <div class="p-6 transition duration-300 group">
+                        <div class="text-theme-gold mb-3"><i class="fas fa-user-graduate text-2xl group-hover:-translate-y-1 transition-transform"></i></div>
+                        <h3 class="text-3xl md:text-4xl font-black text-theme-primary mb-1"><span class="counter" data-target="11000">0</span>+</h3>
+                        <p class="text-theme-accent font-medium text-xs md:text-sm uppercase tracking-wider">Students</p>
+                    </div>
+                    <div class="p-6 transition duration-300 group">
+                        <div class="text-theme-gold mb-3"><i class="fas fa-chalkboard-teacher text-2xl group-hover:-translate-y-1 transition-transform"></i></div>
+                        <h3 class="text-3xl md:text-4xl font-black text-theme-primary mb-1"><span class="counter" data-target="1000">0</span>+</h3>
+                        <p class="text-theme-accent font-medium text-xs md:text-sm uppercase tracking-wider">Faculties</p>
+                    </div>
+                    <div class="p-6 transition duration-300 group">
+                        <div class="text-theme-gold mb-3"><i class="fas fa-medal text-2xl group-hover:-translate-y-1 transition-transform"></i></div>
+                        <h3 class="text-3xl md:text-4xl font-black text-theme-primary mb-1"><span class="counter" data-target="1500">0</span>+</h3>
+                        <p class="text-theme-accent font-medium text-xs md:text-sm uppercase tracking-wider">Rank Holders</p>
+                    </div>
+                    <div class="p-6 transition duration-300 group">
+                        <div class="text-theme-gold mb-3"><i class="fas fa-briefcase text-2xl group-hover:-translate-y-1 transition-transform"></i></div>
+                        <h3 class="text-3xl md:text-4xl font-black text-theme-primary mb-1">> <span class="counter" data-target="90">0</span>%</h3>
+                        <p class="text-theme-accent font-medium text-xs md:text-sm uppercase tracking-wider">Placements</p>
+                    </div>
+                    <div class="p-6 transition duration-300 group hidden lg:block border-l border-theme-border">
+                        <div class="text-theme-gold mb-3"><i class="fas fa-globe text-2xl group-hover:-translate-y-1 transition-transform"></i></div>
+                        <h3 class="text-3xl md:text-4xl font-black text-theme-primary mb-1"><span class="counter" data-target="15000">0</span>+</h3>
+                        <p class="text-theme-accent font-medium text-xs md:text-sm uppercase tracking-wider">Alumni</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <section class="py-24 bg-theme-surface">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-subtitle">Discover Excellence</span>
+                    <h2 class="section-title">Why <span>Panimalar</span></h2>
+                    <p class="text-theme-text mt-4 max-w-2xl mx-auto text-lg leading-relaxed">A fully immersive environment built to foster innovation, leadership, and technical supremacy.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <a href="/facilities/" class="block rounded-xl overflow-hidden shadow-subtle bg-white hover-card group relative">
+                        <div class="h-64 overflow-hidden">
+                            <img src="/assets/images/CampusLife/panimalar-library.jpg" alt="Campus Life" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=Library'">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 via-theme-primary/20 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white font-bold text-xl tracking-wide">Campus Life</h3>
+                            <p class="text-white/80 text-sm mt-2 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Explore vibrant activities</p>
+                        </div>
+                    </a>
+                    <a href="/industry-and-international-collaboration/" class="block rounded-xl overflow-hidden shadow-subtle bg-white hover-card group relative">
+                        <div class="h-64 overflow-hidden">
+                            <img src="/assets/images/industrycollaboration-home/1.png" alt="Industry" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=Industry'">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 via-theme-primary/20 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white font-bold text-xl tracking-wide">Global Connect</h3>
+                            <p class="text-white/80 text-sm mt-2 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">International Links</p>
+                        </div>
+                    </a>
+                    <a href="/awards-and-achievements/" class="block rounded-xl overflow-hidden shadow-subtle bg-white hover-card group relative">
+                        <div class="h-64 overflow-hidden">
+                            <img src="/assets/images/home-awards/1.png" alt="Awards" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=Awards'">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 via-theme-primary/20 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white font-bold text-xl tracking-wide">Achievements</h3>
+                            <p class="text-white/80 text-sm mt-2 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Recognitions</p>
+                        </div>
+                    </a>
+                    <a href="/center-of-excellence/" class="block rounded-xl overflow-hidden shadow-subtle bg-white hover-card group relative">
+                        <div class="h-64 overflow-hidden">
+                            <img src="/assets/images/home-coe/1.1.png" alt="COE" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-in-out" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=COE'">
+                        </div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 via-theme-primary/20 to-transparent flex flex-col justify-end p-8">
+                            <h3 class="text-white font-bold text-xl tracking-wide">COE</h3>
+                            <p class="text-white/80 text-sm mt-2 opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">Centre of Excellence</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-bg relative overflow-hidden border-t border-theme-border">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="section-subtitle">Talent Upskill</span>
+                        <h2 class="section-title mb-6">Empowering <span>the Future</span></h2>
+                        <p class="text-theme-text mb-10 text-lg leading-relaxed">Panimalar offers structured, industry-grade training and intensive workshops to architect student development and technological mastery.</p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <a href="/placements/" class="relative rounded-xl overflow-hidden h-64 group shadow-subtle">
+                                <img src="/assets/images/training-1.jpg" alt="Training" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=Training'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 to-transparent flex flex-col justify-end p-6">
+                                    <h4 class="text-white font-bold text-xl">Training</h4>
+                                    <p class="text-theme-gold text-sm font-medium mt-1">Talent Upskill</p>
+                                </div>
+                            </a>
+                            <a href="/entrepreneurship-development-cell/" class="relative rounded-xl overflow-hidden h-64 group shadow-subtle">
+                                <img src="/assets/images/workshop-1.jpg" alt="Workshop" class="w-full h-full object-cover group-hover:scale-105 transition duration-700" onerror="this.onerror=null;this.src='https://placehold.co/600x600/E5E2DC/373A40?text=Workshop'">
+                                <div class="absolute inset-0 bg-gradient-to-t from-theme-primary/90 to-transparent flex flex-col justify-end p-6">
+                                    <h4 class="text-white font-bold text-xl">Workshop</h4>
+                                    <p class="text-theme-gold text-sm font-medium mt-1">Practice & Build</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="bg-theme-surface rounded-xl p-10 md:p-12 shadow-subtle border border-theme-border">
+                        <h3 class="text-2xl font-extrabold text-theme-primary mb-8">Why We Are Different?</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-laptop-code"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">Practical Exposure</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">Direct exposure to actual industry work.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-users"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">IT Professionals</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">Learn alongside active experts.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-book-open"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">Aligned Syllabus</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">Curriculum matched to global tech needs.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-comments"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">Communication</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">Focus on real-world communication skills.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-wifi"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">Smart Campus</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">High-speed internet & advanced labs.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="text-theme-gold text-2xl mt-1"><i class="fas fa-tasks"></i></div>
+                                <div>
+                                    <h5 class="font-bold text-theme-primary">Open Assessments</h5>
+                                    <p class="text-theme-text text-sm mt-1 leading-relaxed">Group projects & practical evaluation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-navy dark-section relative overflow-hidden border-y border-theme-border">
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div class="max-w-2xl">
+                        <span class="section-subtitle">Breakthroughs</span>
+                        <h2 class="section-title">#Research <span>@ Panimalar</span></h2>
+                        <p class="text-gray-300 mt-4 text-lg">Pioneering tomorrow's technology. Explore the breakthrough projects developed in our advanced R&D labs.</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <a href="https://www.scopus.com/pages/organization/60271643" target="_blank" class="w-12 h-12 rounded-full border border-theme-border flex items-center justify-center text-white hover:bg-theme-gold hover:border-theme-gold hover:text-theme-primary transition-all duration-300"><i class="fas fa-book"></i></a>
+                        <a href="https://scholar.google.com/citations?user=CaSmbHcAAAAJ&hl=en&authuser=6" target="_blank" class="w-12 h-12 rounded-full border border-theme-border flex items-center justify-center text-white hover:bg-theme-gold hover:border-theme-gold hover:text-theme-primary transition-all duration-300"><i class="fas fa-graduation-cap"></i></a>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <a href="/research-cse/" class="bg-theme-primary rounded-xl p-8 border border-white/5 hover-card group">
+                        <div class="text-theme-gold text-3xl mb-6"><i class="fas fa-laptop-code"></i></div>
+                        <h4 class="font-bold text-white text-xl mb-3">Computer Science</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Providing an excellent ambiance for students to acquire specialized skills required by the modern IT Industry.</p>
+                        <div class="text-theme-gold text-sm font-semibold flex items-center gap-2 transform group-hover:translate-x-2 transition-transform">Explore Lab <i class="fas fa-arrow-right text-[10px]"></i></div>
+                    </a>
+                    <a href="/research-ece/" class="bg-theme-primary rounded-xl p-8 border border-white/5 hover-card group">
+                        <div class="text-theme-gold text-3xl mb-6"><i class="fas fa-microchip"></i></div>
+                        <h4 class="font-bold text-white text-xl mb-3">Electronics</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Imparting world-class technical education in Electronics and VLSI design for societal benefit.</p>
+                        <div class="text-theme-gold text-sm font-semibold flex items-center gap-2 transform group-hover:translate-x-2 transition-transform">Explore Lab <i class="fas fa-arrow-right text-[10px]"></i></div>
+                    </a>
+                    <a href="/research-mechanical/" class="bg-theme-primary rounded-xl p-8 border border-white/5 hover-card group">
+                        <div class="text-theme-gold text-3xl mb-6"><i class="fas fa-cogs"></i></div>
+                        <h4 class="font-bold text-white text-xl mb-3">Mechanical</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Advanced robotics, thermodynamics, and manufacturing research handled by highly qualified professionals.</p>
+                        <div class="text-theme-gold text-sm font-semibold flex items-center gap-2 transform group-hover:translate-x-2 transition-transform">Explore Lab <i class="fas fa-arrow-right text-[10px]"></i></div>
+                    </a>
+                    <a href="/research-aids/" class="bg-theme-primary rounded-xl p-8 border border-white/5 hover-card group">
+                        <div class="text-theme-gold text-3xl mb-6"><i class="fas fa-brain"></i></div>
+                        <h4 class="font-bold text-white text-xl mb-3">Artificial Intelligence</h4>
+                        <p class="text-sm text-gray-400 leading-relaxed mb-6">Fostering innovation mindsets in machine learning, neural networks, and deep data analytics.</p>
+                        <div class="text-theme-gold text-sm font-semibold flex items-center gap-2 transform group-hover:translate-x-2 transition-transform">Explore Lab <i class="fas fa-arrow-right text-[10px]"></i></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-surface overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-subtitle">Media</span>
+                    <h2 class="section-title">Watch Our <span>Story</span></h2>
+                </div>
+                <div class="swiper mediaSwiper w-full pb-16">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide px-4">
+                            <div class="video-container shadow-subtle border-4 border-white">
+                                <iframe src="https://www.youtube.com/embed/5GBmRflE-5U?si=tf5-IitCRn8y3ttE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="swiper-slide px-4">
+                            <div class="video-container shadow-subtle border-4 border-white">
+                                <iframe src="https://www.youtube.com/embed/lW8geQb4RI4?si=aaEFzcuP_rtKn8xl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="swiper-slide px-4">
+                            <div class="video-container shadow-subtle border-4 border-white">
+                                <iframe src="https://www.youtube.com/embed/-zVh2B46t98?si=RBWvpIDX7A5yGzni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination !bottom-0"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-bg border-t border-theme-border">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-subtitle">Innovation Hub</span>
+                    <h2 class="section-title">Centre of Excellence & <span>Labs</span></h2>
+                    <p class="text-theme-text mt-4 max-w-2xl mx-auto text-lg leading-relaxed">Partnering with global tech giants to provide industry-certified training directly on campus.</p>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/techm.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="TECH Mahindra" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">TECH Mahindra</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Enterprise skills & domains.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/landt.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="Larsen & Toubro" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">Larsen & Toubro</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Innovative engineering solutions.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/oracle.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="Oracle" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">ORACLE</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Cloud, ML, & Generative AI.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/tansam.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="TANSAM" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">TANSAM</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Data Analytics & Industry 4.0.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/lirdigital.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="LIRDigital" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">LIRDigital</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">AI Research & Applications.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/prag.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="Prag Robotics" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">Prag Robotics</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Intelligent robotics (EVA).</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/dronix.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="Dronix" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">Dronix</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Drone technical advancements.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/nvh.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="NVH and NDT" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">NVH and NDT</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Hands-on testing & metrics.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/flextronics.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="Flextronics" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">Flextronics</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Electronic Manufacturing.</p>
+                    </a>
+                    <a href="/center-of-excellence/" class="block bg-white border border-theme-border rounded-xl p-6 text-center hover-card group shadow-subtle">
+                        <div class="h-16 flex items-center justify-center mb-4"><img src="/assets/images/home-coe-logo/deepsphere.png" class="max-h-12 object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt="DeepSphere.Ai" onerror="this.style.display='none'"></div>
+                        <h4 class="font-bold text-theme-primary text-sm mb-1">DeepSphere.Ai</h4>
+                        <p class="text-xs text-theme-text leading-relaxed">Emerging technology systems.</p>
+                    </a>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="/center-of-excellence/" class="btn-primary !px-8">View All Centers</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-surface border-y border-theme-border overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-subtitle">Career Success</span>
+                    <h2 class="section-title">Top <span>Recruiters</span></h2>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-theme-surface to-transparent z-10"></div>
+                    <div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-theme-surface to-transparent z-10"></div>
+                    
+                    <div class="flex gap-12 logo-strip w-max items-center">
+                        <div class="flex gap-12 items-center">
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/accenture.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Accenture" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/aon-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Aon" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/cape.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Cape" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/cts.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Cognizant" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/hp.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="HP" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/ibm.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="IBM" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/infoys.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Infosys" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/mphasis-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Mphasis" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/nokia-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Nokia" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/wipro-1.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Wipro" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/zoho-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="Zoho" onerror="this.style.display='none'"></div>
+                        </div>
+                        <div class="flex gap-12 items-center" aria-hidden="true">
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/accenture.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/aon-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/cape.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/cts.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/hp.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/ibm.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/infoys.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/mphasis-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/nokia-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/wipro-1.jpg" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                            <div class="bg-white border border-theme-border rounded-xl p-4 w-40 h-20 flex items-center justify-center shadow-subtle"><img src="/assets/images/clients/zoho-logo.png" class="max-h-10 max-w-full object-contain grayscale hover:grayscale-0 transition" alt="" onerror="this.style.display='none'"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 text-center max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl p-8 border border-theme-border shadow-subtle">
+                        <h4 class="text-4xl md:text-5xl font-black text-theme-primary mb-2">>90%</h4>
+                        <p class="text-theme-accent font-bold uppercase tracking-wider text-sm">Placements</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 border border-theme-border shadow-subtle">
+                        <h4 class="text-4xl md:text-5xl font-black text-theme-primary mb-2">15000+</h4>
+                        <p class="text-theme-accent font-bold uppercase tracking-wider text-sm">Successful Alumni</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 border border-theme-border shadow-subtle">
+                        <h4 class="text-4xl md:text-5xl font-black text-theme-primary mb-2">300+</h4>
+                        <p class="text-theme-accent font-bold uppercase tracking-wider text-sm">Companies Hiring</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-24 bg-theme-bg relative">
             <div class="container mx-auto px-6 relative z-10">
                 <div class="text-center mb-20">
-                    <span class="section-subtitle"><i class="fas fa-road text-[10px]"></i> Our Journey</span>
-                    <h2 class="section-title mt-4">Milestones of <span>Panimalar</span></h2>
+                    <span class="section-subtitle">Success Stories</span>
+                    <h2 class="section-title">Alumni <span>Voices</span></h2>
                 </div>
 
-                <div class="timeline-rail max-w-4xl mx-auto pl-12 md:pl-20">
-
-                    <!-- 2000 -->
-                    <div class="relative pb-16 group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
-                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2000</span> — Departments Established</h3>
-                            <div class="intake-scroll bg-theme-dark p-2">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="3" class="text-left pl-4 tracking-wider">Departments Established in the Year of 2000</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="bg-theme-surface p-10 rounded-xl shadow-subtle border border-theme-border relative mt-8 hover-card group">
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-4xl text-theme-border group-hover:text-theme-gold transition-colors"></i>
+                        <div class="absolute -top-10 left-10">
+                            <img src="/assets/images/saravanan-150x150.jpg" alt="Saravana Iyyappan" class="w-20 h-20 rounded-full border-4 border-white shadow-elevated object-cover" onerror="this.src='https://placehold.co/150x150/E5E2DC/373A40?text=Student'">
+                        </div>
+                        <div class="text-theme-gold mb-5 mt-8 text-sm flex gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-theme-text text-[15px] leading-relaxed mb-8">"I always Thank Panimalar College for what I am today and close to my Heart. The 2 Years course helped to mold me to reach this Level. Great support from all the management staffs. Personal Development, Workshops, Guest Lectures, Case Studies, Projects, Internship are some of the key methods which college focuses on that helps the student to keep abreast of current Trends."</p>
+                        <div class="border-t border-theme-border pt-6">
+                            <h4 class="font-bold text-theme-primary text-lg">Saravana Iyyappan</h4>
+                            <p class="text-sm text-theme-accent mt-1">Deputy Manager, Ford Motors Pvt. Ltd</p>
                         </div>
                     </div>
 
-                    <!-- 2002-03 -->
-                    <div class="relative pb-16 group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
-                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2002-03</span> — Mechanical & MBA Introduced</h3>
-                            <div class="intake-scroll bg-theme-dark p-2">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="7" class="text-left pl-4 tracking-wider">Intake 2002-03</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MCA</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">90</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="bg-theme-surface p-10 rounded-xl shadow-subtle border border-theme-border relative mt-8 hover-card group">
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-4xl text-theme-border group-hover:text-theme-gold transition-colors"></i>
+                        <div class="absolute -top-10 left-10">
+                            <img src="/assets/images/james-babu-mathew-150x150.jpg" alt="James Babu Mathew" class="w-20 h-20 rounded-full border-4 border-white shadow-elevated object-cover" onerror="this.src='https://placehold.co/150x150/E5E2DC/373A40?text=Student'">
+                        </div>
+                        <div class="text-theme-gold mb-5 mt-8 text-sm flex gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-theme-text text-[15px] leading-relaxed mb-8">"Panimalar engineering college is one of the finest private educational institutions of Chennai. It has an advanced curriculum which not only develops students learning knowledge theoretical from the esteemed faculties, but it also helps them to get an insight of the industry through the exposure of industrial experts and practical learning experiences."</p>
+                        <div class="border-t border-theme-border pt-6">
+                            <h4 class="font-bold text-theme-primary text-lg">James Babu Mathew</h4>
+                            <p class="text-sm text-theme-accent mt-1">PMO, Capgemini, Bangalore</p>
                         </div>
                     </div>
 
-                    <!-- 2007-08 -->
-                    <div class="relative pb-16 group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
-                            <h3 class="text-2xl font-black text-theme-dark mb-6 tracking-tight"><span class="text-theme-accent mr-2">2007-08</span> — EIE Established</h3>
-                            <div class="intake-scroll bg-theme-dark p-2">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="8" class="text-left pl-4 tracking-wider">Intake 2007-08</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">MCA</td><td class="font-bold text-white">EIE</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">120</td><td class="text-theme-yellow font-bold text-lg">150</td><td class="text-theme-yellow font-bold text-lg">150</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                    <div class="bg-theme-surface p-10 rounded-xl shadow-subtle border border-theme-border relative mt-8 hover-card group">
+                        <i class="fas fa-quote-right absolute top-8 right-8 text-4xl text-theme-border group-hover:text-theme-gold transition-colors"></i>
+                        <div class="absolute -top-10 left-10">
+                            <img src="/assets/images/vijay-150x150.jpg" alt="S. Vijay" class="w-20 h-20 rounded-full border-4 border-white shadow-elevated object-cover" onerror="this.src='https://placehold.co/150x150/E5E2DC/373A40?text=Student'">
+                        </div>
+                        <div class="text-theme-gold mb-5 mt-8 text-sm flex gap-1">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-theme-text text-[15px] leading-relaxed mb-8">"From this college, I learned a good exposure like multicultural activities, people skills, the ability to work in high pressure situation, disciplined, analytical skills, communication and confidential skills, best teachers guidance, skills and experience help me both in my career and in life in general."</p>
+                        <div class="border-t border-theme-border pt-6">
+                            <h4 class="font-bold text-theme-primary text-lg">S. Vijay</h4>
+                            <p class="text-sm text-theme-accent mt-1">General Manager, RIKUN Manufacturing Pvt Ltd</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2016-17 -->
-                    <div class="relative pb-16 group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
-                            <h3 class="text-2xl font-black text-theme-dark mb-2 tracking-tight"><span class="text-theme-accent mr-2">2016-17</span> — Postgraduate Additions</h3>
-                            <p class="text-[15px] font-medium text-gray-500 mb-6 pl-1">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
-                            <div class="intake-scroll bg-theme-dark p-2">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="10" class="text-left pl-4 tracking-wider">Intake 2016-17</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">EIE</td><td class="font-bold text-white">CIVIL</td><td class="font-bold text-white">MBA</td><td class="font-bold text-theme-accent">ME(CSE)</td><td class="font-bold text-theme-accent">ME(ECE)</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">360</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">240</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">30</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+        <section class="py-24 bg-theme-surface border-t border-theme-border">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="section-subtitle">Don't Miss Out</span>
+                    <h2 class="section-title">Upcoming <span>Events</span></h2>
+                </div>
+                <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-subtle border border-theme-border p-8 flex flex-col sm:flex-row gap-8 items-center sm:items-start hover-card">
+                    <div class="bg-theme-primary text-white rounded-xl p-6 text-center flex-shrink-0 w-32 shadow-elevated">
+                        <div class="text-4xl font-black leading-none text-theme-gold">15</div>
+                        <div class="text-lg font-bold border-t border-white/20 mt-1 pt-1">16</div>
+                        <div class="text-xs uppercase tracking-[0.2em] mt-3 font-semibold text-gray-400">May</div>
                     </div>
-                    
-                    <!-- 2020-21 -->
-                    <div class="relative pb-16 group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125"></div>
-                        <div class="bg-theme-light rounded-3xl shadow-sm hover:shadow-premium p-8 border border-gray-100 transition-all duration-300 transform group-hover:-translate-y-1">
-                            <h3 class="text-2xl font-black text-theme-dark mb-2 tracking-tight"><span class="text-theme-accent mr-2">2020-21</span> — Future Tech Established</h3>
-                            <p class="text-[15px] font-medium text-gray-500 mb-6 pl-1">Introduced cutting-edge courses AI&DS, CSBS, and CCE.</p>
-                            <div class="intake-scroll bg-theme-dark p-2">
-                                <table class="intake-table">
-                                    <thead><tr><th colspan="13" class="text-left pl-4 tracking-wider">Intake 2020-21</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">EIE</td><td class="font-bold text-white">CIVIL</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">ME(CSE)</td><td class="font-bold text-white">ME(ECE)</td><td class="font-bold text-theme-accent">AI&DS</td><td class="font-bold text-theme-accent">CSBS</td><td class="font-bold text-theme-accent">CCE</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">300</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">360</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">180</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">30</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td><td class="text-theme-yellow font-bold text-lg">60</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                    <div class="text-center sm:text-left flex-1">
+                        <h4 class="font-bold text-theme-primary text-xl mb-3 leading-snug">International Conference on Modern Sustainable Engineering and Technology (ICMSET2026)</h4>
+                        <p class="text-[15px] text-theme-text mb-6">Hybrid Mode Event, <a href="https://www.icmset.co.in/" target="_blank" class="text-theme-accent hover:text-theme-primary underline transition">click here for details.</a></p>
+                        <a href="/assets/upcoming-events/ICMSET2026.pdf" target="_blank" class="btn-primary !py-2.5 !px-6 !text-sm">Read PDF <i class="fas fa-file-pdf ml-2"></i></a>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- 2024-25 -->
-                    <div class="relative group">
-                        <div class="timeline-dot transition-transform duration-300 group-hover:scale-125 !bg-theme-yellow !border-theme-dark shadow-[0_0_15px_rgba(255,200,61,0.6)]"></div>
-                        <div class="bg-theme-dark rounded-3xl shadow-premium p-8 border border-white/10 transition-all duration-300 transform group-hover:-translate-y-1 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 w-32 h-32 bg-theme-yellow/10 rounded-full blur-2xl"></div>
-                            <h3 class="text-2xl font-black text-white mb-2 tracking-tight"><span class="text-theme-yellow mr-2">2024-25</span> — Scaling Heights</h3>
-                            <p class="text-[15px] font-medium text-gray-400 mb-6 pl-1">Massive intake scale across leading tech branches including AIML.</p>
-                            <div class="intake-scroll bg-white/5 p-2 backdrop-blur-sm border border-white/5 rounded-2xl">
-                                <table class="intake-table !border-none">
-                                    <thead><tr><th colspan="11" class="text-left pl-4 tracking-wider text-theme-accent !bg-transparent border-b border-white/10">Intake 2024-25</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="font-bold text-white">CSE</td><td class="font-bold text-white">IT</td><td class="font-bold text-white">ECE</td><td class="font-bold text-white">EEE</td><td class="font-bold text-white">MECH</td><td class="font-bold text-white">MBA</td><td class="font-bold text-white">ME(CSE)</td><td class="font-bold text-white">ME(CS)</td><td class="font-bold text-theme-accent">AI&DS</td><td class="font-bold text-theme-accent">CSBS</td><td class="font-bold text-theme-accent">AIML</td></tr>
-                                        <tr><td class="text-theme-yellow font-bold text-xl">960</td><td class="text-theme-yellow font-bold text-xl">540</td><td class="text-theme-yellow font-bold text-xl">480</td><td class="text-theme-yellow font-bold text-xl">180</td><td class="text-theme-yellow font-bold text-xl">90</td><td class="text-theme-yellow font-bold text-xl">240</td><td class="text-theme-yellow font-bold text-xl">18</td><td class="text-theme-yellow font-bold text-xl">18</td><td class="text-theme-yellow font-bold text-xl">480</td><td class="text-theme-yellow font-bold text-xl">240</td><td class="text-theme-yellow font-bold text-xl">240</td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+        <section class="py-24 bg-theme-primary relative overflow-hidden text-center">
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-16 tracking-tight">Experience Panimalar & <br><span class="text-theme-gold font-light">Enlighten Your Future</span></h2>
+                <div class="flex flex-wrap justify-center gap-10 md:gap-24">
+                    <a href="/contact-us/" class="group flex flex-col items-center gap-6 text-gray-300 hover:text-white transition-colors w-40">
+                        <div class="w-24 h-24 border border-white/20 rounded-full flex items-center justify-center text-3xl group-hover:bg-theme-gold group-hover:border-theme-gold group-hover:text-theme-primary transition-all duration-300">
+                            <i class="fas fa-envelope-open-text"></i>
                         </div>
-                    </div>
-
+                        <span class="font-semibold text-lg tracking-wide">Mailing List</span>
+                    </a>
+                    <a href="/courses/" class="group flex flex-col items-center gap-6 text-gray-300 hover:text-white transition-colors w-40">
+                        <div class="w-24 h-24 border border-white/20 rounded-full flex items-center justify-center text-3xl group-hover:bg-theme-gold group-hover:border-theme-gold group-hover:text-theme-primary transition-all duration-300">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <span class="font-semibold text-lg tracking-wide">Courses</span>
+                    </a>
+                    <a href="/research/" class="group flex flex-col items-center gap-6 text-gray-300 hover:text-white transition-colors w-40">
+                        <div class="w-24 h-24 border border-white/20 rounded-full flex items-center justify-center text-3xl group-hover:bg-theme-gold group-hover:border-theme-gold group-hover:text-theme-primary transition-all duration-300">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <span class="font-semibold text-lg tracking-wide">Research</span>
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#0b0e14] text-gray-400 pt-24 pb-8 text-sm border-t border-white/10 relative overflow-hidden">
+    <footer class="bg-theme-primary text-gray-400 pt-24 pb-8 text-sm border-t border-theme-border relative overflow-hidden">
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-20">
 
                 <!-- Column 1 -->
                 <div>
-                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Admissions</h3>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Admissions</h3>
                     <ul class="space-y-3 font-medium">
-                        <li><a href="/admission-information/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Admission Information</a></li>
-                        <li><a href="/enquiry/" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">How to Apply</a></li>
-                        <li><a href="/admission-information/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Lateral Entry</a></li>
+                        <li><a href="/admission-information/" class="hover:text-theme-gold transition">Admission Information</a></li>
+                        <li><a href="/enquiry/" target="_blank" class="hover:text-theme-gold transition">How to Apply</a></li>
+                        <li><a href="/admission-information/" class="hover:text-theme-gold transition">Lateral Entry</a></li>
                         
                         <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">UGC-DTBU</strong></li>
-                        <li><a href="/documents-submitted/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">UGC Documents</a></li>
-                        <li><a href="/geo-tagged-photos/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Geo-Tagged Photos</a></li>
-                        <li><a href="/virtual-tour/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Campus Virtual Tour</a></li>
-                        <li><a href="/approvals-and-accreditations/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Approvals & Accreditations</a></li>
+                        <li><a href="/documents-submitted/" class="hover:text-theme-gold transition">UGC Documents</a></li>
+                        <li><a href="/geo-tagged-photos/" class="hover:text-theme-gold transition">Geo-Tagged Photos</a></li>
+                        <li><a href="/virtual-tour/" class="hover:text-theme-gold transition">Campus Virtual Tour</a></li>
+                        <li><a href="/approvals-and-accreditations/" class="hover:text-theme-gold transition">Approvals & Accreditations</a></li>
                         
                         <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">NBA-DCP</strong></li>
-                        <li><a href="/assets/pdf/nba-dcp/11255_Panimala_NBA_DCP_ADS.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">AI & Data Science</a></li>
+                        <li><a href="/assets/pdf/nba-dcp/11255_Panimala_NBA_DCP_ADS.pdf" target="_blank" class="hover:text-theme-gold transition">AI & Data Science</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 2 -->
                 <div>
-                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Facilities</h3>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Facilities</h3>
                     <ul class="space-y-3 font-medium">
-                        <li><a href="/green-campus/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Green Campus</a></li>
-                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Examination Facilities</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">University Offices</a></li>
-                        <li><a href="/it-infrastructure/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">IT Infrastructure</a></li>
-                        <li><a href="/transport/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Transport</a></li>
-                        <li><a href="/mess/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Mess</a></li>
-                        <li><a href="/hostel/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Hostel</a></li>
-                        <li><a href="/atm-facilities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">ATM</a></li>
-                        <li><a href="/water-sewage-treatment-plant/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Treatment Plants</a></li>
+                        <li><a href="/green-campus/" class="hover:text-theme-gold transition">Green Campus</a></li>
+                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="hover:text-theme-gold transition">Examination Facilities</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="hover:text-theme-gold transition">University Offices</a></li>
+                        <li><a href="/it-infrastructure/" class="hover:text-theme-gold transition">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="hover:text-theme-gold transition">Transport</a></li>
+                        <li><a href="/mess/" class="hover:text-theme-gold transition">Mess</a></li>
+                        <li><a href="/hostel/" class="hover:text-theme-gold transition">Hostel</a></li>
+                        <li><a href="/atm-facilities/" class="hover:text-theme-gold transition">ATM</a></li>
+                        <li><a href="/water-sewage-treatment-plant/" class="hover:text-theme-gold transition">Treatment Plants</a></li>
                         
                         <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">Library</strong></li>
-                        <li><a href="/central-library-I/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Central Library-I</a></li>
-                        <li><a href="/central-library-II/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Central Library-II</a></li>
-                        <li><a href="/it-first-year-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">IT-I Year Library</a></li>
-                        <li><a href="/pg-mba-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">P.G Library (MBA)</a></li>
-                        <li><a href="/department-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Department Library</a></li>
-                        <li><a href="/digital-library/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Digital Library</a></li>
+                        <li><a href="/central-library-I/" class="hover:text-theme-gold transition">Central Library-I</a></li>
+                        <li><a href="/central-library-II/" class="hover:text-theme-gold transition">Central Library-II</a></li>
+                        <li><a href="/it-first-year-library/" class="hover:text-theme-gold transition">IT-I Year Library</a></li>
+                        <li><a href="/pg-mba-library/" class="hover:text-theme-gold transition">P.G Library (MBA)</a></li>
+                        <li><a href="/department-library/" class="hover:text-theme-gold transition">Department Library</a></li>
+                        <li><a href="/digital-library/" class="hover:text-theme-gold transition">Digital Library</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 3 -->
                 <div>
-                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Quick Links</h3>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Quick Links</h3>
                     <ul class="space-y-3 font-medium">
-                        <li><a href="http://elink.aicte-india.org/vtrack?clientid=196766" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition leading-snug">AICTE Scholarship Schemes</a></li>
-                        <li><a href="https://www.aicte-india.org/feedback/" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition leading-snug">AICTE Feedback Link</a></li>
-                        <li><a href="/rules-regulations/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Rules & Regulations</a></li>
-                        <li><a href="/assets/pdf/Audited-Statements.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Audited Statements</a></li>
-                        <li><a href="/assets/pdf/PEC-Financial-Rule-book_compressed.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Financial Rules</a></li>
-                        <li><a href="/assets/pdf/PEC-HR-Policy.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">HR Policy</a></li>
-                        <li><a href="/assets/pdf/RESEARCH-POLICY-LATEST.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Research Policy</a></li>
-                        <li><a href="/industry-connect/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Highlights</a></li>
-                        <li><a href="/online-grievance/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Online Grievance</a></li>
-                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Proposed Building</a></li>
-                        <li><a href="/institutional-development-plan/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Institutional Dev Plan</a></li>
+                        <li><a href="http://elink.aicte-india.org/vtrack?clientid=196766" target="_blank" class="hover:text-theme-gold transition leading-snug">AICTE Scholarship Schemes</a></li>
+                        <li><a href="https://www.aicte-india.org/feedback/" target="_blank" class="hover:text-theme-gold transition leading-snug">AICTE Feedback Link</a></li>
+                        <li><a href="/rules-regulations/" class="hover:text-theme-gold transition">Rules & Regulations</a></li>
+                        <li><a href="/assets/pdf/Audited-Statements.pdf" target="_blank" class="hover:text-theme-gold transition">Audited Statements</a></li>
+                        <li><a href="/assets/pdf/PEC-Financial-Rule-book_compressed.pdf" target="_blank" class="hover:text-theme-gold transition">Financial Rules</a></li>
+                        <li><a href="/assets/pdf/PEC-HR-Policy.pdf" target="_blank" class="hover:text-theme-gold transition">HR Policy</a></li>
+                        <li><a href="/assets/pdf/RESEARCH-POLICY-LATEST.pdf" target="_blank" class="hover:text-theme-gold transition">Research Policy</a></li>
+                        <li><a href="/industry-connect/" class="hover:text-theme-gold transition">Highlights</a></li>
+                        <li><a href="/online-grievance/" class="hover:text-theme-gold transition">Online Grievance</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="hover:text-theme-gold transition">Proposed Building</a></li>
+                        <li><a href="/institutional-development-plan/" class="hover:text-theme-gold transition">Institutional Dev Plan</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 4 -->
                 <div>
-                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Extracurricular</h3>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Extracurricular</h3>
                     <ul class="space-y-3 font-medium">
-                        <li><a href="/sports/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Sports</a></li>
-                        <li><a href="/culturals/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Culturals</a></li>
-                        <li><a href="/nss/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">NSS</a></li>
-                        <li><a href="/yrc-activities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">YRC</a></li>
-                        <li><a href="/ccc-activities/" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">CCC</a></li>
-                        <li><a href="/assets/pdf/unnat-bharat-abhiyan.pdf" target="_blank" class="hover:text-theme-accent hover:translate-x-1 transform inline-block transition">Unnat Bharat Abhiyan</a></li>
+                        <li><a href="/sports/" class="hover:text-theme-gold transition">Sports</a></li>
+                        <li><a href="/culturals/" class="hover:text-theme-gold transition">Culturals</a></li>
+                        <li><a href="/nss/" class="hover:text-theme-gold transition">NSS</a></li>
+                        <li><a href="/yrc-activities/" class="hover:text-theme-gold transition">YRC</a></li>
+                        <li><a href="/ccc-activities/" class="hover:text-theme-gold transition">CCC</a></li>
+                        <li><a href="/assets/pdf/unnat-bharat-abhiyan.pdf" target="_blank" class="hover:text-theme-gold transition">Unnat Bharat Abhiyan</a></li>
                     </ul>
                 </div>
 
                 <!-- Column 5 -->
                 <div>
-                    <h3 class="text-white text-base font-extrabold mb-6 border-b-2 border-theme-accent inline-block pb-2 tracking-wide uppercase">Contact Us</h3>
-                    <div class="bg-white/5 rounded-3xl p-6 border border-white/10 shadow-glass">
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Contact Us</h3>
+                    <div class="bg-theme-navy rounded-xl p-6 border border-white/5">
                         <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Admissions Call</p>
-                        <p class="text-lg text-white font-black mb-5 tracking-wide flex flex-wrap items-center gap-2">
-                            <a href="tel:+919043891272" class="hover:text-theme-accent transition">+91 90438 91272</a>
+                        <p class="text-lg text-white font-bold mb-5 flex flex-wrap items-center gap-2">
+                            <a href="tel:+919043891272" class="hover:text-theme-gold transition">+91 90438 91272</a>
                             <span class="text-gray-600 text-sm">/</span>
-                            <a href="tel:+919043890983" class="hover:text-theme-accent transition">+91 90438 90983</a>
+                            <a href="tel:+919043890983" class="hover:text-theme-gold transition">+91 90438 90983</a>
                         </p>
                         
                         <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Location</p>
@@ -713,32 +958,41 @@
                         
                         <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Phone & Email</p>
                         <p class="mb-1 text-gray-300 text-sm">044 - 26490404 / 0505</p>
-                        <a href="mailto:info@panimalar.ac.in" class="text-theme-accent hover:text-white transition font-bold text-sm">info@panimalar.ac.in</a>
+                        <a href="mailto:info@panimalar.ac.in" class="text-theme-gold hover:text-white transition font-medium text-sm">info@panimalar.ac.in</a>
                     </div>
                 </div>
 
             </div>
 
             <!-- Footer Bottom -->
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium">
-                <p>Copyright &copy; <span id="year">2026</span> <span class="text-gray-300">Panimalar Engineering College.</span> All Rights Reserved.</p>
-                <p class="text-center md:text-right leading-loose">
-                    Designed by <a href="https://sivakumars-portfolio.netlify.app" target="_blank" class="text-white hover:text-theme-accent transition font-bold border-b border-white/20 pb-0.5">Siva Kumar R</a> 
-                    <span class="mx-3 hidden md:inline text-gray-700">|</span><br class="md:hidden">
-                    Partnered with <a href="https://sparklance-solutions.netlify.app" target="_blank" class="text-white hover:text-theme-accent transition font-bold border-b border-white/20 pb-0.5">Sparklance Solutions</a>
-                </p>
+            <div class="border-t border-white/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium">
+                <p>Copyright &copy; <span id="year">2026</span> Panimalar Engineering College. All Rights Reserved.</p>
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                    <p>Designed by <a href="https://sivakumars-portfolio.netlify.app" target="_blank" class="text-theme-gold hover:text-white transition">Siva Kumar R</a></p>
+                    <span class="hidden sm:inline text-gray-600">|</span>
+                    <p>Partnered with <a href="https://sparklance-solutions.netlify.app" target="_blank" class="text-theme-gold hover:text-white transition">Sparklance Solutions</a></p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        // Preloader Removal
-        window.addEventListener('load', () => {
-            setTimeout(() => document.body.classList.add('loaded'), 600);
-            document.getElementById('year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
+            if(typeof Swiper !== 'undefined') {
+                new Swiper('.mediaSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: false,
+                    pagination: { el: '.swiper-pagination', clickable: true },
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
+                    }
+                });
+            }
         });
 
-        // Mobile Menu Toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', () => {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
@@ -750,6 +1004,44 @@
                 else el.classList.add('open');
             }
         }
+
+        const counters = document.querySelectorAll('.counter');
+        if (counters.length > 0) {
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('.counter').forEach(counter => {
+                            if (counter.dataset.counted === 'true') return;
+                            counter.dataset.counted = 'true';
+
+                            const target = +counter.getAttribute('data-target');
+                            const speed = 100;
+                            const inc = target / speed;
+                            let count = 0;
+
+                            const updateCount = () => {
+                                count += inc;
+                                if (count < target) {
+                                    counter.innerText = Math.ceil(count).toLocaleString();
+                                    requestAnimationFrame(updateCount);
+                                } else {
+                                    counter.innerText = target.toLocaleString();
+                                }
+                            };
+                            updateCount();
+                        });
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            document.querySelectorAll('.grid').forEach(grid => observer.observe(grid));
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => document.body.classList.add('loaded'), 400);
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
     </script>
 </body>
 </html>
