@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panimalar Engineering College | Excellence in Education</title>
-    <meta name="description" content="Panimalar Engineering College, Chennai — Autonomous engineering institution offering UG/PG programs in CSE, ECE, EEE, Mechanical, AI & DS and more, with strong placements and research culture.">
-    <link rel="canonical" href="https://www.panimalar.ac.in/">
-    <link rel="shortcut icon" href="/assets/images/favicon.png">
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -19,7 +16,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'], roboto: ['Roboto', 'sans-serif'] },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
                     colors: {
                         theme: {
                             yellow: '#FDB813', dark: '#0A2A5E', light: '#F4F7F6',
@@ -27,7 +27,10 @@
                             blue: '#1E88E5', orange: '#FB8C00', merun: '#8E24AA', pink: '#D81B60'
                         }
                     },
-                    boxShadow: { soft: '0 10px 40px rgba(0,0,0,0.05)', card: '0 4px 20px rgba(0,0,0,0.08)' }
+                    boxShadow: {
+                        'soft': '0 10px 40px rgba(0,0,0,0.05)',
+                        'card': '0 4px 20px rgba(0,0,0,0.08)',
+                    }
                 }
             }
         }
@@ -35,148 +38,130 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; color: #494949; overflow-x: hidden; }
-        #preloader { position: fixed; z-index: 999999; background: #fff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity .6s ease, visibility .6s ease; }
+        
+        /* Preloader */
+        #preloader { position: fixed; z-index: 999999; background: #ffffff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
         body.loaded #preloader { opacity: 0; visibility: hidden; }
-        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all .3s ease; position: relative; overflow: hidden; z-index: 1; }
-        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all .3s ease; z-index: -1; }
+
+        /* Component Classes */
+        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
+        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all 0.3s ease; z-index: -1; }
         .btn-theme:hover { color: #fff; } .btn-theme:hover::before { width: 100%; }
-        .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10,42,94,.05); border-radius: 50px; }
+
+        .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10, 42, 94, 0.05); border-radius: 50px; }
         .section-title { font-size: 2.5rem; font-weight: 800; color: #0A2A5E; line-height: 1.2; }
         .section-title span { color: #FDB813; }
+
+        /* Utilities */
         .marquee-container { overflow: hidden; white-space: nowrap; display: flex; width: 100%; }
         .marquee-content { display: inline-block; animation: marquee 25s linear infinite; }
         .marquee-container:hover .marquee-content { animation-play-state: paused; }
         @keyframes marquee { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
-        .hover-card { transition: transform .3s ease, box-shadow .3s ease; }
-        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,.1); }
+
+        .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
         .dropdown:hover > .dropdown-menu { display: block; }
         .dropdown-submenu:hover > .dropdown-menu { display: block; }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: .75rem; }
+
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.75rem; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        
         .mobile-submenu { display: none; }
         .mobile-submenu.open { display: block; }
-        .skip-link { position: absolute; left: -999px; top: 0; background: #0A2A5E; color: #fff; padding: 10px 16px; z-index: 100000; }
-        .skip-link:focus { left: 0; }
-        a:focus-visible, button:focus-visible { outline: 3px solid #FDB813; outline-offset: 2px; }
     </style>
 </head>
 <body class="bg-white">
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <div id="preloader" aria-hidden="true">
+    <div id="preloader">
         <div class="text-center flex flex-col items-center">
             <div class="w-16 h-16 border-4 border-gray-200 border-t-theme-dark border-r-theme-yellow rounded-full animate-spin mb-4"></div>
             <span class="text-theme-dark font-bold tracking-widest text-sm uppercase animate-pulse">Loading Knowledge...</span>
         </div>
     </div>
 
-    <!-- Top utility bar -->
-    <div class="bg-gray-100 text-xs py-2 border-b border-gray-200 hidden md:block">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <div class="flex items-center gap-4 font-medium text-gray-600">
-                <span class="bg-red-500 text-white px-2 py-0.5 rounded animate-pulse shadow-sm">For Admissions</span>
-                <a href="tel:+919043891272" class="hover:text-theme-dark transition flex items-center gap-1"><i class="fa fa-phone text-theme-yellow" aria-hidden="true"></i> 90438 91272</a>
-                <span>/</span>
-                <a href="tel:+919043890983" class="hover:text-theme-dark transition">90438 90983</a>
-            </div>
-            <div class="flex items-center gap-4 text-gray-600 font-medium">
-                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition flex items-center gap-1"><i class="fas fa-file-pdf text-red-500" aria-hidden="true"></i> College Brochure</a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Newsletter</a>
-                <span class="text-gray-300">|</span>
-                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Mandatory Disclosure</a>
-                <span class="text-gray-300">|</span>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" rel="noopener" class="hover:text-theme-dark transition">Careers</a>
-                <div class="flex gap-3 border-l border-gray-300 pl-4 text-sm text-theme-dark">
-                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" rel="noopener" aria-label="Facebook" class="hover:text-theme-yellow transition"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" rel="noopener" aria-label="YouTube" class="hover:text-theme-yellow transition"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:text-theme-yellow transition"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:text-theme-yellow transition"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
-                    <a href="https://x.com/PanimalarC" target="_blank" rel="noopener" aria-label="X (Twitter)" class="hover:text-theme-yellow transition">
-                        <svg class="w-3 h-3 fill-current inline-block relative -top-[2px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" aria-hidden="true">
-                            <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header / Nav -->
     <div id="site-header"></div>
 
-    <!-- Announcements marquee -->
-    <div class="bg-theme-dark text-white py-2 border-b border-theme-yellow/30">
-        <div class="container mx-auto px-4 flex items-center">
-            <div class="font-bold text-theme-yellow whitespace-nowrap pr-4 flex items-center gap-2 z-10 bg-theme-dark relative">
-                <img src="/assets/images/icons8-commercial.gif" alt="" class="h-5 hidden md:block" loading="lazy"> Announcements:
-            </div>
-            <div class="marquee-container" role="marquee" aria-label="Announcements">
-                <div class="marquee-content text-sm flex gap-10 items-center">
-                    <span>International Conference on Modern Sustainable Engineering and Technology (ICMSET2026) — Hybrid Mode Event. <a href="/assets/upcoming-events/ICMSET2026.pdf" target="_blank" rel="noopener" class="text-theme-yellow underline">Read More</a></span>
-                    <span>Admissions Open for 2026-2027. Secure your future with us.</span>
-                    <span>Ranked among Top Engineering Colleges in NIRF.</span>
-                    <span>International Conference on Modern Sustainable Engineering and Technology (ICMSET2026) — Hybrid Mode Event. <a href="/assets/upcoming-events/ICMSET2026.pdf" target="_blank" rel="noopener" class="text-theme-yellow underline">Read More</a></span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <main id="main-content">
-        <!-- Hero -->
         <section class="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-theme-dark">
             <div class="absolute inset-0 z-0">
-                <img src="/assets/images/hero-campus.webp" class="w-full h-full object-cover opacity-60" alt="Panimalar Engineering College campus" loading="eager">
+                 <img src="https://placehold.co/1920x1080/0A2A5E/153a73?text=Panimalar+Campus+Video+Background" class="w-full h-full object-cover opacity-60" alt="Campus" onerror="this.src='https://placehold.co/1920x1080/0A2A5E/153a73'">
                 <div class="absolute inset-0 bg-gradient-to-t from-theme-dark via-theme-dark/70 to-transparent"></div>
             </div>
+
             <div class="container mx-auto px-4 relative z-10 text-center">
-                <span class="inline-block py-1 px-4 rounded-full bg-theme-yellow/20 border border-theme-yellow/50 text-theme-yellow font-medium tracking-wider text-sm mb-6">Counseling Code: 1210</span>
+                <span class="inline-block py-1 px-4 rounded-full bg-theme-yellow/20 border border-theme-yellow/50 text-theme-yellow font-medium tracking-wider text-sm mb-6 animate-fade-in-up">
+                    Counseling Code: 1210
+                </span>
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight font-roboto">
                     Empowering The <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-theme-yellow to-yellow-200">Future of Engineering</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">Join a legacy of excellence. Experience world-class education, practical industry exposure, and phenomenal placement records at Panimalar.</p>
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                    Join a legacy of excellence. Experience world-class education, practical industry exposure, and phenomenal placement records at Panimalar.
+                </p>
                 <div class="flex flex-wrap gap-4 justify-center">
-                    <a href="/enquiry" target="_blank" rel="noopener" class="btn-theme !px-8 !py-4 !text-lg">Apply Now</a>
-                    <a href="/virtual-tour/" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded hover:bg-white hover:text-theme-dark transition">Virtual Tour</a>
+                    <a href="/enquiry" target="_blank" class="btn-theme !px-8 !py-4 !text-lg">Apply Now</a>
+                    <a href="virtual-tour.html" class="inline-flex items-center justify-center px-8 py-4 border-2 border-white text-white font-semibold rounded hover:bg-white hover:text-theme-dark transition">Virtual Tour</a>
                 </div>
             </div>
         </section>
 
-        <!-- Stats -->
         <div class="container mx-auto px-4 relative z-20 -mt-16 mb-20">
             <div class="bg-white rounded-xl shadow-card p-6 md:p-10 border border-gray-100">
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 text-center divide-x divide-gray-100">
-                    <div class="p-2"><h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="11000">0</span>+</h3><p class="text-theme-dark font-medium text-sm md:text-base">Happy Students</p></div>
-                    <div class="p-2"><h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1000">0</span>+</h3><p class="text-theme-dark font-medium text-sm md:text-base">Eminent Faculties</p></div>
-                    <div class="p-2"><h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1500">0</span>+</h3><p class="text-theme-dark font-medium text-sm md:text-base">University Ranks</p></div>
-                    <div class="p-2"><h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1">&gt; <span class="counter" data-target="90">0</span>%</h3><p class="text-theme-dark font-medium text-sm md:text-base">Placements</p></div>
-                    <div class="p-2 hidden lg:block"><h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="15000">0</span>+</h3><p class="text-theme-dark font-medium text-sm md:text-base">Successful Alumni</p></div>
+                    <div class="p-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="11000">0</span>+</h3>
+                        <p class="text-theme-dark font-medium text-sm md:text-base">Happy Students</p>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1000">0</span>+</h3>
+                        <p class="text-theme-dark font-medium text-sm md:text-base">Eminent Faculties</p>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1500">0</span>+</h3>
+                        <p class="text-theme-dark font-medium text-sm md:text-base">University Ranks</p>
+                    </div>
+                    <div class="p-2">
+                        <h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1">> <span class="counter" data-target="90">0</span>%</h3>
+                        <p class="text-theme-dark font-medium text-sm md:text-base">Placements</p>
+                    </div>
+                    <div class="p-2 hidden lg:block">
+                        <h3 class="text-3xl md:text-4xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="15000">0</span>+</h3>
+                        <p class="text-theme-dark font-medium text-sm md:text-base">Successful Alumni</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Why Panimalar -->
         <section class="py-16 bg-theme-light">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <span class="section-subtitle">Why We Are Different</span>
                     <h2 class="section-title">Discover Our <span>Strengths</span></h2>
                 </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white rounded-lg p-8 shadow-card text-center hover-card border-b-4 border-theme-yellow">
-                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6"><i class="fas fa-laptop-code" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-theme-dark mb-3">Practical Exposure</h3>
                         <p class="text-gray-600 text-sm">Opportunity to learn and work with IT Professionals and gain actual work experience.</p>
                     </div>
+
                     <div class="bg-white rounded-lg p-8 shadow-card text-center hover-card border-b-4 border-theme-yellow">
-                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6"><i class="fas fa-book-open" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-book-open"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-theme-dark mb-3">Industry Aligned Syllabus</h3>
                         <p class="text-gray-600 text-sm">Focus on modern skills, open-book assessments, and group project approaches.</p>
                     </div>
+
                     <div class="bg-white rounded-lg p-8 shadow-card text-center hover-card border-b-4 border-theme-yellow">
-                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i></div>
+                        <div class="w-16 h-16 mx-auto bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
                         <h3 class="text-xl font-bold text-theme-dark mb-3">Expert Faculty</h3>
                         <p class="text-gray-600 text-sm">Learn from expert teachers who are active practitioners in their respective fields.</p>
                     </div>
@@ -184,7 +169,6 @@
             </div>
         </section>
 
-        <!-- Media -->
         <section class="py-20 bg-theme-dark text-white overflow-hidden">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
@@ -192,93 +176,141 @@
                     <h2 class="section-title !text-white">Watch Our <span>Story</span></h2>
                     <p class="text-gray-300 mt-4">Glimpses of events, achievements, and campus life.</p>
                 </div>
+
                 <div class="swiper mediaSwiper w-full pb-12">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"><div class="video-container shadow-lg rounded-xl"><iframe src="https://www.youtube.com/embed/5GBmRflE-5U" title="Panimalar Engineering College video 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-                        <div class="swiper-slide"><div class="video-container shadow-lg rounded-xl"><iframe src="https://www.youtube.com/embed/lW8geQb4RI4" title="Panimalar Engineering College video 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-                        <div class="swiper-slide"><div class="video-container shadow-lg rounded-xl"><iframe src="https://www.youtube.com/embed/-zVh2B46t98" title="Panimalar Engineering College video 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-                        <div class="swiper-slide"><div class="video-container shadow-lg rounded-xl"><iframe src="https://www.youtube.com/embed/xl1lrHSunaQ" title="Panimalar Engineering College video 4" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
-                        <div class="swiper-slide"><div class="video-container shadow-lg rounded-xl"><iframe src="https://www.youtube.com/embed/isW6LT3R6vE" title="Panimalar Engineering College video 5" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div></div>
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="video-container shadow-lg rounded-xl">
+                                <iframe src="https://www.youtube.com/embed/5GBmRflE-5U?si=tf5-IitCRn8y3ttE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="video-container shadow-lg rounded-xl">
+                                <iframe src="https://www.youtube.com/embed/lW8geQb4RI4?si=aaEFzcuP_rtKn8xl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="video-container shadow-lg rounded-xl">
+                                <iframe src="https://www.youtube.com/embed/-zVh2B46t98?si=RBWvpIDX7A5yGzni" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </div>
                     </div>
+                    <!-- Pagination -->
                     <div class="swiper-pagination !bottom-0"></div>
                 </div>
             </div>
         </section>
 
-        <!-- CoE -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-12">
                     <span class="section-subtitle">Innovation Hub</span>
                     <h2 class="section-title">Centre of Excellence & <span>Incubation</span></h2>
                 </div>
+
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
-                    <a href="/center-of-excellence/" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
-                        <img src="/assets/images/home-coe-logo/techm.png" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="Tech Mahindra logo" loading="lazy">
+                    <a href="center-of-excellence.html" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
+                        <img src="https://placehold.co/120x60/transparent/0A2A5E?text=Tech+Mahindra" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="TechM">
                         <h4 class="font-bold text-theme-dark text-sm md:text-base">TECH Mahindra</h4>
                     </a>
-                    <a href="/center-of-excellence/" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
-                        <img src="/assets/images/home-coe-logo/landt.png" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="Larsen & Toubro logo" loading="lazy">
+                    <a href="center-of-excellence.html" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
+                        <img src="https://placehold.co/120x60/transparent/0A2A5E?text=L&T" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="L&T">
                         <h4 class="font-bold text-theme-dark text-sm md:text-base">Larsen & Toubro</h4>
                     </a>
-                    <a href="/center-of-excellence/" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
-                        <img src="/assets/images/home-coe-logo/oracle.png" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="Oracle logo" loading="lazy">
+                    <a href="center-of-excellence.html" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
+                        <img src="https://placehold.co/120x60/transparent/0A2A5E?text=Oracle" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="Oracle">
                         <h4 class="font-bold text-theme-dark text-sm md:text-base">ORACLE</h4>
                     </a>
-                    <a href="/center-of-excellence/" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
-                        <img src="/assets/images/home-coe-logo/tansam.png" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="TANSAM logo" loading="lazy">
+                    <a href="center-of-excellence.html" class="block bg-gray-50 border border-gray-100 rounded-lg p-6 text-center hover-card group">
+                        <img src="https://placehold.co/120x60/transparent/0A2A5E?text=TANSAM" class="mx-auto mb-4 h-12 object-contain grayscale group-hover:grayscale-0 transition" alt="TANSAM">
                         <h4 class="font-bold text-theme-dark text-sm md:text-base">TANSAM</h4>
                     </a>
                 </div>
                 <div class="text-center mt-10">
-                    <a href="/center-of-excellence/" class="text-theme-dark font-bold hover:text-theme-yellow transition border-b-2 border-theme-yellow pb-1">View All Centers <i class="fas fa-arrow-right text-xs ml-1" aria-hidden="true"></i></a>
+                    <a href="center-of-excellence.html" class="text-theme-dark font-bold hover:text-theme-yellow transition border-b-2 border-theme-yellow pb-1">View All Centers <i class="fas fa-arrow-right text-xs ml-1"></i></a>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials -->
         <section class="py-20 bg-gray-50 relative">
-            <div class="absolute inset-0" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; opacity: .5;"></div>
+            <div class="absolute inset-0" style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 24px 24px; opacity: 0.5;"></div>
             <div class="container mx-auto px-4 relative z-10">
-                <div class="text-center mb-16"><h2 class="section-title">Alumni <span>Testimonials</span></h2></div>
+                <div class="text-center mb-16">
+                    <h2 class="section-title">Alumni <span>Testimonials</span></h2>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Testimonial -->
                     <div class="bg-white p-8 rounded-xl shadow-card relative mt-8">
-                        <div class="absolute -top-10 left-1/2 -translate-x-1/2"><img src="/assets/images/testimonials/saravanan.jpg" alt="Saravana Iyyappan" class="w-20 h-20 rounded-full border-4 border-white shadow-md object-cover" loading="lazy"></div>
-                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm" aria-label="5 out of 5 stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
-                        <p class="text-gray-600 text-sm italic text-center mb-6">"I always thank Panimalar College for what I am today. Great support from the management, plus personal development, workshops, and guest lectures kept me abreast of current trends."</p>
-                        <div class="text-center border-t border-gray-100 pt-4"><h4 class="font-bold text-theme-dark">Saravana Iyyappan</h4><p class="text-xs text-gray-500">Deputy Manager, Ford Motors</p></div>
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://placehold.co/80x80/0A2A5E/FDB813?text=SI" alt="Saravana" class="w-20 h-20 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic text-center mb-6">"I always Thank Panimalar College for what I am today and close to my Heart. Great support from all the management staffs. Personal Development, Workshops, Guest Lectures helped me keep abreast of current Trends."</p>
+                        <div class="text-center border-t border-gray-100 pt-4">
+                            <h4 class="font-bold text-theme-dark">Saravana Iyyappan</h4>
+                            <p class="text-xs text-gray-500">Deputy Manager, Ford Motors</p>
+                        </div>
                     </div>
+
+                    <!-- Testimonial -->
                     <div class="bg-white p-8 rounded-xl shadow-card relative mt-8">
-                        <div class="absolute -top-10 left-1/2 -translate-x-1/2"><img src="/assets/images/testimonials/james.jpg" alt="James Babu Mathew" class="w-20 h-20 rounded-full border-4 border-white shadow-md object-cover" loading="lazy"></div>
-                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm" aria-label="5 out of 5 stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
-                        <p class="text-gray-600 text-sm italic text-center mb-6">"Panimalar is one of the finest educational institutions. The curriculum develops theoretical knowledge and gives real insight into industry through exposure to experts."</p>
-                        <div class="text-center border-t border-gray-100 pt-4"><h4 class="font-bold text-theme-dark">James Babu Mathew</h4><p class="text-xs text-gray-500">PMO, Capgemini, Bangalore</p></div>
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://placehold.co/80x80/0A2A5E/FDB813?text=JM" alt="James" class="w-20 h-20 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic text-center mb-6">"Panimalar is one of the finest educational institutions. It has an advanced curriculum which not only develops theoretical knowledge but helps get an insight of the industry through exposure to industrial experts."</p>
+                        <div class="text-center border-t border-gray-100 pt-4">
+                            <h4 class="font-bold text-theme-dark">James Babu Mathew</h4>
+                            <p class="text-xs text-gray-500">PMO, Capgemini, Bangalore</p>
+                        </div>
                     </div>
+
+                    <!-- Testimonial -->
                     <div class="bg-white p-8 rounded-xl shadow-card relative mt-8">
-                        <div class="absolute -top-10 left-1/2 -translate-x-1/2"><img src="/assets/images/testimonials/vijay.jpg" alt="S. Vijay" class="w-20 h-20 rounded-full border-4 border-white shadow-md object-cover" loading="lazy"></div>
-                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm" aria-label="5 out of 5 stars"><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i><i class="fas fa-star" aria-hidden="true"></i></div>
-                        <p class="text-gray-600 text-sm italic text-center mb-6">"From this college I gained exposure to multicultural activities, people skills, and the ability to work under pressure, guided by the best teachers."</p>
-                        <div class="text-center border-t border-gray-100 pt-4"><h4 class="font-bold text-theme-dark">S. Vijay</h4><p class="text-xs text-gray-500">General Manager, RIKUN Mfg</p></div>
+                        <div class="absolute -top-10 left-1/2 -translate-x-1/2">
+                            <img src="https://placehold.co/80x80/0A2A5E/FDB813?text=SV" alt="Vijay" class="w-20 h-20 rounded-full border-4 border-white shadow-md">
+                        </div>
+                        <div class="text-theme-yellow text-center mb-4 mt-8 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 text-sm italic text-center mb-6">"From this college, I learned good exposure like multicultural activities, people skills, the ability to work in high-pressure situations, disciplined analytical skills. The best teachers' guidance helped me."</p>
+                        <div class="text-center border-t border-gray-100 pt-4">
+                            <h4 class="font-bold text-theme-dark">S. Vijay</h4>
+                            <p class="text-xs text-gray-500">General Manager, RIKUN Mfg</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA -->
         <section class="py-16 bg-theme-yellow relative overflow-hidden">
             <div class="container mx-auto px-4 text-center relative z-10">
                 <h2 class="text-3xl md:text-4xl font-bold text-theme-dark mb-10">Experience Panimalar & Enlighten Your Future</h2>
                 <div class="flex flex-wrap justify-center gap-8 md:gap-20">
-                    <a href="/contact-us/" class="group flex flex-col items-center gap-4 text-theme-dark">
-                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all"><i class="fas fa-envelope-open-text" aria-hidden="true"></i></div>
+                    <a href="contact-us.html" class="group flex flex-col items-center gap-4 text-theme-dark">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
                         <span class="font-bold text-lg">Join Mailing List</span>
                     </a>
-                    <a href="/program-curriculum/" class="group flex flex-col items-center gap-4 text-theme-dark">
-                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all"><i class="fas fa-graduation-cap" aria-hidden="true"></i></div>
+                    <a href="program-curriculum.html" class="group flex flex-col items-center gap-4 text-theme-dark">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
                         <span class="font-bold text-lg">Explore Courses</span>
                     </a>
-                    <a href="/research/" class="group flex flex-col items-center gap-4 text-theme-dark">
-                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all"><i class="fas fa-flask" aria-hidden="true"></i></div>
+                    <a href="research.html" class="group flex flex-col items-center gap-4 text-theme-dark">
+                        <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center text-3xl shadow-lg group-hover:scale-110 group-hover:bg-theme-dark group-hover:text-white transition-all">
+                            <i class="fas fa-flask"></i>
+                        </div>
                         <span class="font-bold text-lg">Research Facilities</span>
                     </a>
                 </div>
@@ -286,18 +318,24 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <div id="site-footer"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="/assets/js/site.js"></script>
+    <script src="assets/js/site.js"></script>
     <script>
-        // Page-specific: homepage media carousel
+        // Init page-specific swipers
         document.addEventListener('DOMContentLoaded', () => {
-            new Swiper('.mediaSwiper', {
-                slidesPerView: 1, spaceBetween: 30, loop: false,
-                pagination: { el: '.swiper-pagination', clickable: true },
-                breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            const mediaSwiper = new Swiper('.mediaSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: false,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 },
+                }
             });
         });
     </script>
