@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Panimalar Engineering College</title>
-    
+
+    <link rel="shortcut icon" href="/assets/images/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -37,13 +38,8 @@
 
     <style>
         body { font-family: 'Inter', sans-serif; color: #494949; overflow-x: hidden; }
-        
         #preloader { position: fixed; z-index: 999999; background: #ffffff; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
         body.loaded #preloader { opacity: 0; visibility: hidden; }
-
-        .btn-theme { display: inline-flex; align-items: center; justify-content: center; padding: 12px 30px; background-color: #FDB813; color: #0A2A5E; font-weight: 600; border-radius: 5px; transition: all 0.3s ease; position: relative; overflow: hidden; z-index: 1; }
-        .btn-theme::before { content: ""; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background-color: #0A2A5E; transition: all 0.3s ease; z-index: -1; }
-        .btn-theme:hover { color: #fff; } .btn-theme:hover::before { width: 100%; }
 
         .section-subtitle { color: #0A2A5E; font-weight: 600; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 15px; padding: 5px 15px; background: rgba(10, 42, 94, 0.05); border-radius: 50px; }
         .section-title { font-size: 2.5rem; font-weight: 800; color: #0A2A5E; line-height: 1.2; }
@@ -56,10 +52,15 @@
         .dropdown-submenu:hover > .dropdown-menu { display: block; }
         .mobile-submenu { display: none; }
         .mobile-submenu.open { display: block; }
-        
-        /* Timeline specific */
+
+        .timeline-rail { position: relative; }
         .timeline-rail::before { content: ""; position: absolute; left: 1rem; top: 0; bottom: 0; width: 2px; background: #e5e7eb; }
-        @media (min-width: 768px) { .timeline-rail::before { left: 50%; transform: translateX(-50%); } }
+        @media (min-width: 768px) { .timeline-rail::before { left: 1.5rem; } }
+
+        .intake-table { border-collapse: collapse; width: 100%; font-size: 0.78rem; }
+        .intake-table th, .intake-table td { border: 1px solid #e5e7eb; padding: 4px 8px; text-align: center; white-space: nowrap; }
+        .intake-table th { background: #0A2A5E; color: #FDB813; font-weight: 600; }
+        .intake-scroll { overflow-x: auto; }
     </style>
 </head>
 <body class="bg-white">
@@ -74,30 +75,33 @@
     <div id="site-header"></div>
 
     <main id="main-content">
-        
+
+        <!-- BANNER -->
         <section class="relative pt-24 pb-16 bg-gradient-to-br from-theme-dark to-[#133a7a] overflow-hidden border-b-4 border-theme-yellow">
             <div class="container mx-auto px-4 relative z-10 text-center">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 font-roboto">About Panimalar</h1>
                 <div class="text-gray-300 text-sm font-medium">
-                    <a href="index.html" class="hover:text-theme-yellow transition">Home</a> <span class="mx-2">/</span> <span class="text-theme-yellow">About Us</span>
+                    <a href="/" class="hover:text-theme-yellow transition">Home</a> <span class="mx-2">/</span> <span class="text-theme-yellow">About Us</span>
                 </div>
             </div>
         </section>
 
+        <!-- ABOUT PANIMALAR -->
         <section class="py-16 md:py-20 bg-white">
             <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <span class="section-subtitle">Who We Are</span>
                     <h2 class="section-title mb-6">About <span>Panimalar</span></h2>
                     <p class="text-gray-600 leading-relaxed mb-4">Panimalar Engineering College governed by JAISAKTHI Educational Trust aims at imparting quality engineering and management education for the aspiring youth.</p>
-                    <p class="text-gray-600 leading-relaxed">The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering, Chennai, Kancheepuram and Thiruvallur districts. The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu.</p>
+                    <p class="text-gray-600 leading-relaxed">The College is accredited by National Board of Accreditation (NBA), New Delhi, approved by All India Council for Technical Education (AICTE) and recognized by UGC with 12(B) & 2(f) status. The college is located near Poonamallee, Chennai, and is well connected by road covering, Chennai, Kancheepuram and Thiruvallur districts. The Trust started Panimalar Engineering College in the year 2000 in accordance with the general policy of the Government of Tamil Nadu. The policy emphasizes to give high priority to meet the demand for trained engineers for various industrial and development projects in the state of Tamil Nadu and the rest of India.</p>
                 </div>
                 <div class="hover-card">
-                    <img src="https://placehold.co/800x600/0A2A5E/FDB813?text=College+Building" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-xl shadow-card object-cover">
+                    <img src="/assets/images/AboutUs/panimalar-engg.jpg" alt="Panimalar Engineering College campus" class="w-full h-auto rounded-xl shadow-card object-cover">
                 </div>
             </div>
         </section>
 
+        <!-- VISION / MISSION -->
         <section class="py-16 md:py-20 bg-theme-light">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
@@ -107,7 +111,7 @@
                     <h2 class="text-2xl font-extrabold text-theme-dark mb-4">Vision <span class="text-theme-yellow">of the Institute</span></h2>
                     <p class="text-gray-600 leading-relaxed">To transform the budding engineers into academically excellent, highly intellectual and self disciplined engineering graduates to mould them as good citizens with the spirit of integrity and morality that would cater to the needs of our nation.</p>
                 </div>
-                
+
                 <div class="bg-white rounded-lg p-8 shadow-card hover-card border-b-4 border-theme-yellow">
                     <div class="w-16 h-16 bg-theme-dark text-theme-yellow rounded-full flex items-center justify-center text-2xl mb-6">
                         <i class="fas fa-bullseye"></i>
@@ -120,16 +124,17 @@
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fas fa-check-circle text-theme-yellow mt-1"></i>
-                            <span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge.</span>
+                            <span>To provide an excellent infrastructure in a serene and conducive atmosphere that would motivate the students in their pursuit of knowledge in the field of engineering and technology.</span>
                         </li>
                     </ul>
                 </div>
             </div>
         </section>
 
+        <!-- QUALITY POLICY -->
         <section class="py-16 md:py-20 bg-white">
             <div class="container mx-auto px-4">
-                <div class="bg-theme-dark rounded-xl p-8 md:p-12 shadow-card mb-16">
+                <div class="bg-theme-dark rounded-xl p-8 md:p-12 shadow-card">
                     <span class="section-subtitle !bg-white/10 !text-theme-yellow">Commitment</span>
                     <h2 class="text-2xl md:text-3xl font-extrabold text-white mb-4">Quality <span class="text-theme-yellow">Policy</span></h2>
                     <p class="text-gray-300 leading-relaxed mb-6">The Institution strives to provide a High Quality Education and Training in Engineering, Science and Management for aspiring youth in the growth of Engineering Profession and Industry by:</p>
@@ -147,73 +152,410 @@
             </div>
         </section>
 
+        <!-- OUR CAMPUS -->
+        <section class="py-16 md:py-20 bg-theme-light">
+            <div class="container mx-auto px-4 text-center max-w-3xl">
+                <span class="section-subtitle">Where We Learn</span>
+                <h2 class="section-title mb-6">Our <span>Campus</span></h2>
+                <p class="text-gray-600 leading-relaxed">This sprawling campus provides a holistic education in an ambience that makes no compromise on discipline, dedication and commitment. It strives to inculcate the spirit of learning in the campus offering state of art facilities to the students. The college ensures that the students who pass out of the college, turn out to be academically brilliant, morally upright and empowered individuals.</p>
+            </div>
+        </section>
+
+        <!-- MILESTONE STATS -->
+        <section class="py-16 md:py-20 bg-theme-dark">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 text-center">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="2100000">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Sq. Ft. Infrastructure</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="10">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Departments</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="11000">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Students</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1000">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Employees</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="1500">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Rank Holders</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="4000">0</span>+</h3>
+                        <p class="text-gray-300 text-xs md:text-sm">Publications</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-bold text-theme-yellow mb-1"><span class="counter" data-target="66">0</span></h3>
+                        <p class="text-gray-300 text-xs md:text-sm">H-Index</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MILESTONES TIMELINE (FULL, 2000 - 2024-25) -->
         <section class="py-16 md:py-20 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="text-center mb-16">
                     <span class="section-subtitle">Our Journey</span>
-                    <h2 class="section-title">Milestones of <span>Panimalar</span></h2>
+                    <h2 class="section-title">Milestones of Panimalar <span>Engineering College</span></h2>
                 </div>
 
-                <!-- Timeline layout -->
-                <div class="relative timeline-rail max-w-5xl mx-auto">
-                    
+                <div class="timeline-rail max-w-4xl mx-auto pl-10 md:pl-16">
+
                     <!-- 2000 -->
-                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
-                        <div class="hidden md:block order-1 text-right pt-6 pr-10">
-                            <h3 class="text-3xl font-bold text-theme-yellow">2000</h3>
-                        </div>
-                        <div class="md:order-2 relative pt-2 pb-6">
-                            <div class="absolute left-[-2.65rem] md:left-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                            <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2000</h3>
-                                <p class="text-gray-600 font-medium mb-2">Inception of the College</p>
-                                <p class="text-sm text-gray-500">Established departments: CSE (60 seats), IT (60 seats), ECE (60 seats).</p>
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2000 — Departments Established</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="3">Departments Established in the Year of 2000</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td></tr><tr><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 2002-2003 -->
-                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
-                        <div class="md:order-1 relative pt-2 pb-6 text-right">
-                            <div class="absolute left-[-2.65rem] md:left-auto md:right-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                            <div class="bg-white rounded-xl shadow-card p-6 border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-theme-dark text-left md:text-right">
-                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2002-2003</h3>
-                                <p class="text-gray-600 font-medium mb-2">Expansion & New Courses</p>
-                                <p class="text-sm text-gray-500">Introduced Mechanical Engineering & Master of Business Administration (MBA).</p>
-                            </div>
-                        </div>
-                        <div class="hidden md:block order-2 pt-6 pl-10">
-                            <h3 class="text-3xl font-bold text-theme-yellow">2002-03</h3>
-                        </div>
-                    </div>
-
-                    <!-- 2016-2017 -->
-                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
-                        <div class="hidden md:block order-1 text-right pt-6 pr-10">
-                            <h3 class="text-3xl font-bold text-theme-yellow">2016-17</h3>
-                        </div>
-                        <div class="md:order-2 relative pt-2 pb-6">
-                            <div class="absolute left-[-2.65rem] md:left-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                            <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
-                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2016-2017</h3>
-                                <p class="text-gray-600 font-medium mb-2">Postgraduate Additions</p>
-                                <p class="text-sm text-gray-500">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
+                    <!-- 2001-02 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2001-2002</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="3">Intake 2001-02</th><th colspan="2">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td></tr><tr><td>90</td><td>90</td><td>90</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 2024-2025 -->
-                    <div class="relative pl-14 md:pl-0 md:grid md:grid-cols-2 md:gap-10 mb-10">
-                        <div class="md:order-1 relative pt-2 pb-6 text-right">
-                            <div class="absolute left-[-2.65rem] md:left-auto md:right-[-1.5rem] top-6 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
-                            <div class="bg-white rounded-xl shadow-card p-6 border-r-0 md:border-r-4 border-l-4 md:border-l-0 border-theme-dark text-left md:text-right">
-                                <h3 class="text-xl font-bold text-theme-dark mb-2 md:hidden">2024-2025</h3>
-                                <p class="text-gray-600 font-medium mb-2">Modern Future Ready Intake</p>
-                                <p class="text-sm text-gray-500">Scaling heights with massive intakes across CSE (960), IT (540), AI&DS (480), and AIML (240).</p>
+                    <!-- 2002-03 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2002-2003 — Mechanical & MBA Introduced</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="5">Intake 2002-03</th><th colspan="2">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td><td>MECH</td><td>MBA</td></tr><tr><td>90</td><td>90</td><td>120</td><td>90</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
                             </div>
                         </div>
-                        <div class="hidden md:block order-2 pt-6 pl-10">
-                            <h3 class="text-3xl font-bold text-theme-yellow">2024-25</h3>
+                    </div>
+
+                    <!-- 2003-04 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2003-2004</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="7">Intake 2003-04</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td><td>MECH</td><td>MBA</td></tr><tr><td>90</td><td>90</td><td>120</td><td>90</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2004-05 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2004-2005</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="7">Intake 2004-05</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td><td>MECH</td><td>MBA</td></tr><tr><td>90</td><td>60</td><td>120</td><td>90</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2005-06 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2005-2006</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="7">Intake 2005-06</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MCA</td><td>MECH</td><td>MBA</td></tr><tr><td>90</td><td>90</td><td>120</td><td>90</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2006-07 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2006-2007</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="7">Intake 2006-07</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>MCA</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>90</td><td>120</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2007-08 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2007-2008 — EIE Established</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="7">Intake 2007-08</th><th colspan="1">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>MCA</td><td>EIE</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>150</td><td>150</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2008-09 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2008-2009 — Civil Established</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="8">Intake 2008-09</th><th colspan="1">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>MCA</td><td>EIE</td><td>CIVIL</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>180</td><td>180</td><td>120</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2009-10 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2009-2010</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2009-2010</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>180</td><td>180</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2010-11 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2010-2011</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2010-11</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>120</td><td>180</td><td>180</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2011-12 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2011-2012</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2011-12</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>180</td><td>120</td><td>180</td><td>120</td><td>120</td><td>120</td><td>120</td><td>180</td><td>180</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2012-13 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2012-2013</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2012-13</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>240</td><td>120</td><td>240</td><td>120</td><td>180</td><td>120</td><td>120</td><td>180</td><td>180</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2013-14 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2013-2014</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2013-14</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>300</td><td>120</td><td>240</td><td>120</td><td>240</td><td>120</td><td>120</td><td>300</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2014-15 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2014-2015</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2014-15</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>300</td><td>120</td><td>300</td><td>120</td><td>360</td><td>60</td><td>120</td><td>300</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2015-16 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2015-2016</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="9">Intake 2015-16</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>MCA</td></tr><tr><td>300</td><td>120</td><td>300</td><td>180</td><td>360</td><td>60</td><td>120</td><td>240</td><td>0</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2016-17 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2016-2017 — Postgraduate Additions</h3>
+                            <p class="text-sm text-gray-500 mb-3">Established M.E. in CSE and M.E. in ECE with 30 intake each.</p>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="8">Intake 2016-17</th><th colspan="2">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>60</td><td>180</td><td>240</td><td>30</td><td>30</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2017-18 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2017-2018</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="10">Intake 2017-18</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>180</td><td>180</td><td>180</td><td>30</td><td>30</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2018-19 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2018-2019</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="8">Intake 2018-19</th><th colspan="2">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>60</td><td>180</td><td>240</td><td>30</td><td>30</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2019-20 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2019-2020</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="10">Intake 2019-20</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>180</td><td>180</td><td>180</td><td>30</td><td>30</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2020-21 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2020-2021 — AI&DS, CSBS, CCE Established</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="10">Intake 2020-21</th><th colspan="3">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>EIE</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(ECE)</td><td>AI&DS</td><td>CSBS</td><td>CCE</td></tr><tr><td>300</td><td>180</td><td>300</td><td>180</td><td>360</td><td>60</td><td>60</td><td>180</td><td>30</td><td>30</td><td>60</td><td>60</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2021-22 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2021-2022</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="12">Intake 2021-22</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>AI&DS</td><td>CSBS</td><td>CCE</td><td>ECE</td><td>EEE</td><td>MECH</td><td>CIVIL</td><td>MBA</td><td>ME(CSE)</td><td>ME(CS)</td></tr><tr><td>300</td><td>180</td><td>180</td><td>120</td><td>60</td><td>300</td><td>180</td><td>300</td><td>60</td><td>180</td><td>30</td><td>30</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2022-23 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2022-2023 — AIML Established</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="10">Intake 2022-23</th><th colspan="1">Established</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>AI&DS</td><td>CSBS</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>ME(CSE)</td><td>ME(CS)</td><td>AIML</td></tr><tr><td>540</td><td>360</td><td>360</td><td>240</td><td>480</td><td>240</td><td>240</td><td>180</td><td>18</td><td>18</td><td>60</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2023-24 -->
+                    <div class="relative pb-10">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2023-2024</h3>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="11">Intake 2023-24</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>ME(CSE)</td><td>ME(CS)</td><td>AI&DS</td><td>CSBS</td><td>AIML</td></tr><tr><td>720</td><td>420</td><td>480</td><td>480</td><td>180</td><td>240</td><td>18</td><td>18</td><td>480</td><td>240</td><td>240</td></tr></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2024-25 -->
+                    <div class="relative pb-4">
+                        <div class="absolute -left-[2.65rem] md:-left-[3.15rem] top-1 w-5 h-5 rounded-full bg-theme-yellow border-4 border-gray-50 shadow"></div>
+                        <div class="bg-white rounded-xl shadow-card p-6 border-l-4 border-theme-dark">
+                            <h3 class="text-xl font-bold text-theme-dark mb-3">2024-2025 — Modern Future Ready Intake</h3>
+                            <p class="text-sm text-gray-500 mb-3">Scaling heights with massive intakes across CSE (960), IT (540), AI&DS (480), and AIML (240).</p>
+                            <div class="intake-scroll">
+                                <table class="intake-table">
+                                    <thead><tr><th colspan="11">Intake 2024-25</th></tr></thead>
+                                    <tbody><tr><td>CSE</td><td>IT</td><td>ECE</td><td>EEE</td><td>MECH</td><td>MBA</td><td>ME(CSE)</td><td>ME(CS)</td><td>AI&DS</td><td>CSBS</td><td>AIML</td></tr><tr><td>960</td><td>540</td><td>480</td><td>180</td><td>90</td><td>240</td><td>18</td><td>18</td><td>480</td><td>240</td><td>240</td></tr></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -224,6 +566,6 @@
 
     <div id="site-footer"></div>
 
-    <script src="assets/js/site.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
