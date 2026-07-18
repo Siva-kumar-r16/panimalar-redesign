@@ -2,11 +2,6 @@
  * site.js — shared across every page of the Panimalar site.
  * Loads /header.html and /footer.html into placeholders, then wires up
  * the interactive bits (mobile menu, current year, scroll counters).
- *
- * IMPORTANT: fetch('/header.html') needs the site served over http(s),
- * not opened directly as a file:// path. Run a local server, e.g.:
- *   npx serve .
- *   python3 -m http.server
  */
 
 async function loadPartial(url, mountId) {
@@ -52,24 +47,32 @@ function initCounters() {
     if (!counters.length) return;
     const speed = 200;
 
-    const animateCounters = () => {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-target');
-            const count = +counter.innerText.replace(/,/g, '');
-            const inc = target / speed;
-            if (count < target) {
-                counter.innerText = Math.ceil(count + inc);
-                setTimeout(animateCounters, 10);
-            } else {
-                counter.innerText = target.toLocaleString();
-            }
-        });
-    };
-
     const observer = new IntersectionObserver((entries, obs) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounters();
+                // Scope animation specifically to the visible counters
+                const visibleCounters = entry.target.querySelectorAll('.counter');
+                visibleCounters.forEach(counter => {
+                    // Prevent duplicate triggers
+                    if (counter.dataset.animated) return;
+                    counter.dataset.animated = 'true';
+                    
+                    const target = +counter.getAttribute('data-target');
+                    
+                    // Isolate the update logic per counter 
+                    const updateCount = () => {
+                        const count = +counter.innerText.replace(/,/g, '');
+                        const inc = target / speed;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 10);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                });
+                
                 obs.unobserve(entry.target);
             }
         });
@@ -93,7 +96,15 @@ document.addEventListener('DOMContentLoaded', () => {
     initSiteChrome();
     initCounters();
 
-    window.addEventListener('load', () => {
+    const hideLoader = () => {
         setTimeout(() => document.body.classList.add('loaded'), 500);
-    });
+    };
+
+    // If assets are cached and readyState is complete, the load event has 
+    // already fired. In this case, hide immediately. Otherwise, wait for load.
+    if (document.readyState === 'complete') {
+        hideLoader();
+    } else {
+        window.addEventListener('load', hideLoader);
+    }
 });
