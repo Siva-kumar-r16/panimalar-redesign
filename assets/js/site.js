@@ -106,8 +106,8 @@
         chromeLoadPromise = (async () => {
             removeLegacyChrome();
             await Promise.all([
-                loadComponent('components/header.html', 'site-header'),
-                loadComponent('components/footer.html', 'site-footer'),
+                loadComponent('/components/header.html', 'site-header'),
+                loadComponent('/components/footer.html', 'site-footer'),
             ]);
             initMobileMenu();
 
