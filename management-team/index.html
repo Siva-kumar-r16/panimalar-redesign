@@ -328,21 +328,95 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
+<!-- Mobile Menu -->
         <div class="xl:hidden bg-theme-primary border-t border-white/5 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
-            <div class="p-6 flex flex-col gap-2 font-medium text-gray-300 text-sm">
-                <a href="/" class="py-3 border-b border-white/5 block text-theme-gold">Home</a>
-                <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-about')">About Us <i class="fas fa-angle-down"></i></button>
-                <div id="mob-about" class="mobile-submenu pl-4 bg-white/5 rounded-lg mt-1 overflow-hidden">
-                    <a href="/about-us/" class="block py-3 border-b border-white/5 text-theme-gold">About Panimalar</a>
-                    <a href="/management-team/" class="block py-3 border-b border-white/5 text-theme-gold">Management Team</a>
-                    <a href="/rules-regulations/" class="block py-3 border-b border-white/5">Rules & Regulations</a>
+            <div class="p-6 flex flex-col gap-1 font-medium text-gray-300 text-sm">
+                <a href="/" class="py-3 border-b border-white/5 block text-theme-gold font-bold">Home</a>
+
+                <!-- ABOUT US -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <a href="/about-us/" class="py-3 flex-1 font-bold">About Us</a>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-about')" aria-label="Toggle About Us submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-about-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-about" class="mobile-submenu pl-4 pb-2">
+                        <a href="/about-us/" class="block py-2.5 text-theme-gold">About Panimalar</a>
+
+                        <div class="flex items-center justify-between">
+                            <span class="py-2.5 flex-1 font-semibold text-gray-200">Leadership</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-leadership')" aria-label="Toggle Leadership submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-leadership-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-leadership" class="mobile-submenu-2 pl-4 pb-1">
+                            <div class="flex items-center justify-between">
+                                <a href="/management-team/" class="py-2 flex-1">Management Team</a>
+                                <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-mgmt-team')" aria-label="Toggle Management Team submenu">
+                                    <i class="fas fa-angle-down transition-transform duration-300 text-xs" id="mob-mgmt-team-icon"></i>
+                                </button>
+                            </div>
+                            <div id="mob-mgmt-team" class="mobile-submenu pl-4 pb-1">
+                                <a href="/secretary-correspondent/" class="block py-2 text-[13px]">Dr. P. Chinnadurai, M.A., Ph.D</a>
+                                <a href="/dr-c-sakthikumar/" class="block py-2 text-[13px]">Dr. C. Sakthi Kumar, M.E., Ph.D</a>
+                                <a href="/mrs-c-vijayarajeswari/" class="block py-2 text-[13px]">Mrs. C. Vijayarajeswari</a>
+                                <a href="/dr-saranya-sree-sakthikumar/" class="block py-2 text-[13px]">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a>
+                            </div>
+                            <a href="/principal/" class="block py-2">Principal</a>
+                            <a href="/governing-body/" class="block py-2">Governing Body</a>
+                            <a href="/objectives/" class="block py-2">Objectives</a>
+                            <a href="/journey-so-far/" class="block py-2">Journey So far</a>
+                        </div>
+
+                        <a href="/rules-regulations/" class="block py-2.5">Rules and Regulations</a>
+                        <a href="/corporate-and-international-relations/" class="block py-2.5">Corporate & Int. Relations</a>
+
+                        <div class="flex items-center justify-between">
+                            <span class="py-2.5 flex-1 font-semibold text-gray-200">Jaisakthi Institutes</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-jaisakthi')" aria-label="Toggle Jaisakthi Institutes submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-jaisakthi-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-jaisakthi" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="https://pmchri.ac.in" target="_blank" class="block py-2">Panimalar Medical College</a>
+                            <a href="https://pcon.ac.in" target="_blank" class="block py-2">Panimalar College of Nursing</a>
+                            <a href="https://pcoahs.ac.in/" target="_blank" class="block py-2">Allied Health Sciences</a>
+                        </div>
+
+                        <a href="/alumni-association/" class="block py-2.5">Alumni Association</a>
+                    </div>
                 </div>
-                <button class="flex justify-between items-center py-3 border-b border-white/5 w-full text-left font-bold" onclick="toggleMobileSub('mob-courses')">Courses <i class="fas fa-angle-down"></i></button>
-                <div id="mob-courses" class="mobile-submenu pl-4 bg-white/5 rounded-lg mt-1">
-                    <a href="/be-computer-science-and-engineering/" class="block py-3 border-b border-white/5">B.E CSE</a>
-                    <a href="/mba/" class="block py-3">MBA</a>
+
+                <!-- COURSES -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Courses</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-courses')" aria-label="Toggle Courses submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-courses-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-courses" class="mobile-submenu pl-4 pb-2">
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-2 pb-1">Undergraduate</p>
+                        <a href="/be-computer-science-and-engineering/" class="block py-2">B.E CSE</a>
+                        <a href="/be-electronics-and-communication-engineering/" class="block py-2">B.E ECE</a>
+                        <a href="/be-electrical-and-electronics-engineering/" class="block py-2">B.E EEE</a>
+                        <a href="/be-mechanical-engineering/" class="block py-2">B.E Mechanical</a>
+                        <a href="/btech-computer-science-and-business-systems/" class="block py-2">B.Tech CSBS</a>
+                        <a href="/btech-information-technology/" class="block py-2">B.Tech IT</a>
+                        <a href="/btech-artificial-intelligence-data-science/" class="block py-2">B.Tech AI & DS</a>
+                        <a href="/btech-artificial-intelligence-machine-learning/" class="block py-2">B.Tech AI & ML</a>
+
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-3 pb-1">Postgraduate</p>
+                        <a href="/me-computer-science-and-engineering/" class="block py-2">M.E CSE</a>
+                        <a href="/me-communication-systems/" class="block py-2">M.E Communication Sys</a>
+                        <a href="/mba/" class="block py-2">Master of Business Admin</a>
+
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-3 pb-1">Sciences</p>
+                        <a href="/science-and-humanities/" class="block py-2">Science & Humanities</a>
+                    </div>
                 </div>
+
                 <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-white/5 block font-bold">CoE</a>
                 <a href="/placements/" class="py-3 border-b border-white/5 block font-bold">Placements</a>
                 <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6">Apply for Admission</a>
@@ -545,9 +619,10 @@
 
         function toggleMobileSub(id) {
             const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
             if(el) {
-                if(el.classList.contains('open')) el.classList.remove('open');
-                else el.classList.add('open');
+                el.classList.toggle('open');
+                if(icon) icon.classList.toggle('rotate-180');
             }
         }
     </script>
