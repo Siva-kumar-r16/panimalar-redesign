@@ -328,7 +328,7 @@
             </button>
         </div>
 
-<!-- Mobile Menu -->
+        <!-- Mobile Menu -->
         <div class="xl:hidden bg-theme-primary border-t border-white/5 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
             <div class="p-6 flex flex-col gap-1 font-medium text-gray-300 text-sm">
                 <a href="/" class="py-3 border-b border-white/5 block text-theme-gold font-bold">Home</a>
@@ -417,8 +417,107 @@
                     </div>
                 </div>
 
+                <!-- ACADEMICS -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Academics</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-academics')" aria-label="Toggle Academics submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-academics-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-academics" class="mobile-submenu pl-4 pb-2">
+                        <a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="block py-2">Academic Council Members</a>
+                        <a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="block py-2">Regulation</a>
+                        <a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="block py-2">Curriculum and Syllabus</a>
+                        <a href="/committee/" class="block py-2">Committees</a>
+                        <a href="/iqac/" class="block py-2">Internal Quality Assurance Cell (IQAC)</a>
+                        <a href="/idea-lab/" class="block py-2">PEC-AICTE Idea Lab</a>
+                        <a href="/mou/" class="block py-2">Memorandum of Understanding (MoU)</a>
+                        <a href="/iic/" class="block py-2">Institution's Innovation Council (IIC)</a>
+                        <a href="/entrepreneurship-development-cell/" class="block py-2">Entrepreneurship Development Cell (EDC)</a>
+                        <a href="/higher-education-centre/" class="block py-2">Higher Education Centre</a>
+                        <a href="/professional-bodies/" class="block py-2">Professional Societies</a>
+                        <a href="/nptel/" class="block py-2">NPTEL</a>
+                        <a href="/nasscom/" class="block py-2">NASSCOM</a>
+                    </div>
+                </div>
+
                 <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-white/5 block font-bold">CoE</a>
                 <a href="/placements/" class="py-3 border-b border-white/5 block font-bold">Placements</a>
+                
+                <!-- RESEARCH -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Research</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-research')" aria-label="Toggle Research submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-research-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-research" class="mobile-submenu pl-4 pb-2">
+                        <a href="/research-policy/" class="block py-2">Research Policy</a>
+                        <a href="/research-team/" class="block py-2">Research Team</a>
+                        <div class="flex items-center justify-between">
+                            <span class="py-2 flex-1 font-semibold text-gray-200">Centres</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-research-centres')" aria-label="Toggle Centres submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300 text-xs" id="mob-research-centres-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-research-centres" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="/research-cse/" class="block py-2 text-[13px]">Computer Science & Engg</a>
+                            <a href="/research-ece/" class="block py-2 text-[13px]">Electronics & Comm Engg</a>
+                            <a href="/research-aids/" class="block py-2 text-[13px]">AI & Data Science</a>
+                            <a href="/research-mechanical/" class="block py-2 text-[13px]">Mechanical Engineering</a>
+                        </div>
+                        <a href="/h-index/" class="block py-2">H-Index</a>
+                        <a href="/research-statistics/" class="block py-2">Research Statistics</a>
+                        <a href="/research-funds/" class="block py-2">Research Funding</a>
+                        <a href="/consultancy-projects/" class="block py-2">Consultancy Projects</a>
+                        <a href="/research-downloads/" class="block py-2">Downloads</a>
+                    </div>
+                </div>
+
+                <!-- FACILITIES -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Facilities</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-facilities')" aria-label="Toggle Facilities submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-facilities-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-facilities" class="mobile-submenu pl-4 pb-2">
+                        <a href="/center-of-excellence/" class="block py-2">Centre of Excellence</a>
+                        <div class="flex items-center justify-between">
+                            <span class="py-2 flex-1 font-semibold text-gray-200">Library</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-library')" aria-label="Toggle Library submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300 text-xs" id="mob-library-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-library" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="/central-library-I/" class="block py-2 text-[13px]">Central Library-I</a>
+                            <a href="/central-library-II/" class="block py-2 text-[13px]">Central Library-II</a>
+                            <a href="/digital-library/" class="block py-2 text-[13px]">Digital Library</a>
+                        </div>
+                        <a href="/green-campus/" class="block py-2">Green Campus</a>
+                        <a href="/it-infrastructure/" class="block py-2">IT Infrastructure</a>
+                        <a href="/transport/" class="block py-2">Transport</a>
+                        <a href="/hostel/" class="block py-2">Hostel & Mess</a>
+                    </div>
+                </div>
+
+                <!-- MORE -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">More</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-more')" aria-label="Toggle More submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-more-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-more" class="mobile-submenu pl-4 pb-2">
+                        <a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block py-2">SDG Policy</a>
+                        <a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block py-2">NIRF 2026 Report</a>
+                    </div>
+                </div>
+
                 <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6">Apply for Admission</a>
             </div>
         </div>
