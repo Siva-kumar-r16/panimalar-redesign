@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate and International Relations | Panimalar Engineering College</title>
+
+    <link rel="shortcut icon" href="/assets/images/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    colors: {
+                        theme: {
+                            primary: '#1A1C23',   /* Carbon Graphite */
+                            navy: '#0F172A',      /* Deep Navy */
+                            accent: '#4A5D70',    /* Muted Slate Blue */
+                            gold: '#C2A661',      /* Champagne Gold */
+                            red: '#9E2A2B',       /* Heritage Red */
+                            bg: '#F4F3EF',        /* Warm Stone */
+                            surface: '#FAF9F6',   /* Natural Linen */
+                            text: '#373A40',      /* Charcoal */
+                            border: '#E5E2DC'     /* Soft Stone */
+                        }
+                    },
+                    boxShadow: {
+                        'subtle': '0 4px 20px rgba(0, 0, 0, 0.03)',
+                        'elevated': '0 12px 35px rgba(0, 0, 0, 0.06)',
+                        'dropdown': '0 8px 30px rgba(0, 0, 0, 0.08)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; color: #373A40; overflow-x: hidden; background-color: #F4F3EF; }
+        
+        #preloader { position: fixed; z-index: 999999; background: #FAF9F6; width: 100%; height: 100%; top: 0; left: 0; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease, visibility 0.6s ease; }
+        body.loaded #preloader { opacity: 0; visibility: hidden; }
+
+        /* Premium Buttons */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 14px 32px; background-color: #1A1C23; color: #FAF9F6; font-weight: 600; 
+            border-radius: 8px; transition: all 0.3s ease; border: 1px solid transparent;
+        }
+        .btn-primary:hover { background-color: #0F172A; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); border-color: #4A5D70; }
+        
+        .btn-gold {
+            background-color: #C2A661; color: #1A1C23; font-weight: 600; border-radius: 8px; 
+            padding: 10px 24px; transition: all 0.3s ease; display: inline-flex; align-items: center;
+        }
+        .btn-gold:hover { background-color: #B09556; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(194, 166, 97, 0.2); }
+
+        /* Typography & Headings */
+        .section-subtitle { 
+            color: #C2A661; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; 
+            margin-bottom: 16px; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .section-title { font-size: 2.75rem; font-weight: 800; color: #1A1C23; line-height: 1.2; letter-spacing: -0.02em; }
+        .section-title span { color: #4A5D70; font-weight: 300; }
+
+        /* Cards & Hover Effects */
+        .hover-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #E5E2DC; }
+        .hover-card:hover { transform: translateY(-4px); box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06); border-color: #C2A661; }
+
+        /* Navigation Links (Animated Underline) */
+        .nav-link { position: relative; padding-bottom: 4px; }
+        .nav-link::after {
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: #C2A661; transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        /* Dropdown Logic */
+        .dropdown:hover > .dropdown-menu { display: block; animation: smoothReveal 0.2s ease forwards; }
+        .dropdown-submenu:hover > .dropdown-menu { display: block; animation: smoothReveal 0.2s ease forwards; }
+        @keyframes smoothReveal { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .mobile-submenu { display: none; }
+        .mobile-submenu.open { display: block; }
+        .mobile-submenu-2 { display: none; }
+        .mobile-submenu-2.open { display: block; }
+
+        /* Tab Styles */
+        .tab-btn { position: relative; width: 100%; text-align: left; padding: 14px 18px; background: #fff; border: 1px solid #E5E2DC; border-radius: 8px; font-weight: 600; font-size: 13px; color: #373A40; transition: all 0.3s ease; display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .tab-btn:hover { border-color: #C2A661; color: #1A1C23; }
+        .tab-btn.active { background-color: #1A1C23; color: #FAF9F6; border-color: #1A1C23; }
+        .tab-btn.active i { color: #C2A661; }
+        .tab-content-panel { display: none; animation: fadeIn 0.4s ease forwards; }
+        .tab-content-panel.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-theme-bg antialiased selection:bg-theme-gold selection:text-theme-primary">
+
+    <div id="preloader">
+        <div class="text-center flex flex-col items-center">
+            <div class="w-12 h-12 border-2 border-theme-border border-t-theme-gold rounded-full animate-spin mb-4"></div>
+            <span class="text-theme-primary font-semibold tracking-widest text-xs uppercase">Initializing</span>
+        </div>
+    </div>
+
+    <!-- Top Bar -->
+    <div class="bg-theme-surface text-xs py-2 hidden md:block border-b border-theme-border">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center gap-5 font-medium text-theme-text">
+                <span class="bg-theme-red text-white px-3 py-1 rounded text-[10px] uppercase font-bold tracking-wider">Admissions Open</span>
+                <a href="tel:+919043891272" class="hover:text-theme-gold transition flex items-center gap-1.5"><i class="fa fa-phone text-theme-accent"></i> 90438 91272</a>
+                <span class="text-gray-400">/</span>
+                <a href="tel:+919043890983" class="hover:text-theme-gold transition">90438 90983</a>
+            </div>
+
+            <div class="flex items-center gap-5 text-theme-text font-medium">
+                <a href="/assets/pdf/brochure/PEC-Brochure.pdf" target="_blank" class="hover:text-theme-gold transition flex items-center gap-1.5">
+                    <i class="fas fa-file-pdf text-theme-red"></i> Brochure
+                </a>
+                <span class="text-gray-300">|</span>
+                <a href="/assets/pdf/NEWSLETTER.pdf" target="_blank" class="hover:text-theme-gold transition">Newsletter</a>
+                <span class="text-gray-300">|</span>
+                <a href="/assets/pdf/MANDATORY-DISCLOSURE.pdf" target="_blank" class="hover:text-theme-gold transition">Disclosure</a>
+                <span class="text-gray-300">|</span>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScR6X9NM91Df-eARzhy41RbVeOJMBWbwO9eX0jAXaqdV5uQTw/viewform?pli=1" target="_blank" class="hover:text-theme-gold transition">Careers</a>
+
+                <div class="flex gap-4 border-l border-theme-border pl-5 text-[13px] text-theme-accent">
+                    <a href="https://www.facebook.com/panimalarengineeringcollegeofficial" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.youtube.com/channel/UCHmR5GOkXG54CoLgJyADIXA" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/panimalarengineeringcollege/" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/school/panimalar-engineering-college" target="_blank" class="hover:text-theme-gold transition"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/PanimalarC" target="_blank" class="hover:text-theme-gold transition">
+                        <svg class="w-[13px] h-[13px] fill-current inline-block relative -top-[1px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                            <path d="M26.37,26l-8.795-12.822l0.015,0.012L25.52,4h-2.65l-6.46,7.48L11.28,4H4.33l8.211,11.971L12.54,15.97L3.88,26h2.65 l7.182-8.322L19.42,26H26.37z M10.23,6l12.34,18h-2.1L8.12,6H10.23z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="bg-theme-primary/95 backdrop-blur-md border-b border-white/5 sticky top-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <a href="/" class="flex items-center gap-3 w-48 md:w-64 py-1">
+                <img src="/assets/images/pec-logo.png" alt="Panimalar Logo" class="w-full h-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/300x80/1A1C23/FFFFFF?text=PEC+Logo'">
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden xl:flex items-center gap-7 font-medium text-sm text-gray-300 tracking-wide relative h-full">
+                <a href="/" class="hover:text-theme-gold transition nav-link flex items-center h-full"><i class="fas fa-home text-lg"></i></a>
+
+                <!-- 1. ABOUT US -->
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="/about-us/" class="text-theme-gold flex items-center gap-1.5 py-4 nav-link active">About Us <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 left-0 top-full mt-0">
+                        <li><a href="/about-us/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">About Panimalar</a></li>
+                        <li class="relative dropdown-submenu group/sub">
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Leadership <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-72 py-3 left-full top-0 border border-theme-border ml-0">
+                                <li class="relative dropdown-submenu group/sub2">
+                                    <a href="/management-team/" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Management Team <i class="fas fa-angle-right text-[10px]"></i></a>
+                                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-80 py-3 left-full top-0 border border-theme-border ml-0">
+                                        <li><a href="/secretary-correspondent/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. P. Chinnadurai, M.A., Ph.D</a></li>
+                                        <li><a href="/dr-c-sakthikumar/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. C. Sakthi Kumar, M.E., Ph.D</a></li>
+                                        <li><a href="/mrs-c-vijayarajeswari/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Mrs. C. Vijayarajeswari</a></li>
+                                        <li><a href="/dr-saranya-sree-sakthikumar/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/principal/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Principal</a></li>
+                                <li><a href="/governing-body/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Governing Body</a></li>
+                                <li><a href="/objectives/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Objectives</a></li>
+                                <li><a href="/journey-so-far/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Journey So far</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/rules-regulations/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Rules and Regulations</a></li>
+                        <li><a href="/corporate-and-international-relations/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text bg-theme-bg text-theme-gold">Corporate & Int. Relations</a></li>
+                        <li class="relative dropdown-submenu group/sub">
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Jaisakthi Institutes <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-80 py-3 left-full top-0 border border-theme-border ml-0">
+                                <li><a href="https://pmchri.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Panimalar Medical College</a></li>
+                                <li><a href="https://pcon.ac.in" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Panimalar College of Nursing</a></li>
+                                <li><a href="https://pcoahs.ac.in/" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Allied Health Sciences</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/alumni-association/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold transition text-theme-text">Alumni Association</a></li>
+                    </ul>
+                </div>
+
+                <!-- 2. COURSES -->
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Courses <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-xl border border-theme-border w-[750px] p-8 left-1/2 -translate-x-1/2 top-full mt-0">
+                        <div class="grid grid-cols-3 gap-8">
+                            <div>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Undergraduate</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/be-computer-science-and-engineering/" class="hover:text-theme-gold transition-colors block">B.E CSE</a></li>
+                                    <li><a href="/be-electronics-and-communication-engineering/" class="hover:text-theme-gold transition-colors block">B.E ECE</a></li>
+                                    <li><a href="/be-electrical-and-electronics-engineering/" class="hover:text-theme-gold transition-colors block">B.E EEE</a></li>
+                                    <li><a href="/be-mechanical-engineering/" class="hover:text-theme-gold transition-colors block">B.E Mechanical</a></li>
+                                    <li><a href="/btech-computer-science-and-business-systems/" class="hover:text-theme-gold transition-colors block">B.Tech CSBS</a></li>
+                                    <li><a href="/btech-information-technology/" class="hover:text-theme-gold transition-colors block">B.Tech IT</a></li>
+                                    <li><a href="/btech-artificial-intelligence-data-science/" class="hover:text-theme-gold transition-colors block">B.Tech AI & DS</a></li>
+                                    <li><a href="/btech-artificial-intelligence-machine-learning/" class="hover:text-theme-gold transition-colors block">B.Tech AI & ML</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Postgraduate</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/me-computer-science-and-engineering/" class="hover:text-theme-gold transition-colors block">M.E CSE</a></li>
+                                    <li><a href="/me-communication-systems/" class="hover:text-theme-gold transition-colors block">M.E Communication Sys</a></li>
+                                    <li><a href="/mba/" class="hover:text-theme-gold transition-colors block">Master of Business Admin</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-theme-primary font-bold border-b border-theme-border pb-3 mb-4 flex items-center gap-2">Sciences</h4>
+                                <ul class="space-y-3 text-[13px] text-theme-text">
+                                    <li><a href="/science-and-humanities/" class="hover:text-theme-gold transition-colors block">Science & Humanities</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. ACADEMICS MEGA MENU -->
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Academics <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <div class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-xl border border-theme-border w-[650px] p-8 left-1/2 -translate-x-1/2 top-full mt-0">
+                        <div class="grid grid-cols-2 gap-8 text-[13px] text-theme-text">
+                            <ul class="space-y-4 border-r border-theme-border pr-6">
+                                <li><a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="hover:text-theme-gold block transition-colors">Academic Council Members</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="hover:text-theme-gold block transition-colors">Regulation</a></li>
+                                <li><a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="hover:text-theme-gold block transition-colors">Curriculum and Syllabus</a></li>
+                                <li><a href="/committee/" class="hover:text-theme-gold block transition-colors">Committees</a></li>
+                                <li><a href="/iqac/" class="hover:text-theme-gold block transition-colors leading-relaxed">Internal Quality Assurance Cell (IQAC)</a></li>
+                                <li><a href="/idea-lab/" class="hover:text-theme-gold block transition-colors">PEC-AICTE Idea Lab</a></li>
+                                <li><a href="/mou/" class="hover:text-theme-gold block transition-colors leading-relaxed">Memorandum of Understanding (MoU)</a></li>
+                                <li><a href="/iic/" class="hover:text-theme-gold block transition-colors leading-relaxed">Institution's Innovation Council (IIC)</a></li>
+                                <li><a href="/entrepreneurship-development-cell/" class="hover:text-theme-gold block transition-colors leading-relaxed">Entrepreneurship Development Cell (EDC)</a></li>
+                            </ul>
+                            <ul class="space-y-5 pl-2">
+                                <li><a href="/higher-education-centre/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">Higher Education Centre</a></li>
+                                <li><a href="/professional-bodies/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">Professional Societies</a></li>
+                                <li><a href="/nptel/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">NPTEL</a></li>
+                                <li><a href="/nasscom/" class="hover:text-theme-gold flex items-center gap-2 transition-colors">NASSCOM</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. DIRECT LINKS -->
+                <a href="https://coe.panimalar.ac.in/" target="_blank" class="hover:text-white transition py-4 nav-link flex items-center h-full">CoE</a>
+                <a href="/placements/" class="hover:text-white transition py-4 nav-link flex items-center h-full">Placements</a>
+
+                <!-- 5. RESEARCH -->
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Research <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 left-0 top-full mt-0">
+                        <li><a href="/research-policy/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Policy</a></li>
+                        <li><a href="/research-team/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Team</a></li>
+                        <li class="relative dropdown-submenu group/sub">
+                            <a href="#!" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Centres <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-72 py-3 left-full top-0 border border-theme-border ml-0">
+                                <li><a href="/research-cse/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Computer Science & Engg</a></li>
+                                <li><a href="/research-ece/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Electronics & Comm Engg</a></li>
+                                <li><a href="/research-aids/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">AI & Data Science</a></li>
+                                <li><a href="/research-mechanical/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Mechanical Engineering</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/h-index/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">H-Index</a></li>
+                        <li><a href="/research-statistics/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Statistics</a></li>
+                        <li><a href="/research-funds/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Research Funding</a></li>
+                        <li><a href="/consultancy-projects/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Consultancy Projects</a></li>
+                        <li><a href="/research-downloads/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Downloads</a></li>
+                    </ul>
+                </div>
+
+                <!-- 6. FACILITIES -->
+                <div class="relative dropdown group h-full flex items-center">
+                    <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">Facilities <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                    <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-64 py-3 right-0 top-full mt-0">
+                        <li><a href="/center-of-excellence/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Centre of Excellence</a></li>
+                        <li class="relative dropdown-submenu group/sub">
+                            <a href="/library/" class="flex justify-between items-center px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Library <i class="fas fa-angle-right text-[10px]"></i></a>
+                            <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg w-60 py-3 right-full top-0 border border-theme-border mr-0">
+                                <li><a href="/central-library-I/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Central Library-I</a></li>
+                                <li><a href="/central-library-II/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Central Library-II</a></li>
+                                <li><a href="/digital-library/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Digital Library</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/green-campus/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Green Campus</a></li>
+                        <li><a href="/it-infrastructure/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Transport</a></li>
+                        <li><a href="/hostel/" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">Hostel & Mess</a></li>
+                    </ul>
+                </div>
+
+                <!-- 7. SDG / NIRF -->
+                <div class="relative dropdown group h-full flex items-center">
+                     <a href="#!" class="hover:text-white transition flex items-center gap-1.5 py-4 nav-link">More <i class="fas fa-angle-down text-[10px] opacity-70"></i></a>
+                     <ul class="dropdown-menu absolute hidden bg-theme-surface shadow-dropdown rounded-lg border border-theme-border w-56 py-3 right-0 top-full mt-0">
+                         <li><a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">SDG Policy</a></li>
+                         <li><a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block px-6 py-2.5 hover:bg-theme-bg hover:text-theme-gold text-theme-text">NIRF 2026 Report</a></li>
+                     </ul>
+                </div>
+
+                <!-- COUNSELING CODE & ADMISSION -->
+                <div class="border-l border-white/10 pl-6 flex flex-col items-start justify-center h-full ml-2">
+                    <p class="text-[9px] text-gray-400 uppercase font-black tracking-[0.2em] mb-1">Code: 1210</p>
+                    <a href="/enquiry/" target="_blank" class="btn-gold !py-1.5 !px-5 !text-[11px] rounded uppercase tracking-wider font-bold">Apply</a>
+                </div>
+            </nav>
+
+            <!-- Mobile Toggle -->
+            <button class="xl:hidden text-2xl text-white focus:outline-none" id="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div class="xl:hidden bg-theme-primary border-t border-white/5 absolute w-full hidden shadow-2xl max-h-[85vh] overflow-y-auto" id="mobile-menu">
+            <div class="p-6 flex flex-col gap-1 font-medium text-gray-300 text-sm">
+                <a href="/" class="py-3 border-b border-white/5 block text-theme-gold font-bold">Home</a>
+
+                <!-- ABOUT US -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <a href="/about-us/" class="py-3 flex-1 font-bold">About Us</a>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-about')" aria-label="Toggle About Us submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-about-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-about" class="mobile-submenu pl-4 pb-2">
+                        <a href="/about-us/" class="block py-2.5 text-theme-gold">About Panimalar</a>
+
+                        <div class="flex items-center justify-between">
+                            <span class="py-2.5 flex-1 font-semibold text-gray-200">Leadership</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-leadership')" aria-label="Toggle Leadership submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-leadership-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-leadership" class="mobile-submenu-2 pl-4 pb-1">
+                            <div class="flex items-center justify-between">
+                                <a href="/management-team/" class="py-2 flex-1">Management Team</a>
+                                <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-mgmt-team')" aria-label="Toggle Management Team submenu">
+                                    <i class="fas fa-angle-down transition-transform duration-300 text-xs" id="mob-mgmt-team-icon"></i>
+                                </button>
+                            </div>
+                            <div id="mob-mgmt-team" class="mobile-submenu pl-4 pb-1">
+                                <a href="/secretary-correspondent/" class="block py-2 text-[13px]">Dr. P. Chinnadurai, M.A., Ph.D</a>
+                                <a href="/dr-c-sakthikumar/" class="block py-2 text-[13px]">Dr. C. Sakthi Kumar, M.E., Ph.D</a>
+                                <a href="/mrs-c-vijayarajeswari/" class="block py-2 text-[13px]">Mrs. C. Vijayarajeswari</a>
+                                <a href="/dr-saranya-sree-sakthikumar/" class="block py-2 text-[13px]">Dr. Saranya Sree Sakthi Kumar, B.E.,MBA, Ph.D</a>
+                            </div>
+                            <a href="/principal/" class="block py-2">Principal</a>
+                            <a href="/governing-body/" class="block py-2">Governing Body</a>
+                            <a href="/objectives/" class="block py-2">Objectives</a>
+                            <a href="/journey-so-far/" class="block py-2">Journey So far</a>
+                        </div>
+
+                        <a href="/rules-regulations/" class="block py-2.5">Rules and Regulations</a>
+                        <a href="/corporate-and-international-relations/" class="block py-2.5 text-theme-gold font-bold">Corporate & Int. Relations</a>
+
+                        <div class="flex items-center justify-between">
+                            <span class="py-2.5 flex-1 font-semibold text-gray-200">Jaisakthi Institutes</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-jaisakthi')" aria-label="Toggle Jaisakthi Institutes submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-jaisakthi-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-jaisakthi" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="https://pmchri.ac.in" target="_blank" class="block py-2">Panimalar Medical College</a>
+                            <a href="https://pcon.ac.in" target="_blank" class="block py-2">Panimalar College of Nursing</a>
+                            <a href="https://pcoahs.ac.in/" target="_blank" class="block py-2">Allied Health Sciences</a>
+                        </div>
+
+                        <a href="/alumni-association/" class="block py-2.5">Alumni Association</a>
+                    </div>
+                </div>
+
+                <!-- COURSES -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Courses</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-courses')" aria-label="Toggle Courses submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-courses-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-courses" class="mobile-submenu pl-4 pb-2">
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-2 pb-1">Undergraduate</p>
+                        <a href="/be-computer-science-and-engineering/" class="block py-2">B.E CSE</a>
+                        <a href="/be-electronics-and-communication-engineering/" class="block py-2">B.E ECE</a>
+                        <a href="/be-electrical-and-electronics-engineering/" class="block py-2">B.E EEE</a>
+                        <a href="/be-mechanical-engineering/" class="block py-2">B.E Mechanical</a>
+                        <a href="/btech-computer-science-and-business-systems/" class="block py-2">B.Tech CSBS</a>
+                        <a href="/btech-information-technology/" class="block py-2">B.Tech IT</a>
+                        <a href="/btech-artificial-intelligence-data-science/" class="block py-2">B.Tech AI & DS</a>
+                        <a href="/btech-artificial-intelligence-machine-learning/" class="block py-2">B.Tech AI & ML</a>
+
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-3 pb-1">Postgraduate</p>
+                        <a href="/me-computer-science-and-engineering/" class="block py-2">M.E CSE</a>
+                        <a href="/me-communication-systems/" class="block py-2">M.E Communication Sys</a>
+                        <a href="/mba/" class="block py-2">Master of Business Admin</a>
+
+                        <p class="text-theme-gold font-semibold text-xs uppercase tracking-wider pt-3 pb-1">Sciences</p>
+                        <a href="/science-and-humanities/" class="block py-2">Science & Humanities</a>
+                    </div>
+                </div>
+
+                <!-- ACADEMICS -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Academics</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-academics')" aria-label="Toggle Academics submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-academics-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-academics" class="mobile-submenu pl-4 pb-2">
+                        <a href="https://coe.panimalar.ac.in/Academic_Council.html" target="_blank" class="block py-2">Academic Council Members</a>
+                        <a href="https://coe.panimalar.ac.in/Regulations.html" target="_blank" class="block py-2">Regulation</a>
+                        <a href="https://coe.panimalar.ac.in/Syllabus.html" target="_blank" class="block py-2">Curriculum and Syllabus</a>
+                        <a href="/committee/" class="block py-2">Committees</a>
+                        <a href="/iqac/" class="block py-2">Internal Quality Assurance Cell (IQAC)</a>
+                        <a href="/idea-lab/" class="block py-2">PEC-AICTE Idea Lab</a>
+                        <a href="/mou/" class="block py-2">Memorandum of Understanding (MoU)</a>
+                        <a href="/iic/" class="block py-2">Institution's Innovation Council (IIC)</a>
+                        <a href="/entrepreneurship-development-cell/" class="block py-2">Entrepreneurship Development Cell (EDC)</a>
+                        <a href="/higher-education-centre/" class="block py-2">Higher Education Centre</a>
+                        <a href="/professional-bodies/" class="block py-2">Professional Societies</a>
+                        <a href="/nptel/" class="block py-2">NPTEL</a>
+                        <a href="/nasscom/" class="block py-2">NASSCOM</a>
+                    </div>
+                </div>
+
+                <a href="https://coe.panimalar.ac.in/" target="_blank" class="py-3 border-b border-white/5 block font-bold">CoE</a>
+                <a href="/placements/" class="py-3 border-b border-white/5 block font-bold">Placements</a>
+
+                <!-- RESEARCH -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Research</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-research')" aria-label="Toggle Research submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-research-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-research" class="mobile-submenu pl-4 pb-2">
+                        <a href="/research-policy/" class="block py-2">Research Policy</a>
+                        <a href="/research-team/" class="block py-2">Research Team</a>
+                        <div class="flex items-center justify-between">
+                            <span class="py-2 flex-1 font-semibold text-gray-200">Centres</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-research-centres')" aria-label="Toggle Centres submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-research-centres-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-research-centres" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="/research-cse/" class="block py-2">Computer Science & Engg</a>
+                            <a href="/research-ece/" class="block py-2">Electronics & Comm Engg</a>
+                            <a href="/research-aids/" class="block py-2">AI & Data Science</a>
+                            <a href="/research-mechanical/" class="block py-2">Mechanical Engineering</a>
+                        </div>
+                        <a href="/h-index/" class="block py-2">H-Index</a>
+                        <a href="/research-statistics/" class="block py-2">Research Statistics</a>
+                        <a href="/research-funds/" class="block py-2">Research Funding</a>
+                        <a href="/consultancy-projects/" class="block py-2">Consultancy Projects</a>
+                        <a href="/research-downloads/" class="block py-2">Downloads</a>
+                    </div>
+                </div>
+
+                <!-- FACILITIES -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">Facilities</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-facilities')" aria-label="Toggle Facilities submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-facilities-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-facilities" class="mobile-submenu pl-4 pb-2">
+                        <a href="/center-of-excellence/" class="block py-2">Centre of Excellence</a>
+                        <div class="flex items-center justify-between">
+                            <span class="py-2 flex-1 font-semibold text-gray-200">Library</span>
+                            <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-library')" aria-label="Toggle Library submenu">
+                                <i class="fas fa-angle-down transition-transform duration-300" id="mob-library-icon"></i>
+                            </button>
+                        </div>
+                        <div id="mob-library" class="mobile-submenu-2 pl-4 pb-1">
+                            <a href="/central-library-I/" class="block py-2">Central Library-I</a>
+                            <a href="/central-library-II/" class="block py-2">Central Library-II</a>
+                            <a href="/digital-library/" class="block py-2">Digital Library</a>
+                        </div>
+                        <a href="/green-campus/" class="block py-2">Green Campus</a>
+                        <a href="/it-infrastructure/" class="block py-2">IT Infrastructure</a>
+                        <a href="/transport/" class="block py-2">Transport</a>
+                        <a href="/hostel/" class="block py-2">Hostel & Mess</a>
+                    </div>
+                </div>
+
+                <!-- MORE -->
+                <div class="border-b border-white/5">
+                    <div class="flex items-center justify-between">
+                        <span class="py-3 flex-1 font-bold">More</span>
+                        <button class="p-3 -mr-3" onclick="toggleMobileSub('mob-more')" aria-label="Toggle More submenu">
+                            <i class="fas fa-angle-down transition-transform duration-300" id="mob-more-icon"></i>
+                        </button>
+                    </div>
+                    <div id="mob-more" class="mobile-submenu pl-4 pb-2">
+                        <a href="/assets/pdf/sdg/SDG-POLICY.pdf" target="_blank" class="block py-2">SDG Policy</a>
+                        <a href="/assets/pdf/academics/nirf/PEC-NIRF_2026-Overall.pdf" target="_blank" class="block py-2">NIRF 2026 Report</a>
+                    </div>
+                </div>
+
+                <a href="/enquiry/" target="_blank" class="btn-primary !w-full mt-6">Apply for Admission</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- Banner -->
+        <section class="relative pt-32 pb-24 overflow-hidden bg-theme-primary">
+            <div class="absolute inset-0 z-0">
+                <div class="w-full h-full bg-[url('/assets/images/corp-internation-relation/conference-banner-img.jpg')] bg-cover bg-center opacity-30"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-theme-navy via-theme-navy/60 to-transparent"></div>
+            </div>
+
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-black text-white mb-6 font-roboto tracking-tight">Corporate & <span class="text-theme-gold">International Relations</span></h1>
+                <div class="text-gray-300 text-sm font-medium tracking-wide uppercase flex items-center justify-center gap-3 flex-wrap">
+                    <a href="/" class="hover:text-theme-gold transition flex items-center gap-2"><i class="fas fa-home"></i> Home</a> 
+                    <span class="text-theme-accent">/</span> 
+                    <span class="text-white">Corporate and International Relations</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Area -->
+        <section class="py-24 bg-theme-bg">
+            <div class="container mx-auto px-6 max-w-7xl">
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Left Navigation Tabs -->
+                    <div class="lg:col-span-4">
+                        <div class="bg-white rounded-2xl shadow-subtle border border-theme-border p-4 lg:sticky lg:top-28">
+                            <h3 class="text-xs uppercase tracking-widest text-theme-gold font-bold px-3 mb-4">Milestones & Collaborations</h3>
+                            
+                            <div class="space-y-1">
+                                <button class="tab-btn active" onclick="openCorpTab(event, 'nafed')">
+                                    <i class="fa fa-file-text-o text-theme-accent text-base"></i> ISRO – NAFED
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'swachh')">
+                                    <i class="fa fa-asterisk text-theme-accent text-base"></i> Swachh Campus Awards
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'eduAwards')">
+                                    <i class="fa fa-trophy text-theme-accent text-base"></i> INDYWOOD Educational Awards
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'internationUni')">
+                                    <i class="fa fa-globe text-theme-accent text-base"></i> International University Partners
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'blockchain')">
+                                    <i class="fa fa-user text-theme-accent text-base"></i> BLOCKCHAIN and IOT Conference
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'manMachine')">
+                                    <i class="fa fa-diamond text-theme-accent text-base"></i> Man, Machine, Materials & Management
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'iic')">
+                                    <i class="fa fa-users text-theme-accent text-base"></i> Institution’s Innovation Council
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'sisa')">
+                                    <i class="fa fa-trophy text-theme-accent text-base"></i> SISA Awards
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'ooruni')">
+                                    <i class="fa fa-star-o text-theme-accent text-base"></i> OORUNI Awards
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'sharp')">
+                                    <i class="fa fa-trophy text-theme-accent text-base"></i> SHARP HR Conference
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'chroma')">
+                                    <i class="fa fa-trophy text-theme-accent text-base"></i> CHROMA HR Imagery
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'humanitarian')">
+                                    <i class="fa fa-trophy text-theme-accent text-base"></i> World Humanitarian Drive
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'cio')">
+                                    <i class="fa fa-asterisk text-theme-accent text-base"></i> CiO KLUB
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'internation-conf')">
+                                    <i class="fa fa-star-o text-theme-accent text-base"></i> PECTEAM - International Conference
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'marathon')">
+                                    <i class="fa fa-asterisk text-theme-accent text-base"></i> Marathon with Schneider
+                                </button>
+                                <button class="tab-btn" onclick="openCorpTab(event, 'spaceWeek')">
+                                    <i class="fa fa-leaf text-theme-accent text-base"></i> World Space Week at ISRO
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Panel Content -->
+                    <div class="lg:col-span-8">
+                        <div class="bg-white rounded-2xl shadow-elevated border border-theme-border p-8 md:p-12">
+                            
+                            <!-- Panel 1: NAFED -->
+                            <div id="nafed" class="tab-content-panel active">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Indian Space Research Organization – NAFED</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/conference1.jpg" alt="ISRO Conference" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Conference'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed mb-8">
+                                    INDIAN SPACE RESEARCH ORGANIZATION’S 3rd National Finite Element Developers’ and Users’ Meet 2018 was hosted in Panimalar Group of Institutions, Poonamallee on Dec 14th, 2018. Shri S Somanath, Chairman-VIKRAM SARABHAI SPACE CENTRE was the Chief Guest along with Dr P Chinnadurai, Secretary & Correspondent-Panimalar Group of Institutions, Shri C Sakthikumar, Director-Panimalar Group of Institutions, Shri S Sridhar, Deputy Director- VIKRAM SARABHAI SPACE CENTRE & Shri B S Raju , Group Director- VIKRAM SARABHAI SPACE CENTRE spearheaded the conference. This conference was about finite element & its developments. First time ISRO has hosted NAFED in a private institution in India. Leading SCIENTISTS, Business Leaders, Entrepreneurs, CEO’S from Start-up’s, Renowned Professors from elite universities & students from all over India participated in the event.
+                                </p>
+                            </div>
+
+                            <!-- Panel 2: Swachh -->
+                            <div id="swachh" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Swachh Campus Awards</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <p class="text-theme-gold font-bold text-lg mb-6">Secured first place (2018 & 2019) under the category of Technical College (Residential), awarded by MHRD, AICTE.</p>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/swachh/swachhta-ranking-award.jpg" alt="Swachh Award" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Swachh+Award'">
+                                </div>
+                                <div class="text-theme-text text-[16px] leading-relaxed space-y-4">
+                                    <p>The Union Minister for HRD, Shri Prakash Javadekar conferred Swachhta Ranking Awards 2018 for higher educational institutions in New Delhi. 51 higher educational institutions have been selected for Swachhta Ranking Awards in 8 different categories among 2069 institutions applied.</p>
+                                    <p>Our College was adjudged as the No.1 cleanest campuses among technical College (Residential Category) in the country in 2018 ranking. Our institution has played the lead role not only in campus hygiene but also by adopting villages around our area for promoting hygiene through awareness creation and other assistance.</p>
+                                </div>
+                            </div>
+
+                            <!-- Panel 3: Edu Awards -->
+                            <div id="eduAwards" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Indywood Educational Excellence Awards</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/edu-reward/global-recognization.jpg" alt="Indywood" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Indywood+Awards'">
+                                </div>
+                                <div class="text-theme-text text-[16px] leading-relaxed space-y-4 mb-6">
+                                    <p>Indywood Educational Excellence Awards is a first of its kind initiative, organized in concurrence with Project Indywood, to recognize and facilitate efforts made by schools, educators and administrators to impart quality education under multiple categories, from across the country.</p>
+                                </div>
+                                <div class="bg-theme-surface p-6 rounded-xl border border-theme-border text-center font-bold text-theme-primary text-lg">
+                                    “Panimalar Engineering College” has been selected as the proud recipient for the category – ‘Excellence In Engineering and Technical Education’
+                                </div>
+                            </div>
+
+                            <!-- Panel 4: International Uni -->
+                            <div id="internationUni" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">International University Collaborations</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="text-theme-text text-[16px] leading-relaxed space-y-6">
+                                    <p>Panimalar Engineering College is committed to providing global exposure and international learning opportunities to its students through strategic collaborations with reputed universities worldwide. Our international partnerships enable academic exchange, research collaboration, student mobility, internships, and global immersion programs, preparing students for a competitive global landscape.</p>
+                                    
+                                    <div class="bg-theme-surface p-6 rounded-xl border border-theme-border">
+                                        <h4 class="font-bold text-theme-primary uppercase text-sm tracking-wide mb-4">International Partner Universities Include:</h4>
+                                        <ul class="space-y-2 text-theme-text">
+                                            <li>• Ehime University, Japan</li>
+                                            <li>• Heriot-Watt University, United Kingdom</li>
+                                            <li>• Birmingham City University, United Kingdom</li>
+                                            <li>• University of Memphis, USA</li>
+                                            <li>• City University of Seattle, USA</li>
+                                            <li>• Hochschule Kaiserslautern – University of Applied Sciences, Germany</li>
+                                            <li>• INTI International University, Malaysia</li>
+                                            <li>• National Chung Cheng University, Taiwan</li>
+                                            <li>• National Chi Nan University, Taiwan</li>
+                                            <li>• Federal University of Juiz de Fora, Brazil</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Panel 5: Blockchain -->
+                            <div id="blockchain" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Blockchain and IoT Conference</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/blockchain/blockchain-iot.jpg" alt="Blockchain" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Blockchain+IoT'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    Panimalar Group of Institutions scripted one of its kind conference in the month of July being the first ever educational institution to host a Conference on Block chain & IoT. The conference convened 8 CEO’s from all over India along with our Secretary & Correspondent, Dr. P Chinnadurai and our Director, Thiru C. Shakthi Kumar. Each of the keynote speakers trained our students to develop their innate skills on all aspects of technology & entrepreneurship. This also led to signing of 6 live MoU’s and the inception of 6 incubation hubs within our college premises enabling 3rd year students being employed, thus making them to earn while they learn.
+                                </p>
+                            </div>
+
+                            <!-- Panel 6: Man, Machine -->
+                            <div id="manMachine" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Man, Machine, Materials & Management Conference</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/ManMachine/mmmm4.jpg" alt="Man Machine" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Conference'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    Panimalar group of institutions took another leap on 3rd August, 2018 with a conference on Man Machine Materials and Management. About 10 Keynote speakers reigning in their own fields, notably having their regime from NASA, Rolls Royce, BABA ATOMIC RESEARCH CENTRE and many other entrepreneurs descended on a single dais addressing our students on defining the recent trends. 6 live MoU’s were signed during the conference benefitting the students by giving opportunities to deal and gain real-time industrial experiences.
+                                </p>
+                            </div>
+
+                            <!-- Panel 7: IIC -->
+                            <div id="iic" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">Institution’s Innovation Council (IIC) Ministry of HRD</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/innovation-council/icc.jpg" alt="IIC" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=IIC+Ministry+HRD'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    The Ministry of Human Resource Development has recently constituted Institution’s Innovation Council (IIC), launched on 21st November 2018 by Hon’ble Minister Shri. Prakash Javadekar, to systematically foster the culture of Innovation in educational institutions. We are proud to inform that our college has been selected as one of the CENTRES leading to an innovation eco-system in the campuses. This initiative will enable the college to encourage, inspire and nurture young students by supporting their new ideas and transforming into prototypes which may lead them to become Entrepreneurs.
+                                </p>
+                            </div>
+
+                            <!-- Panel 8: SISA -->
+                            <div id="sisa" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">SISA Awards</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/sisa/sisa-awards-banner.jpg" alt="SISA Awards" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=SISA+Awards'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    SISA awards are presented under 30 categories and the award will be given to the most successful and emerging entrepreneurs in each category. Young entrepreneurs can nominate their start-up companies at www.sisawards.com for the award which will be hosted in the month of December. PANIMALAR GROUP OF INSTITUTIONS IS ASSOCIATED WITH SISA INITIATIVES IN HELPING THE COMMUNITY.
+                                </p>
+                            </div>
+
+                            <!-- Panel 9: OORUNI -->
+                            <div id="ooruni" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">OORUNI Awards</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/ooruni/panimalar-ooruni.jpg" alt="Ooruni" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Ooruni+Awards'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    Ooruni Foundation is a Non – Governmental Organization (NGO) which anchors, augments and advocates the pivotal 3Es of Human life- Education, Environment and Equal Opportunities for a sustainable Community Development. Ooruni Foundation is a registered Trust which was formed by Six HR Professionals during Chennai floods in 2015. Ooruni has got more than 100 dedicated Volunteers and most of them are corporate employees. PANIMALAR GROUP OF INSTITUTIONS IS ASSOCIATED WITH OORUNI’S INITIATIVES IN HELPING THE COMMUNITY.
+                                </p>
+                            </div>
+
+                            <!-- Panel 10: SHARP -->
+                            <div id="sharp" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">SHARP HR CONFERENCE</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/sharp/shrap.jpg" alt="Sharp" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Sharp+HR'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    SHARP Forum is a thought-provoking platform where thriving business executives, prominent government officials, prestigious scholars, inspiring entrepreneurs, influential celebrities, and renowned experts are invited to: Spread inciting ideas, insightful perspectives, and inspirational experiences; Stretch boundaries of novel concepts, evolving issues, and cutting-edge solutions. PANIMALAR GROUP OF INSTITUTIONS IS ASSOCIATED WITH SHARP INITIATIVES IN HELPING THE COMMUNITY.
+                                </p>
+                            </div>
+
+                            <!-- Panel 11: CHROMA -->
+                            <div id="chroma" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">CHROMA HR IMAGINERY Awards</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/chroma/chroma-awards.jpg" alt="Chroma" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Chroma+Awards'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    CHROMA is a professional forum formed by a group of ethical HR professionals which strives to build Human Resource for inclusive growth. It was formed with an aim of transforming its members as world class executives and to assist all organizations in India to inculcate the best HR practices to ensure cordial Human Relations. PANIMALAR GROUP OF INSTITUTIONS IS ASSOCIATED WITH CHROMA INITIATIVES IN HELPING THE COMMUNITY.
+                                </p>
+                            </div>
+
+                            <!-- Panel 12: Humanitarian -->
+                            <div id="humanitarian" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">WORLD HUMANITARIAN DRIVE</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/humanitarian/whd-banner-img.jpg" alt="WHD" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Humanitarian+Drive'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    World Humanitarian Drive (WHD) was founded by Abdul Basit Syed who was inspired to initiate the idea of this charity following the murder of a British Soldier Lee Rigby in Greenwich. WHD has made huge strides in this field and made important links with Faith Leaders, other charities, and Government Organizations across the world, and to Promote Peace through Education, Sports, Arts and Media and instill humanistic values in our community, particularly amongst the youth who are the most vulnerable.
+                                </p>
+                            </div>
+
+                            <!-- Panel 13: CIO -->
+                            <div id="cio" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">CiO KLUB</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/cio/cio-club.jpg" alt="CIO" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=CIO+Klub'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    Founded in 2008, CiO Klub is the largest non-profit association of Chief Information Officers in India. Our mission is to Share and Enhance Knowledge on technological advancement and Explore Better Business Solutions for the IT community across the world.
+                                </p>
+                            </div>
+
+                            <!-- Panel 14: Conf -->
+                            <div id="internation-conf" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">PECTEAM - INTERNATIONAL CONFERENCE</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/internation-conf/conference-2024.jpg" alt="Conference" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Conference+2024'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed mb-6">
+                                    Panimalar Engineering College hosted an International Conference PECTEAM 2K24 for a period of two days, aims to witness the development of technologies in all technical and management domains. The major event in the conference is paper presentations on the latest advances in Engineering and Management disciplines from National and International academic sectors. Special emphasis is given to update newer technologies by Keynote Speakers. PECTEAM is conducted every year since 2018. Further information can be seen through the link: <a href="https://www.pecteam.co.in/" target="_blank" class="text-theme-gold font-bold underline">https://www.pecteam.co.in/</a>
+                                </p>
+                            </div>
+
+                            <!-- Panel 15: Marathon -->
+                            <div id="marathon" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">“HE FOR SHE” MARATHON PARTNERED WITH SCHNEIDER</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/marathon/marathon.jpg" alt="Marathon" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=Marathon'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    On March 5th 2016, Panimalar group of Institutions jointly with Schneider Electric conducted a Marathon at Marina Beach, Chennai for HE FOR SHE a solidarity campaign for the advancement of gender equality and the empowerment of women, initiated by the United Nations (UN) where Men run for Women. The Marathon was started by waving the flag by Mr. C. Sakthikumar M.E, Director, Panimalar Group of Institutions, Dr. Saranya Sree Sakthi Kumar, Director, Panimalar Group of Institutions, Mr. Ravindra Bharadwaj, Plant Director, Schneider Electric and Dr. Joseph Napoleon, Director – HR, Schneider Electric. Around 3000+ students from various colleges across the Chennai City participated in this Marathon. At the end of the Marathon, the finishers were given a certificate and a Medal.
+                                </p>
+                            </div>
+
+                            <!-- Panel 16: Space Week -->
+                            <div id="spaceWeek" class="tab-content-panel">
+                                <h2 class="text-3xl font-black text-theme-primary mb-6">WORLD SPACE WEEK AT ISRO</h2>
+                                <div class="w-16 h-1 bg-theme-gold mb-6 rounded"></div>
+                                <div class="rounded-xl overflow-hidden border border-theme-border shadow-subtle mb-8">
+                                    <img src="/assets/images/corp-internation-relation/space-week/world-space.jpg" alt="Space Week" class="w-full h-auto" onerror="this.onerror=null;this.src='https://placehold.co/800x450/E5E2DC/373A40?text=World+Space+Week'">
+                                </div>
+                                <p class="text-theme-text text-[16px] leading-relaxed">
+                                    Panimalar Group of Institutions was one of the very few Engineering Colleges in India to be invited for ISRO’’s World Space Week. Mr. M. S. Balamurugan, CTO of Panimalar Institutions, with ISRO Chairman Dr. S. Somanath and Scientist Mr. Raj Thilak at Thumba Equatorial Rocket Launch.
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-theme-primary text-gray-400 pt-24 pb-8 text-sm border-t border-theme-border relative overflow-hidden">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-20">
+
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Admissions</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/admission-information/" class="hover:text-theme-gold transition">Admission Information</a></li>
+                        <li><a href="/enquiry/" target="_blank" class="hover:text-theme-gold transition">How to Apply</a></li>
+                        <li><a href="/admission-information/" class="hover:text-theme-gold transition">Lateral Entry</a></li>
+                        
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">UGC-DTBU</strong></li>
+                        <li><a href="/documents-submitted/" class="hover:text-theme-gold transition">UGC Documents</a></li>
+                        <li><a href="/geo-tagged-photos/" class="hover:text-theme-gold transition">Geo-Tagged Photos</a></li>
+                        <li><a href="/virtual-tour/" class="hover:text-theme-gold transition">Campus Virtual Tour</a></li>
+                        <li><a href="/approvals-and-accreditations/" class="hover:text-theme-gold transition">Approvals & Accreditations</a></li>
+                        
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">NBA-DCP</strong></li>
+                        <li><a href="/assets/pdf/nba-dcp/11255_Panimala_NBA_DCP_ADS.pdf" target="_blank" class="hover:text-theme-gold transition">AI & Data Science</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Facilities</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/green-campus/" class="hover:text-theme-gold transition">Green Campus</a></li>
+                        <li><a href="https://coe.panimalar.ac.in/Examination_Facility.html" target="_blank" class="hover:text-theme-gold transition">Examination Facilities</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Offices-Identified.pdf" target="_blank" class="hover:text-theme-gold transition">University Offices</a></li>
+                        <li><a href="/it-infrastructure/" class="hover:text-theme-gold transition">IT Infrastructure</a></li>
+                        <li><a href="/transport/" class="hover:text-theme-gold transition">Transport</a></li>
+                        <li><a href="/mess/" class="hover:text-theme-gold transition">Mess</a></li>
+                        <li><a href="/hostel/" class="hover:text-theme-gold transition">Hostel</a></li>
+                        <li><a href="/atm-facilities/" class="hover:text-theme-gold transition">ATM</a></li>
+                        <li><a href="/water-sewage-treatment-plant/" class="hover:text-theme-gold transition">Treatment Plants</a></li>
+                        
+                        <li class="pt-4 pb-1"><strong class="text-white uppercase tracking-[0.2em] text-[10px]">Library</strong></li>
+                        <li><a href="/central-library-I/" class="hover:text-theme-gold transition">Central Library-I</a></li>
+                        <li><a href="/central-library-II/" class="hover:text-theme-gold transition">Central Library-II</a></li>
+                        <li><a href="/it-first-year-library/" class="hover:text-theme-gold transition">IT-I Year Library</a></li>
+                        <li><a href="/pg-mba-library/" class="hover:text-theme-gold transition">P.G Library (MBA)</a></li>
+                        <li><a href="/department-library/" class="hover:text-theme-gold transition">Department Library</a></li>
+                        <li><a href="/digital-library/" class="hover:text-theme-gold transition">Digital Library</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Quick Links</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="http://elink.aicte-india.org/vtrack?clientid=196766" target="_blank" class="hover:text-theme-gold transition leading-snug">AICTE Scholarship Schemes</a></li>
+                        <li><a href="https://www.aicte-india.org/feedback/" target="_blank" class="hover:text-theme-gold transition leading-snug">AICTE Feedback Link</a></li>
+                        <li><a href="/rules-regulations/" class="hover:text-theme-gold transition">Rules & Regulations</a></li>
+                        <li><a href="/assets/pdf/Audited-Statements.pdf" target="_blank" class="hover:text-theme-gold transition">Audited Statements</a></li>
+                        <li><a href="/assets/pdf/PEC-Financial-Rule-book_compressed.pdf" target="_blank" class="hover:text-theme-gold transition">Financial Rules</a></li>
+                        <li><a href="/assets/pdf/PEC-HR-Policy.pdf" target="_blank" class="hover:text-theme-gold transition">HR Policy</a></li>
+                        <li><a href="/assets/pdf/RESEARCH-POLICY-LATEST.pdf" target="_blank" class="hover:text-theme-gold transition">Research Policy</a></li>
+                        <li><a href="/industry-connect/" class="hover:text-theme-gold transition">Highlights</a></li>
+                        <li><a href="/online-grievance/" class="hover:text-theme-gold transition">Online Grievance</a></li>
+                        <li><a href="/assets/pdf/facilities/University-Building-Proposed.pdf" target="_blank" class="hover:text-theme-gold transition">Proposed Building</a></li>
+                        <li><a href="/institutional-development-plan/" class="hover:text-theme-gold transition">Institutional Dev Plan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Extracurricular</h3>
+                    <ul class="space-y-3 font-medium">
+                        <li><a href="/sports/" class="hover:text-theme-gold transition">Sports</a></li>
+                        <li><a href="/culturals/" class="hover:text-theme-gold transition">Culturals</a></li>
+                        <li><a href="/nss/" class="hover:text-theme-gold transition">NSS</a></li>
+                        <li><a href="/yrc-activities/" class="hover:text-theme-gold transition">YRC</a></li>
+                        <li><a href="/ccc-activities/" class="hover:text-theme-gold transition">CCC</a></li>
+                        <li><a href="/assets/pdf/unnat-bharat-abhiyan.pdf" target="_blank" class="hover:text-theme-gold transition">Unnat Bharat Abhiyan</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5 -->
+                <div>
+                    <h3 class="text-white text-base font-bold mb-6 border-b border-theme-gold inline-block pb-2 tracking-wide uppercase">Contact Us</h3>
+                    <div class="bg-theme-navy rounded-xl p-6 border border-white/5">
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Admissions Call</p>
+                        <p class="text-lg text-white font-bold mb-5 flex flex-wrap items-center gap-2">
+                            <a href="tel:+919043891272" class="hover:text-theme-gold transition">+91 90438 91272</a>
+                            <span class="text-gray-600 text-sm">/</span>
+                            <a href="tel:+919043890983" class="hover:text-theme-gold transition">+91 90438 90983</a>
+                        </p>
+                        
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Location</p>
+                        <p class="mb-5 text-gray-300 leading-relaxed text-sm">Bangalore Trunk Road, Varadharajapuram, Poonamallee, Chennai – 600123.</p>
+                        
+                        <p class="text-gray-500 mb-1 text-[11px] uppercase tracking-widest font-bold">Phone & Email</p>
+                        <p class="mb-1 text-gray-300 text-sm">044 - 26490404 / 0505</p>
+                        <a href="mailto:info@panimalar.ac.in" class="text-theme-gold hover:text-white transition font-medium text-sm">info@panimalar.ac.in</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="border-t border-white/10 pt-8 flex flex-col lg:flex-row justify-between items-center gap-6 text-xs text-gray-500 font-medium">
+                <p>Copyright &copy; <span id="year">2026</span> Panimalar Engineering College. All Rights Reserved.</p>
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                    <p>Designed by <a href="https://sivakumars-portfolio.netlify.app" target="_blank" class="text-theme-gold hover:text-white transition">Siva Kumar R</a></p>
+                    <span class="hidden sm:inline text-gray-600">|</span>
+                    <p>Partnered with <a href="https://sparklance-solutions.netlify.app" target="_blank" class="text-theme-gold hover:text-white transition">Sparklance Solutions</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => document.body.classList.add('loaded'), 400);
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function toggleMobileSub(id) {
+            const el = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            if(el) {
+                el.classList.toggle('open');
+                if(icon) icon.classList.toggle('rotate-180');
+            }
+        }
+
+        function openCorpTab(evt, panelId) {
+            let panels = document.getElementsByClassName("tab-content-panel");
+            for (let i = 0; i < panels.length; i++) {
+                panels[i].classList.remove("active");
+            }
+            let btns = document.getElementsByClassName("tab-btn");
+            for (let i = 0; i < btns.length; i++) {
+                btns[i].classList.remove("active");
+            }
+            document.getElementById(panelId).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+</body>
+</html>
