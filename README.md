@@ -1,4 +1,4 @@
-# 🎓 Panimalar Engineering College Website Redesign
+<img width="1160" height="396" alt="image" src="https://github.com/user-attachments/assets/f0a95594-ee4d-4cb9-ac9c-ea7a09f1649d" /># 🎓 Panimalar Engineering College Website Redesign
 
 A modern redesign concept for the Panimalar Engineering College website created to improve user experience, accessibility, responsiveness, and overall visual design while preserving the institution's identity.
 
@@ -87,7 +87,7 @@ This project is licensed under the MIT License.
 
 ## 👨‍💻 Author
 
-**Sivakumar R**
+**Siva kumar R**
 
 GitHub: https://github.com/Siva-kumar-r16
 
